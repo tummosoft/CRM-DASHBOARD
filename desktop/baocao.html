@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi" prefix="og: https://ogp.me/ns#">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed:wght@400&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
+        integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+    <script src="/tummo.js" type="text/javascript"></script>
+    <script src="/b4j_ws.js" type="text/javascript"></script>
+    <style>
+        * {margin: 0;padding:0;box-sizing: border-box;}
+        body {
+            padding: 0px;
+            margin: 0;
+            font-family: 'Roboto Condensed';
+
+        }
+
+        .tummo-report-srm {
+            border-radius: 8px;
+            width: 100%;          
+            height: fit-content;
+            background: #4a70eeb7;
+        background-image: linear-gradient(120deg, #a8bef7c9 30%, #a3b8ec 30%, #95b1f8ce 40%);
+        border: 1px solid #4a70eeb7;
+        -webkit-box-shadow: 0 0 0 2px rgba(45, 140, 240, .2);
+        box-shadow: 0 0 0 2px rgba(45, 140, 240, .2);
+        }
+        .report-srm-title {font-size: 16px;display: flex;flex-direction: column; align-content:center ;align-items: center;gap:0px;padding-bottom: 10px;padding-top:10px}
+        .srm-image {width: 50px;}
+        .report-srm-title p {text-align: center;}
+        .report-srm-body {margin-top: 10px;}
+        .report-srm-list {list-style: none;font-size: 14px;margin-bottom: 10px;color:#0e315d;}
+        .report-srm-list-item {font-size: 14px;padding-left: 10px;line-height: 22px;display: grid;grid-template-columns: 170px 1fr;}
+        .srm-image-small {height: 22px;}
+        .item-text {color: #2b2b2b;}
+        .srm-title {padding-left: 5px; height: 25px;display: flex;align-items: center;gap:5px;width: 100%;background: #4a70ee;margin-bottom: 5px;color:#fff}
+        .report-srm-list-item {border-bottom: 1px dotted #f2f3f5;}
+        .rp-title {color:#0e315d;margin-top: 5px;}
+        .report-srm-list-item:last-child {border: none;}
+   </style>
+</head>
+
+<body style="padding:5px;">
+
+   <div class="tummo-report-srm">
+        <div class="report-srm-title">
+            <img class="srm-image" src="/icons/su-dang-ngoi.png">
+            <p style="color:#333646;font-weight: bold;margin-top: 5px;font-size: 18px;">SỰ KIỆN SẮP DIỄN RA</p>  
+            <p id="tensukien" class="rp-title">Khoá thiền Lễ vu lan 2023</p>          
+        </div>
+        <div class="report-srm-body">
+            <ul class="report-srm-list">
+                <div class="srm-title"><img class="srm-image-small" src="/icons/info.svg"> Thông tin sự kiện</div>
+            <li class="report-srm-list-item"><span class="item-text">Thời gian diễn ra:</span><span id="thoigian">12/02/2023</span> </li>            
+            <li class="report-srm-list-item"><span class="item-text">Giảng thọ sư:</span><span id="giangthosu">Sư Hạnh Tuệ</span> </li>
+            </ul>
+            <ul class="report-srm-list">
+                <div class="srm-title"><img class="srm-image-small" src="/icons/dangky.svg">Kết quả đăng ký</div>
+            <li class="report-srm-list-item"><span class="item-text">Giới hạn số lượng:</span><span id="soluong">500 </span></li>
+            <li class="report-srm-list-item"><span class="item-text">Đã đăng ký:</span><span id="dangky">125 </span></li>
+            <li class="report-srm-list-item"><span class="item-text">Huỷ giờ chót:</span><span id="huy">2 </span></li>
+            <li class="report-srm-list-item"><span class="item-text">Danh sách chính:</span><span id="chinhthuc"> </span></li>
+            <li class="report-srm-list-item"><span class="item-text">Danh sách dự bị:</span><span id="dubi"></span></li>
+        </ul>
+        <ul class="report-srm-list">
+            <div class="srm-title"><img class="srm-image-small" src="/icons/xacminh7.svg">Trạng thái xác minh</div>            
+            <li class="report-srm-list-item"><span class="item-text">Xác minh email:</span><span id="xacminhemail">500 </span></li>
+            <li class="report-srm-list-item"><span class="item-text">Xác minh điện thoại:</span> <span id="xacminhdt">2 </span></li>
+</ul>
+<ul class="report-srm-list">  
+    <div class="srm-title"><img class="srm-image-small" src="/icons/email2.svg">Trạng thái gửi email thông báo</div>         
+<li class="report-srm-list-item"><span class="item-text">Gửi thông tin chung:</span><span id="emailthongtin"></span> </li>
+<li class="report-srm-list-item"><span class="item-text">Gửi lịch chính thức:</span> <span id="emailhuongdan"></span></li>
+<li class="report-srm-list-item"><span class="item-text">Gửi thời khoá biểu:</span><span id="emailtkb"></span> </li>
+</ul>
+        </div>    
+   </div>
+
+    <script type="text/javascript">
+        var _rp = [
+    {
+        "IsInitialized": true,
+        "tensukien": "Khóa Thiền Vipassanā do Ngài Trí Dũng hướng dẫn",
+        "giangthosu": "Sư Trí Dũng",
+        "thoigian": "11/09/2023 - 29/09/2023",
+        "soluong": "300",
+        "dangky": "99",
+        "huy": "45",
+        "danhsach": "49",
+        "dubi": "50",
+        "xacminhemail": "44",
+        "xacminhphone": "49",
+        "emailthongtin": "0",
+        "emailtkb": "0",
+        "emailhuongdan": "0"
+    }
+];
+
+document.getElementById("tensukien").innerHTML = _rp[0].tensukien;
+document.getElementById("giangthosu").innerHTML = _rp[0].giangthosu;
+document.getElementById("thoigian").innerHTML = _rp[0].thoigian;
+document.getElementById("huy").innerHTML = _rp[0].huy + ' người';
+document.getElementById("soluong").innerHTML = _rp[0].soluong + ' người';
+document.getElementById("chinhthuc").innerHTML = _rp[0].danhsach + ' người';
+document.getElementById("dubi").innerHTML = _rp[0].dubi + ' người';
+document.getElementById("xacminhemail").innerHTML = _rp[0].xacminhemail + ' người';
+document.getElementById("xacminhdt").innerHTML = _rp[0].xacminhphone + ' người';
+document.getElementById("emailthongtin").innerHTML = _rp[0].emailthongtin;
+document.getElementById("emailtkb").innerHTML = _rp[0].emailtkb;
+document.getElementById("emailhuongdan").innerHTML = _rp[0].emailhuongdan;
+document.getElementById("dangky").innerHTML = _rp[0].dangky + ' người';
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+.tummo-tab-vn {height: 50px;}       
+.tab-items-vn {display: flex;flex-direction: row;gap:5px;height: 60px;}
+.tab-item {font-size: 14px;color: #fff;align-self: flex-end;height: 30px;line-height: 30px; background: hsla(226, 81%, 59%, 1);padding-left:15px;padding-right: 15px;border-top-right-radius: 4px;border-top-left-radius: 4px;position: relative;box-shadow: 1px -1px 2px #c4c4c4;cursor: pointer; }
+.tab-item::after {content: '';position: absolute;bottom: 0;left: -5px;width: 0;
+    height: 0;    
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid hsla(226, 81%, 59%, 1);}
+    .tab-item::before {content: '';position: absolute;bottom: 0;right: -5px;width: 0;
+    height: 0;    
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 25px solid hsla(226, 81%, 59%, 1);}
+    .btn-close {position: absolute;top: -10px;right: -5px;display: none;}
+    .tab-close-btn {position: relative;background: rgb(251, 251, 252);border: 1px solid #FE4B48; width: 24px;height: 24px;border-radius: 4px; }
+    .tab-close-btn::after {content: ' ';position: absolute; width: 22px;height: 22px;top:0px;left: 0px; background-image: url(/icons/close.svg);background-size: 22px 22px; background-position: center center;background-repeat: no-repeat;}
+    .tab-item:hover .btn-close {display: block;}
+    .tab-item-active {font-size: 14px;color: #fff;align-self: flex-end;height: 30px;line-height: 30px; background: linear-gradient(180deg, #FE4B48 10%, #FE4B48 100%);padding-left:15px;padding-right: 15px;border-top-right-radius: 4px;border-top-left-radius: 4px;position: relative;box-shadow: 1px -1px 2px #c4c4c4;cursor: pointer; }
+.tab-item-active::after {content: '';position: absolute;bottom: 0;left: -5px;width: 0;
+    height: 0;    
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid #FE4B48;
+    
+}
+    .tab-item-active::before {content: '';position: absolute;bottom: 0;right: -5px;width: 0;
+    height: 0;    
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 25px solid #FE4B48;}

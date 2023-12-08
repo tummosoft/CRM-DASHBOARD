@@ -1,0 +1,23 @@
+function encode(str) {
+    return $.base64.encode(RawDeflate.deflate(unescape(encodeURIComponent(str))));
+}
+
+function decode(str) {
+    return decodeURIComponent(escape(RawDeflate.inflate($.base64.decode(str))));
+}
+
+
+$('#encode').click(function() {
+    var str = $('#myinput').val(),
+        encoded = encode(str),
+        decoded = decode(encoded);
+
+    //alert($.base64.decode(encoded));  //uncomment to see raw deflated value;
+    $('#myinput_length').text('' + str.length);
+    $('#output').val(encoded);
+    $('#myoutput_length').text('' + encoded.length);
+    $('#reconstructed').val(decoded);
+    $('#reconstructed_length').text('' + decoded.length);
+
+});
+

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi" prefix="og: https://ogp.me/ns#">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed:wght@400&display=swap"
+        rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
+        integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+    <script src="/tummo.js" type="text/javascript"></script>
+    <script src="/b4j_ws.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        body {
+            padding: 10px;
+            margin: 0;
+            font-family: 'Roboto Condensed';
+
+        }
+
+        .layout {
+            width: 100%;
+            background: #ffff;
+            gap: 5px;
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            border: 1px solid #84A0C4;
+        }
+
+        .layout-col {
+            position: relative;
+            width: 30%;
+            padding: 20px;
+            z-index: 5;
+            height: fit-content;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            height: 400px;
+            background: #fff;
+            border-right: 1px solid #84A0C4;
+        }
+
+        .resize-line {
+            width: 5px;
+            height: 90%;
+            background: transparent;
+            cursor: col-resize;
+            top: 5%;
+            right: 0px;
+            resize: horizontal;
+            position: absolute;
+        }
+
+        .resize-line:hover {
+            background: #ee3190;
+            border-radius: 3px;
+        }
+
+        .layout-col::-webkit-scrollbar {
+            width: 4px;
+            height: 80px;
+        }
+
+        .layout-col::-webkit-scrollbar-track {
+            box-shadow: none;
+            border-radius: 2px
+        }
+
+        .layout-col::-webkit-scrollbar-thumb {
+            background: #ee3190;
+            outline: none;
+            border-radius: 50px
+        }
+    </style>
+</head>
+
+<body style="overflow-x:hidden; padding:2px;">
+
+    <div id="testlayout" class="layout">
+        <div id="page1" class="layout-col" style="background: #2f83f1;">
+            <div>
+                前段时间，我推出了 1-1 私聊沟通服务。和我 1-1 微信语音（或腾讯会议）聊天，我现场解答问题。
+                想通过我个人这么多年的工作、面试、讲课的经验和教训，来帮助那些有技术干货却写不出来的人，帮助他们更好的表达自己。顺便安抚一下他们焦虑浮躁的心情。
+                我在这方面的优势有如下几点：
+
+                我有相对扎实的前端技术，有大厂工作经历，还有开源经历，能帮助他们完善技术能力
+                我有多年培训教学经历，知道该如何有条理的表达 —— 这一点正是纯技术人员缺失的，只会闷头做，不会开口说
+                我业余看过一些历史、心理学和哲学的书籍，外加自己多年的工作、自由职业的经历，能跳出技术之外看待问题，能帮助心理辅导
+
+                先试运行一个月，后来正式运行，目前总共聊了 20 个人了，大多为评审、修改简历。
+                很开心的是：每个人的反馈都不错，表示为他们提供了意想不到的帮助。
+
+                作者：前端双越老师
+                链接：https://juejin.cn/post/7230348908382601275
+                来源：稀土掘金
+                著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+            </div>
+            <div class="resize-line"></div>
+        </div>
+
+        <div id="page2" class="layout-col">
+            <div>
+                COL 1
+            </div>
+            <div class="resize-line"></div>
+        </div>
+        <div id="page3" class="layout-col">
+            COL 1
+        </div>
+    </div>
+    <div class="vitruarl-resize"></div>
+
+    <script type="text/javascript">
+        (function ($) {
+            $.fn.tummoLayout = function (options) {
+                var settings = $.extend({
+                    width: null,
+                    height: null,
+                    layout: [{ id: 'page1', width: 200 }, { id: 'page2', width: 200 }, { id: 'page3', width: 200 }],
+                }, options);
+
+                var startRezise = false;
+                var defaultWidth = 0;
+                var lastwidth = 0;
+                var lastX = 0;
+                var lastY = 0;
+                var currentX = 0;
+                var currentY = 0;
+                var currentWidth = 0;
+                var currentElement;
+                var columnID = '';
+                var parentID = $(this).attr('id');                
+                var lastColumnID = settings.layout[settings.layout.length - 1].id;
+                var lastElement = $('#' + lastColumnID);
+                var lastElementWidth = 0;
+
+                $('.resize-line').mouseover(function (e) {
+                    columnID = $(this).parent().attr('id');
+                    if (hasScrollbar(columnID)) {
+                        $('#' + columnID).css('overflow', 'hidden');
+                    }
+                });
+
+                $('.resize-line').mousedown(function (e) {
+                    startRezise = true;
+                    lastwidth = $(this).parent().width();
+                    currentWidth = lastwidth;
+                    defaultWidth = lastwidth;
+                    lastX = e.pageX || e.screenX;
+                    currentElement = document.getElementById(columnID);
+                    lastElementWidth = lastElement.width();
+                });
+
+                $(window).mouseup(function (e) {
+                    if (hasScrollbar(columnID)) {
+                        $('#' + columnID).css('overflow-y', 'scroll');
+                    }
+
+                    if (startRezise) {
+                        startRezise = false;
+                        if (currentWidth > 30) {
+                            currentElement.style.width = currentWidth;
+                        } else {
+                            currentElement.style.width = defaultWidth;
+                        }
+                        lastX = currentX;
+                        lastwidth = currentWidth;
+
+                    }
+                });
+
+                $(window).on('mousemove', function (e) {
+                    if (startRezise) {
+                        var x = e.pageX || e.screenX;
+                        var width;
+                        currentX = x;
+
+                        if (x < lastX) {
+                            width = lastwidth + (x - lastX);
+                            currentWidth = width
+                            currentElement.style.width = width + 'px';
+                            let lastw = lastElementWidth + (defaultWidth - width);
+                            lastElement.css('width', lastw);
+                        } else if (x > lastX) {
+                            width = lastwidth - (lastX - x);
+                            currentWidth = width;
+                            currentElement.style.width = width + 'px';
+                            let lastw = lastElementWidth - (defaultWidth - width);
+                            
+                        }
+
+                    }
+                });
+
+
+            }
+        })(jQuery);
+
+
+        $('#testlayout').tummoLayout({width:100, height:100, layout: [{ id: 'page1', width: 200 }, { id: 'page2', width: 200 }, { id: 'page3', width: 200 }]});
+
+        $(document).ready(function () {
+            b4j_connect('/ws/server');
+        });
+
+
+    </script>
+</body>
+
+</html>

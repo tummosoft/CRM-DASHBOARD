@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"> 
+<meta name="viewport" content="width=device-width"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="x-apple-disable-message-reformatting"> 
+<script src="/js/maileditor.js" type="text/javascript"></script>
+<title>Thiền viện Phước Sơn thông báo</title> 
+<style>
+    body {padding: 0;margin: 0;}
+      ::-webkit-scrollbar {
+width: 7px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+background:#4a70eeb7 ;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+border-radius: 3px;
+background: linear-gradient(90deg, #FFD991 10%, #ffd991d8 100%);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #698BF9;
+}
+</style>
+</head>
+<body style="width:100%;">
+<div id="layoutmain" style="height: 100% !important;width: 100% !important;
+background:#fff;overflow-x: hidden;font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+<div style="width: 600px;position: relative;margin: 0 auto;">
+    <div id="page">
+<div style="background:#FFFCC8;width: 80%;margin: auto;box-shadow: 2px 2px 1px #837f7a;overflow: hidden;border: 10px solid transparent;
+border-image: url(http://quantri.thienvienphuocson.vn/templates/assets/icons/hoa-tiet.svg) 15 repeat;
+border-radius: 15px;">
+<table style="table-layout: fixed;margin: 10px;" align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+<tbody>
+<tr>
+    <td style="text-align: center;width: 300px;">
+        <div style="position: relative ;">
+         <img style="position: absolute;left: calc(50% - 50px);top: 0px;width: 100px;" src="http://quantri.thienvienphuocson.vn/templates/assets/icons/banhxe.svg" alt="banhxe" border="0">  
+        <h2 contenteditable="true" style="font-size: 22px;font-weight:bold;color:  #ee9827;margin-bottom: 0px;text-shadow: 1px 1px #4d1323ad;text-emphasis-style: double;z-index: 145;">THIỀN VIỆN PHƯỚC SƠN</h2>
+        <div style="font-size: 13px;color:#C70039;font-weight: bold;position: relative;z-index: 145;">
+            
+            <div style="top: 0px;left: calc(50% - 50px);margin: 0 auto; position: absolute; width: 100px;height:4px;border-top: 1px double #C70039;"></div>
+            <div contenteditable="true" style="margin-top: 5px;padding-top:10px;font-size:15px">Trung tâm tu thiền Vipassanā,<br>Tu học Tam Tạng Kinh Điển</div>                 
+        </div>       
+        </div>
+    </td>    
+    <td style="text-align: center;">
+
+    </td>
+    <td style="text-align: center;">
+        
+    </td>
+</tr>
+<tr>
+<td>
+</td>
+    <td>    
+    </td>
+    <td>
+    </td>
+</tr>
+<tr>
+<td colspan="3" style="padding:15px;">
+    <div style="position: relative;">
+    <h2 contenteditable="true" style="text-align: center;font-size: 26px;color:#ee9827;font-weight: bold;margin-top: 50px; margin-bottom: 0px;height: 25px;">THÔNG BÁO</h2>
+    <p contenteditable="true" style="text-align: center;font-weight: bold;font-size: 16px;color:#C70039;font-style: italic;">Về việc đăng ký tham dự khoá thiền:</p>
+    <p contenteditable="true" style="text-align: center;font-weight: bold;font-size: 18px;color:#C70039;font-style: italic;"><span style="color:#ee9827" th:text="${khoatu}">~khoatu~</span></p>    
+    </div>
+    
+    <div style="margin-top: 30px;"></div>
+    <p contenteditable="true">Kính gửi: Anh/chị <span style="font-weight: bold;" th:text="${tenkhaisinh}">~tenkhaisinh!~</span></p>
+    <p contenteditable="true">Pháp danh: <span style="font-weight: bold;" th:text="${phapdanh}">~phapdanh~</span></p>
+    <p contenteditable="true">Địa chỉ: <span th:text="${diachi}">~diachi~</span></p>
+    <p contenteditable="true">Thiền viện Phước Sơn vui mừng thông báo đến quý Phật tử: <span th:text="${phapdanh}">~phapdanh~</span> !</p>
+    <p contenteditable="true">Khoá thiền: <span style="color:#ee9827;font-weight: bold;font-style: italic;" th:text="${khoatu}">~khoatu~</span> sẽ được diễn ra đúng như kế hoạch đã thông báo ban đầu.</p>
+    <div style="padding-left: 50px;padding-right: 50px;">
+    <p contenteditable="true"><span style="color:#C70039"><img style="width:18px;" src='https://thienvienphuocson.org/assets/icons/check.png'/> Ngày khai mạc: <span style="font-weight: bold;color:#f19538" th:text="${tungay}">~tungay~</span></span></p>
+    <p contenteditable="true"><span style="color:#C70039"><img style="width:18px;" src='https://thienvienphuocson.org/assets/icons/check.png'/> Ngày bế mạc: <span style="font-weight: bold;color:#f19538" th:text="${denngay}">~denngay~</span></span></p>
+    <p contenteditable="true"><span style="color:#C70039"><img style="width:18px;" src='https://thienvienphuocson.org/assets/icons/check.png'/> Giảng thọ Sư: <span style="font-weight: bold;color:#f19538" th:text="${giangthosu}">~giangthosu~</span></span></p>
+</div>
+    <p contenteditable="true">Vì vậy, Thiền viện Phước Sơn thông báo đến quý Phật tử sắp xếp công việc, đến tham dự khoá thiền đúng như đã xác nhận trước đó.</p>
+    <p contenteditable="true">Thiền viện sẽ thông báo đến quý Phật tử bằng email, điện thoại nếu xảy ra bất kỳ sự thay đổi nào.</p>
+    <p contenteditable="true">Trong thời gian chờ đợi, Quý Phật tử vui lòng đọc kỹ các bài viết sau:</p>
+    <div style="padding-left: 50px;">
+        <p contenteditable="true"><a href=""><span style="color:#0f0cdb"><img style="width:18px;" src='https://thienvienphuocson.org/assets/icons/check.png'/> Nội quy khoá thiền</span></a></p>
+        <p contenteditable="true"><a href=""><span style="color:#0f0cdb"><img style="width:18px;" src='https://thienvienphuocson.org/assets/icons/check.png'/> Những vấn đề cần lưu ý trong khoá thiền</span></a></p>
+        <p contenteditable="true"><a href=""><span style="color:#0f0cdb"><img style="width:18px;" src='https://thienvienphuocson.org/assets/icons/check.png'/> Thời khoá biểu chính thức của khoá thiền</span></a></p>
+    </div>      
+    <p contenteditable="true">Trân trọng cảm ơn!</p>
+    
+</td>    
+</tr>
+<tr style="width: 100%;margin-top: 90px;background: #e7850e36;padding:10px;">
+    <td colspan="3">
+    <div style="height: 5px;">
+        
+    </div>    
+    </td>
+    
+</tr>
+<tr style="width: 100%;margin-top: 90px;background: #e7850e36;">
+    <td colspan="1" style="font-size: 13px;color: #837f7a;position: relative;width: 250px;">
+        
+    </td>    
+    <td colspan="2" class="ngoichua">
+       
+        </td>
+    </tr>
+</tbody>
+</table>
+<div style="border-top: 1px solid #e7860e;width: 100%;margin-top: 50px;background: #e7850e36;display: flex;padding:10px;">
+        <div style="font-size: 13px;color: #837f7a;position: relative;width: 300px;">
+            <p contenteditable="true" style="font-weight: bold;font-size: 18px; margin-bottom: 0px;color:#e7860e;">THIỀN VIỆN PHƯỚC SƠN</p>       
+            <p contenteditable="true" style="margin-bottom: 0px;color:#333231;font-style: italic;"> 368 Thành Thái, Tân Cang, Phước Tân, Biên Hòa, Đồng Nai</p>
+            <p contenteditable="true" style="margin-bottom: 0px;height: 15px;">Website: <a href="https://thienvienphuocson.vn">https://thienvienphuocson.vn</a></p>
+            <p contenteditable="true" style="margin-bottom: 0px;height: 15px;">Email:  <a href="mailto:thienvienphuocson2018@gmail.com">thienvienphuocson2018@gmail.com</a></p>
+            <p contenteditable="true" style="margin-bottom: 0px;height: 15px;">Điện thoại văn phòng: <a href="tel:02513967237">02513967237</a></p>
+            <p contenteditable="true">Trụ trì: Hoà thượng Thích Bữu Chánh</p>
+            <p contenteditable="true">Khai sơn: Hòa Thượng Giới Nghiêm</p>      
+            <span class="caybode"></span>
+        </div>
+        <div style="font-size: 13px;color: #837f7a;position: relative;width: 150px;">
+            <div style="position: absolute;">
+                <p style="text-align: center;color:#C70039">Theo dõi Tin tức, Sự kiện từ Thiền viện Phước Sơn</p>
+                <div style="display: flex;flex-direction: row;gap: 5px;align-items: center;align-content: center;width: 100%;">
+                    <a style="text-align: center;color: #fff;padding: 5px;border-radius: 8px;font-weight: bold;cursor: pointer;" href="https://zalo.me/g/gksyay841"><img style="border: 1px solid #516af0;height: 20px;padding:3px;border-radius: 8px;" src="http://quantri.thienvienphuocson.vn/templates/assets/icons/zalo.svg"/></a>
+                    <a style="text-align: center;color: #fff;padding: 5px;border-radius: 8px;font-weight: bold;cursor: pointer;" href="https://www.facebook.com/THIENVIENPHUOCSONchuadoilagiang"><img style="border: 1px solid #516af0;height: 20px;padding:3px;border-radius: 8px;" src="http://quantri.thienvienphuocson.vn/templates/assets/icons/facebook.svg"/></a>
+                    <a style="text-align: center;color: #fff;padding: 5px;border-radius: 8px;font-weight: bold;cursor: pointer;" href="https://www.youtube.com/@phuocsonmedia"><img style="border: 1px solid #516af0;height: 20px;padding:3px;border-radius: 8px;" src='http://quantri.thienvienphuocson.vn/templates/assets/icons/youtube.svg'/></a>
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${pagetitle}"></title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <script src="/js/tummo.js" type="text/javascript"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo&family=Nunito&family=Open+Sans&family=Roboto+Condensed:wght@300;400&display=swap"
+        rel="stylesheet">    
+    <link rel="stylesheet" href="/css/core.css">
+    <link rel="stylesheet" href="/css/tummoCombobox.css">    
+    <link rel="stylesheet" href="/css/tummoButton.css">
+    <link rel="stylesheet" href="/css/gridcombobox.css">
+    <link rel="stylesheet" href="/css/tummoDataGrid.css">
+    <link rel="stylesheet" href="/css/tummoGridPopup.css">
+    <link rel="stylesheet" href="/css/tummoLayout.css">
+    <link rel="stylesheet" href="/css/tummoTextbox.css">
+    <link rel="stylesheet" href="/css/tummoSmallDialog.css">
+    <link rel="stylesheet" href="/css/tummosearchdrop.css">
+    <link rel="stylesheet" href="/css/tummoDropButton.css">
+    <link rel="stylesheet" href="/css/tummoAlarmDialog.css">
+    <link rel="stylesheet" href="/css/tummoloading.css">
+    <link rel="stylesheet" href="/css/tummotabv2.css">
+    <link rel="stylesheet" href="/css/calendar.css">
+    <link rel="stylesheet" href="/css/baocao.css">
+    <link rel="stylesheet" href="/css/bulma.css">
+    <link rel="stylesheet" href="/css/zui.css">
+    <link rel="stylesheet" href="/css/zui3.css">
+    <link rel="stylesheet" href="/css/ips.css">
+    <link rel="stylesheet" href="/css/zdoo.css">
+        <script src="/js/tummoloading.js" type="text/javascript"></script>
+    <script src="/js/tummoAlarmDialog.js" type="text/javascript"></script>    
+    <script src="/js/tummogridpopup.js" type="text/javascript"></script>
+    <script src="/js/tummodatagridview.js" type="text/javascript"></script>
+    <script src="/js/tummoCombobox.js" type="text/javascript"></script>
+    <script src="/js/tummoButton.js" type="text/javascript"></script>
+    <script src="/js/tummoLayout.js" type="text/javascript"></script>
+    <script src="/js/tummoTextbox.js" type="text/javascript"></script>
+    <script src="/js/tummoSmallDialog.js" type="text/javascript"></script>
+    <script src="/js/tummosearchdrop.js" type="text/javascript"></script>
+    <script src="/js/tummoDropButton.js" type="text/javascript"></script>
+    <script src="/js/tummotab.js" type="text/javascript"></script>
+    <script src="/js/tummo.js" type="text/javascript"></script>
+    <script src="/js/calendar.js" type="text/javascript"></script>
+    <script src="/b4j_ws.js" type="text/javascript"></script>
+    <script src="/data/header_sukien.js" type="text/javascript"></script>
+    <script src="/js/zui.js" type="text/javascript"></script>
+</head>
+<style>
+    body {font-family: 'Roboto Condensed';}
+    .navbar-inverse {
+        background: #6b6b6d;
+    background-image: linear-gradient(180deg, #4a70eeb7 30%, #4a70eebd 30%, #4a70eec0 40%);
+    color: #E7E9EE;
+        border-radius: 0px;
+        border: none;
+    }
+    .navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
+        color: #2a3644;
+    background-color: transparent;
+}
+.navbar-inverse .navbar-brand {
+    color: #FFBE45;
+    font-weight: bold;
+}
+.leftBar {
+    position: fixed;
+    width: 120px;
+    top: 0;
+    bottom: 0;
+    background-color: #232A32;
+    z-index: 50010;
+    transition: .2s;
+    transition-property: left, width;
+    box-shadow: 0 0 4px 2px rgba(0,0,0,0.1);
+}
+.dock-left {
+    left: 0;
+}
+.dock-left, .dock-right, .dock-top, .dock-bottom {
+    position: absolute;
+}
+.unselectable {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.appsMenu {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    transition: height .3s;
+    -o-transition: height .3s;
+    -moz-transition: height .3s;
+    -webkit-transition: height .3s;
+}
+.bar-menu {
+    margin: 0;
+    padding: 0;
+}
+.leftBar .bar-menu > li {
+    display: block;
+    position: relative;
+}
+.leftBar .bar-menu > li button {
+    padding: 6px;
+    height: 44px;
+    text-align: left;
+    width: 100%;
+    white-space: nowrap;
+    color: #E5E8F1;
+    position: relative;
+}
+.bar-menu > li > a, .bar-menu > li > button {
+    display: block;
+    padding: 4px 10px;
+    color: #A6AAB8;
+}
+button {
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+</style>
+<body>
+    <svg style="position: absolute; width: 0; height: 0;" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+            <symbol id="icon-content_copy" viewBox="0 0 1024 1024"><title>content_copy</title><path class="path1" d="M810 896v-598h-468v598h468zM810 214q34 0 60 25t26 59v598q0 34-26 60t-60 26h-468q-34 0-60-26t-26-60v-598q0-34 26-59t60-25h468zM682 42v86h-512v598h-84v-598q0-34 25-60t59-26h512z"></path></symbol>		
+            <symbol id="icon-window" viewBox="0 0 459 459"><title>open in new window</title><path class="path2" d="M408 408H51V51h178.5V0H51C22.95 0 0 22.95 0 51v357c0 28.05 22.95 51 51 51h357c28.05 0 51-22.95 51-51V229.5h-51V408zM280.5 0v51h91.8L122.4 300.9l35.7 35.7L408 86.7v91.8h51V0H280.5z"></path></symbol>
+        </defs>
+        </svg>
+        <div id="taskBar" class="dock-bottom unselectable">
+            <div id="taskbarList">
+              <ul class="bar-menu">
+                      <li id="s-task-10"><button class="app-btn s-task-btn open" data-hidenavigation="0" data-toggle="tooltip" data-tip-class="s-task-tooltip" data-placement="top" title="阿米巴" data-btn-type="task" data-id="10"><div class="avatar avatar-app avatar-inverse" data-code="ameba" data-id="10" data-name="阿米巴" data-tone="#edcb45"><i class="icon icon-ameba" style="color: #edcb45"></i></div></button></li><li id="s-task-5"><button class="app-btn s-task-btn open" data-hidenavigation="0" data-toggle="tooltip" data-tip-class="s-task-tooltip" data-placement="top" title="人力资源" data-btn-type="task" data-id="5"><div class="avatar avatar-app avatar-inverse" data-code="hr" data-id="5" data-name="人力" data-tone="#ff7940"><i class="icon icon-hr" style="color: #ff7940"></i></div></button></li><li id="s-task-dashboard"><button class="app-btn s-task-btn open" data-hidenavigation="{hideNavigation}" data-toggle="tooltip" data-tip-class="s-task-tooltip" data-placement="top" title="Dashboard" data-btn-type="task" data-id="dashboard"><div class="avatar avatar-app avatar-inverse" data-code="dashboard" data-id="dashboard" data-name="Mine" data-tone="#56c6ed"><i class="icon icon-home" style="color: #56c6ed"></i></div></button></li><li id="s-task-12"><button class="app-btn s-task-btn open" data-hidenavigation="0" data-toggle="tooltip" data-tip-class="s-task-tooltip" data-placement="top" title="福利" data-btn-type="task" data-id="12"><div class="avatar avatar-app avatar-inverse" data-code="welfare" data-id="12" data-name="福利" data-tone="#ff7940"><i class="icon icon-gift" style="color: #ff7940"></i></div></button></li><li id="s-task-4"><button class="app-btn s-task-btn open" data-hidenavigation="0" data-toggle="tooltip" data-tip-class="s-task-tooltip" data-placement="top" title="团队" data-btn-type="task" data-id="4"><div class="avatar avatar-app avatar-inverse" data-code="team" data-id="4" data-name="团队" data-tone="#ff7940"><i class="icon icon-team" style="color: #ff7940"></i></div></button></li><li id="s-task-3"><button class="app-btn s-task-btn open" data-hidenavigation="0" data-toggle="tooltip" data-tip-class="s-task-tooltip" data-placement="top" title="现金记账" data-btn-type="task" data-id="3"><div class="avatar avatar-app avatar-inverse" data-code="cash" data-id="3" data-name="记账" data-tone="#edcb45"><i class="icon icon-cash" style="color: #edcb45"></i></div></button></li><li id="s-task-9"><button class="app-btn s-task-btn open active" data-hidenavigation="0" data-toggle="tooltip" data-tip-class="s-task-tooltip" data-placement="top" title="文档" data-btn-type="task" data-id="9"><div class="avatar avatar-app avatar-inverse" data-code="doc" data-id="9" data-name="文档" data-tone="#787bff"><i class="icon icon-doc" style="color: #787bff"></i></div></button></li><li id="s-task-8"><button class="app-btn s-task-btn open" data-hidenavigation="0" data-toggle="tooltip" data-tip-class="s-task-tooltip" data-placement="top" title="项目" data-btn-type="task" data-id="8"><div class="avatar avatar-app avatar-inverse" data-code="proj" data-id="8" data-name="项目" data-tone="#56c6ed"><i class="icon icon-proj" style="color: #56c6ed"></i></div></button></li><li id="s-task-2"><button class="app-btn s-task-btn open" data-hidenavigation="0" data-toggle="tooltip" data-tip-class="s-task-tooltip" data-placement="top" title="日常办公" data-btn-type="task" data-id="2"><div class="avatar avatar-app avatar-inverse" data-code="oa" data-id="2" data-name="办公" data-tone="#edcb45"><i class="icon icon-oa" style="color: #edcb45"></i></div></button></li><li id="s-task-1"><button class="app-btn s-task-btn open" data-hidenavigation="0" data-toggle="tooltip" data-tip-class="s-task-tooltip" data-placement="top" title="客户管理" data-btn-type="task" data-id="1"><div class="avatar avatar-app avatar-inverse" data-code="crm" data-id="1" data-name="客户" data-tone="#787bff"><i class="icon icon-crm" style="color: #787bff"></i></div></button></li></ul>
+            </div>
+            <div id="poweredBy">
+              <small class="muted"><a href="http://aiuxstudio.com/" class="link-aiux" target="_blank">Designed by <strong>AIUX</strong></a></small> &nbsp;
+              <a href="https://www.zdoo.co/?v=biz8.0" target="_blank"><img src="/theme/default/images/main/zdoo.png"> Biz 8.0</a> &nbsp;
+              <a href="https://www.zdoo.com/page/download.html#zdoo-mobile-tab" target="_blank"><i class="icon-download"> </i>App</a>
+        
+            </div>
+          </div>
+        <div id="mainNavbar">
+            <div class="container">
+              <div class="heading">
+                <div class="btn-group header-btn"><a href="/hr/index.html"><div class="avatar avatar-app" data-code="hr" data-name="人力资源" data-tone="#ff7940"><i class="icon icon-hr" style="color: #ff7940"></i></div>人力资源</a>
+          </div>
+                    </div>
+              <nav>
+                <ul class="nav navbar-nav">
+          <li class="active"><a href="/hr/salary-company.html">Salary</a></li>
+          <li><a href="/hr/bonus-browse.html">Bonus</a></li>
+          <li><a href="/hr/commission-browse.html">Commission</a></li>
+          <li><a href="/hr/hpfbase-personal.html">Provident Fund Base</a></li>
+          <li class="divider"></li><li><a href="/hr/salary-report.html">Report</a></li>
+          <li><a href="/hr/salary-setBasic.html">Settings</a></li>
+          <li class="moreMenu hidden" style=""><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">More <span class="caret"></span></a><ul class="dropdown-menu"></ul></li></ul>
+              </nav>
+              <div id="searchbox">
+                      <div class="input-group">
+                  <input type="text" name="words" id="words" value="" autocomplete="on" class="form-control" style="border-radius: 1px 0px 0px 1px;">
+                  <span class="input-group-btn"><a href="javascript:;" class="btn btn-default searchBtn" style="border-radius: 0px 1px 1px 0px; border-left-color: transparent;"><i class="icon icon-search"></i></a>
+          </span>
+                </div>
+                <div id="searchModal"></div>
+              </div>
+              <div id="TRAction">
+                    </div>
+            </div>
+          </div>
+        <div class="container-fluid">
+            <div class="leftBar dock-left unselectable">
+                <div class="appsMenu">
+                    <ul class="bar-menu apps-menu apps-main-menu">
+                        <li id="s-menu-dashboard" data-order="0"><button data-hidenavigation="{hideNavigation}" data-toggle="tooltip" data-tip-class="s-menu-tooltip" data-placement="right" data-btn-type="menu" class="app-btn s-menu-btn open" title="" data-id="dashboard" data-original-title="Dashboard"><div class="avatar avatar-app" data-code="dashboard" data-id="dashboard" data-name="Mine" data-tone="#56c6ed"><i class="icon icon-home" style="color: #56c6ed"></i></div><div class="avatar-bg" style="background:#56c6ed"></div><span class="text">Dashboard</span></button></li>
+                        <li id="s-menu-1" data-order="1"><button data-hidenavigation="0" data-toggle="tooltip" data-tip-class="s-menu-tooltip" data-placement="right" data-btn-type="menu" class="app-btn s-menu-btn" title="" data-id="1" data-original-title="客户管理"><div class="avatar avatar-app" data-code="crm" data-id="1" data-name="客户" data-tone="#787bff"><i class="icon icon-crm" style="color: #787bff"></i></div><div class="avatar-bg" style="background:#787bff"></div><span class="text">客户</span></button></li>
+                    </ul>
+                    <div id="userMenuBar" class="dock-bottom">
+                        <ul class="bar-menu">
+                          <li class="dropdown dropdown-hover">
+                            <button id="start" type="button" title="demo" data-toggle="dropdown">
+                              <div class="avatar avatar-user with-text" data-id="1" data-name="demo" data-tone="#55a3ec" style="background-color: rgb(85, 163, 236); color: rgb(85, 163, 236);"><div class="text-icon" style="border:none;color:#ffffff"><span class="text"><span>D</span><span class="text-extra"></span></span></div></div><span class="text">Profile</span>
+                            </button>
+                            <ul id="startMenu" class="dropdown-menu fade pull-right" style="max-height: 929px; top: -265px;">
+                              <li class="text-center" style="float: none;"><a href="/sys/user-profile.html" data-toggle="modal" data-id="profile"><strong>Information</strong></a>
+                  </li>
+                              <li class="divider" style="float: none;"></li>
+                                          <li style="float: none;"><a class="app-btn" data-id="allapps"><i class="icon icon-apps"></i> All</a></li>
+                                          
+                                          <li style="float: none;"><a class="btn-toggle-leftbar"><i class="icon icon-double-angle-right"></i> Show Menu</a></li>
+                              <li class="divider" style="float: none;"></li>
+                              <li class="dropdown-submenu" style="float: none;"><a href="###" data-toggle="dropdown" class="dropdown-toggle"><i class="icon icon-globe"></i> English</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="javascript:selectLang(&quot;zh-cn&quot;)">简体</a></li><li><a href="javascript:selectLang(&quot;zh-tw&quot;)">繁體</a></li></ul>
+                  </li>
+                              <li class="dropdown-submenu" style="float: none;"><a href="###" data-toggle="dropdown" class="dropdown-toggle"><i class="icon icon-skin"></i> Theme</a>
+                  <ul class="dropdown-menu">
+                    <li class="theme-option"><a href="javascript:selectTheme(&quot;default&quot;);" data-value="default">Default</a></li><li class="theme-option active"><a href="javascript:selectTheme(&quot;clear&quot;);" data-value="clear">Clear</a></li></ul>
+                  </li>
+                              <li style="float: none;"><a href="/sys/misc-about.html" data-id="about" data-toggle="modal" data-width="500"><i class="icon icon-info"></i> About</a></li>
+                              <li class="divider" style="float: none;"></li>
+                    <li style="float: none;">
+                      <a href="/sys/user-qrLogin.html" data-id="qrLogin" data-toggle="modal">
+                        <i class="icon icon-qrcode"></i> QR Code Login    </a>
+                    </li>
+                  
+                              <li style="float: none;"><a class="sign signin"><i class="icon icon-calendar-sign-in"></i> Login</a></li><li style="float: none;"><a class="sign signout"><i class="icon icon-calendar-sign-out"></i> Logout</a></li>          </ul>
+                          </li>
+                        </ul>
+                      </div>
+                      <button type="button" class="btn-toggle-leftbar" id="toggleLeftBarBtn"><i class="icon icon-angle-left"></i></button>
+                </div>
+            </div>
+            <div class="container" id="mainContent">
+                <div class="row">
+                <div class="col-md-3">
+                    <h1>fff fgfgfgfgfgfggggggggggggggggggggggg ggggggggggggggggggggggggggg</h1>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+    <script>
+        
+        let _plan = [{ start: '2023-09-09', end: '2023-09-12', text: 'Lễ vu lan chào mừng ngày quốc tế!', icon: '/icons/banhxe.svg' }, { start: '2023-09-17', end: '2023-09-19', text: 'Lễ trai tăng', icon: '/icons/banhxe.svg' }, { start: '2023-09-24', end: '2023-09-29', text: 'Lễ tụng tạng Pali', icon: '/icons/banhxe.svg' }];
+$('#reportcalendar').tummoCalendarReport({ plan: _plan });
+    </script>
+</body>
+
+</html>

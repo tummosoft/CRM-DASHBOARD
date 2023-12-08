@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi" prefix="og: https://ogp.me/ns#">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed:wght@400&display=swap"
+        rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
+        integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+
+    <script src="/b4j_ws.js" type="text/javascript"></script>
+    
+    <style>
+        body {font-family: 'Roboto', sans-serif;}
+.tm-loading-wait {
+    background: rgba(0,0,0,.8);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);        
+    box-shadow: 0 0 0 999px rgba(0,0,0,.8);  
+    border: none;
+    outline: none;
+    display: flex;    
+        justify-content: center; /* center horizontally */
+        align-items: center; /* center vertically */
+    z-index: 1001;} 
+
+    .sk-chase {
+        display: flex;
+  width:120px;
+  height: 120px;
+  position: relative;
+  animation: sk-chase 2.5s infinite linear both;
+}
+
+.sk-chase-dot {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0; 
+  animation: sk-chase-dot 2.0s infinite ease-in-out both; 
+}
+
+.sk-chase-dot:before {
+  content: '';
+  display: block;
+  width: 25%;
+  height: 25%;
+  background-color: #ffb75a;
+  background-image: url('/icons/lotus5.svg');
+  background-repeat: no-repeat;
+  border-radius: 100%;
+  animation: sk-chase-dot-before 2.0s infinite ease-in-out both; 
+}
+
+.sk-chase-dot:nth-child(1) { animation-delay: -1.1s; }
+.sk-chase-dot:nth-child(2) { animation-delay: -1.0s; }
+.sk-chase-dot:nth-child(3) { animation-delay: -0.9s; }
+.sk-chase-dot:nth-child(4) { animation-delay: -0.8s; }
+.sk-chase-dot:nth-child(5) { animation-delay: -0.7s; }
+.sk-chase-dot:nth-child(6) { animation-delay: -0.6s; }
+.sk-chase-dot:nth-child(1):before { animation-delay: -1.1s; }
+.sk-chase-dot:nth-child(2):before { animation-delay: -1.0s; }
+.sk-chase-dot:nth-child(3):before { animation-delay: -0.9s; }
+.sk-chase-dot:nth-child(4):before { animation-delay: -0.8s; }
+.sk-chase-dot:nth-child(5):before { animation-delay: -0.7s; }
+.sk-chase-dot:nth-child(6):before { animation-delay: -0.6s; }
+
+@keyframes sk-chase {
+  100% { transform: rotate(360deg); } 
+}
+
+@keyframes sk-chase-dot {
+  80%, 100% { transform: rotate(360deg); } 
+}
+
+@keyframes sk-chase-dot-before {
+  50% {
+    transform: scale(0.4); 
+  } 100%, 0% {
+    transform: scale(1.0); 
+  } 
+}
+.wait-img {width: 40px;position: absolute;}
+.wait-text {width: 120px;bottom: 25px; position: absolute;font-size: 10px;color: #ffb75a;font-weight: bold;text-align: center;}
+    </style>
+</head>
+
+<body style="overflow-x:hidden; padding:2px;">
+    <div id="loading">
+
+    </div>
+    <script>
+        (function ($) {    
+    $.fn.tummoWaiting = function (options) {
+        var settings = $.extend({            
+            text:'text',            
+        })(options);
+        var callfrom = '';
+        var id = $(this).attr('id');
+        var ele = document.getElementById(id);
+        var config = settings[0];   
+        
+        $(this).addClass('tm-loading-wait');
+        var html = '<img class="wait-img" src="/icons/labode.svg" alt=""> <div id="' + id + '_text" class="wait-text">PHUOC SON PAGODA</div> <div class="sk-chase"> <div class="sk-chase-dot"></div> <div class="sk-chase-dot"></div> <div class="sk-chase-dot"></div> <div class="sk-chase-dot"></div> <div class="sk-chase-dot"></div> <div class="sk-chase-dot"></div> </div>';
+       
+        $(this).html(html);
+     
+        this.setText = function setText(text) {                  
+            $('#' + id + '_text').text(text);
+        }
+        
+        this.show = function showdialog(callAt) {
+            ele.style.display = 'block';
+            callfrom = callAt;
+        }
+        this.hide = function hide () {
+            ele.style.display = 'none';
+        }
+        return this;
+}
+})(jQuery);
+
+$('#loading').tummoWaiting({
+    text:'Đăng ký sự kiện',
+});
+    </script>
+</body>
+
+</html>

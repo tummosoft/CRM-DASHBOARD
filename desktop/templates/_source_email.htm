@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="/logo.svg">
+  <title th:text="${pagetitle}"></title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.js"></script>
+  <script src="/templates/js/tummo.js" type="text/javascript"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Heebo&family=Nunito&family=Open+Sans&family=Roboto+Condensed:wght@300;400&display=swap"
+    rel="stylesheet">
+  <link href="/templates/css/grid.css" rel="stylesheet">
+  <link rel="stylesheet" href="/templates/css/core.css">
+  <link rel="stylesheet" href="/templates/css/tummoCombobox.css">
+  <link rel="stylesheet" href="/templates/css/tummoCboCalendar.css">
+  <link rel="stylesheet" href="/templates/css/tummoButton.css">
+  <link rel="stylesheet" href="/templates/css/gridcombobox.css">
+  <link rel="stylesheet" href="/templates/css/tummoDataGrid.css">
+  <link rel="stylesheet" href="/templates/css/tummogridpopup.css">
+  <link rel="stylesheet" href="/templates/css/tummoLayout.css">
+  <link rel="stylesheet" href="/templates/css/tummoTextbox.css">
+  <link rel="stylesheet" href="/templates/css/tummoSmallDialog.css">
+  <link rel="stylesheet" href="/templates/css/tummosearchdrop.css">
+  <link rel="stylesheet" href="/templates/css/tummoDropButton.css">
+  <link rel="stylesheet" href="/templates/css/tummoAlarmDialog.css">
+  <link rel="stylesheet" href="/templates/css/tummoButtonUpload.css">
+  <link rel="stylesheet" href="/templates/css/tummoloading.css">
+  <script src="/templates/js/tummoloading.js" type="text/javascript"></script>
+  <script src="/templates/js/tummoAlarmDialog.js" type="text/javascript"></script>
+  <script src="/templates/js/tummoGridCalendar.js" type="text/javascript"></script>
+  <script src="/templates/js/tummogridpopup.js" type="text/javascript"></script>
+  <script src="/templates/js/tummodatagridview.js" type="text/javascript"></script>
+  <script src="/templates/js/tummoCombobox.js" type="text/javascript"></script>
+  <script src="/templates/js/tummoButton.js" type="text/javascript"></script>
+  <script src="/templates/js/tummoLayout.js" type="text/javascript"></script>
+  <script src="/templates/js/tummoTextbox.js" type="text/javascript"></script>
+  <script src="/templates/js/tummoSmallDialog.js" type="text/javascript"></script>
+  <script src="/templates/js/tummosearchdrop.js" type="text/javascript"></script>
+  <script src="/templates/js/tummoDropButton.js" type="text/javascript"></script>
+  <script src="/templates/js/tummo.js" type="text/javascript"></script>
+  <script src="/templates/js/tummoAlarmQuick.js" type="text/javascript"></script>
+  <script src="/templates/js/tummoButtonUpload.js" type="text/javascript"></script>
+  <script src="/b4j_ws.js" type="text/javascript"></script>
+  <script src="/data/header_thoikhoabieu.js" type="text/javascript"></script>
+  <style>
+    .grid-container-x {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-row-gap: 10px;
+      height: 100%;
+      align-content: stretch;
+      justify-items: stretch;
+      align-items: stretch;
+    }
+    ::-webkit-scrollbar {
+width: 7px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+background:#4a70eeb7 ;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+border-radius: 3px;
+background: linear-gradient(90deg, #FFD991 10%, #ffd991d8 100%);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #698BF9;
+}
+  </style>
+</head>
+
+<body>
+
+  <body style="font-family: 'Roboto Condensed';font-size: 13px;padding-right: 10px;">
+    <div id="biensoanemail" class="tummo-editor-wrapper">
+      <div id="self-toolbar" class="tummo-editor-ctrl">
+        <ul class="self-toolbar">
+          <li class="toolbar-item">
+            <div id="cboevents"></div>
+          </li>
+          <li class="toolbar-item">
+            <div id="cbotemplate"></div>
+          </li>
+          <li class="toolbar-item">
+            <div id="btnnew"></div>
+          </li>
+          <li class="toolbar-item">
+            <div id="btnSave"></div>
+          </li>
+        </ul>
+      </div>
+      <div id="self-toolbar" class="tummo-editor-ctrl">
+        <ul class="self-toolbar">
+          <li class="toolbar-item">
+            <div id="txtTitleTemplate"></div>
+          </li>
+          <li class="toolbar-item">
+            <div id="txtTitle"></div>
+          </li>
+        </ul>
+      </div>
+      <div id="self-toolbar" class="tummo-editor-ctrl">
+        <ul class="self-toolbar">
+          <li class="toolbar-item">
+            <div id="txtaddress"></div>
+          </li>
+          <li class="toolbar-item">
+            <div id="btnsendmail"></div>
+          </li>
+        </ul>
+      </div>
+      <div id="editor" style="width: 100%;margin: 0 auto; background: #fff;" class="tummo-editor-body">
+        <iframe id="editor-text-area"
+          style="border: none;outline:none;height:100%;padding-left:50px;padding-right:50px;"
+          src="/emails/templates.html" width="100%" height="100%"></iframe>
+
+      </div>
+    </div>
+
+    <div id="alarm"></div>
+    <script>
+      var _currentID = randomID();
+      var _newtemplate = true;
+
+      var dialogalarm = $('#alarm').tummoAlarmQuick({ text: 'Dữ liệu đã được cập nhật hoàn thành!' });
+
+      var cbosukien = $('#cboevents').tummoCombobox({ text: 'Thẻ HTML', onChange: cateEventChange, width: 190, url: '/api/v3/?id=sukien', label: 'Sự kiện', labelWidth: 55 });
+      var cbotemplate = $('#cbotemplate').tummoCombobox({ text: 'Thẻ HTML', onChange: cateTemplate, width: 190, url: '/api/v3/?id=emailtemplate', label: 'Mẫu đã lưu', labelWidth: 75 });
+
+      $('#btnSave').tummoButton({ click: f_savetemplate, text: 'Lưu như mẫu mới', style: 'yellow', width: 190, icon: '<img src="/icons/save.svg">' });
+      $('#btnnew').tummoButton({ click: f_newtemplate, text: 'Ghi đè mẫu cũ', style: 'yellow', width: 190, icon: '<img src="/icons/save.svg">' });
+      $('#btnsendmail').tummoButton({ click: f_sendmail, text: 'Gửi Email', style: 'yellow', width: 190, icon: '<img src="/icons/email.svg">' });
+
+      var txtTitleTemplate = $('#txtTitleTemplate').tummoTextbox({ placeholder: 'Tên mẫu mới', type: 'text', width: 330, fullwidth: false, label: 'Mẫu', labelWidth: 50 });
+      var txttitleEmail = $('#txtTitle').tummoTextbox({ placeholder: 'Tiêu đề email', type: 'text', width: 330, fullwidth: false, label: 'Tiêu đề', labelWidth: 50 });
+      var txtaddress = $('#txtaddress').tummoTextbox({ placeholder: 'Địa chỉ Email', type: 'text', width: 330, fullwidth: false, label: 'Email', labelWidth: 50 });
+
+      var urlupload = '/upload/v2/?target=attachment';
+
+      function f_click() { }
+      function categoryChange() {
+
+      }
+
+      function f_sendmail() {
+        var iframe = document.getElementById("editor-text-area");
+        if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
+          var iframeContent = iframe.contentDocument.documentElement.outerHTML;
+          b4j_raiseEvent('event_sendmail', { title: txttitleEmail.getValue(), sendto: txtaddress.getValue(), html: iframeContent });        
+        }
+        
+      }
+
+      function f_uploaded(event) {
+        if (event == true) {
+          dialogalarm.show('Tệp đã được tải thành công lên máy chủ!');
+        }
+
+      }
+
+      function f_tkb() {
+
+      }
+
+      let _h = window.innerHeight - 160;
+      document.getElementById("editor").style.height = _h + 'px';
+
+      function f_savetemplate() {
+        var iframe = document.getElementById("editor-text-area");
+
+        // Kiểm tra xem iframe đã tải xong hay chưa
+        if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
+          // Truy cập nội dung của iframe
+          var iframeContent = iframe.contentDocument.documentElement.outerHTML;
+          b4j_raiseEvent('event_newhtml', { template: txtTitleTemplate.getValue(), title: txttitleEmail.getValue(), masukien: cbosukien.getValue(), html: iframeContent });
+          // Tạo một tập tin HTML mới
+          //var blob = new Blob([iframeContent], { type: 'text/html' });
+
+          //var a = document.createElement('a');
+          //a.href = window.URL.createObjectURL(blob);
+          //a.download = 'iframe_content.html';
+          //a.style.display = 'none';
+          //document.body.appendChild(a);
+          //a.click();
+          //document.body.removeChild(a);
+        } else {
+          alert("Xin vui lòng đợi iframe tải xong trước khi xuất nội dung.");
+        }
+        //if (txtTitleTemplate.getValue() !== null || txtTitleTemplate.getValue() !== '') {
+        //let tkbcheck = $('#chktkb').is(':checked');
+
+        //b4j_raiseEvent('newtemplate_event', { id: _currentID, danhsach: kieudanhsach.getValue(), tempaltetitle: txtTitleTemplate.getValue(), newemail: txttitleEmail.getValue(), body: editor.getHtml(), masukien: cbosukien.getValue(), tkb: tkbcheck, attach: '' });
+        //_newtemplate = false;
+        //dialogalarm.show('Dữ liệu đã được cập nhật hoàn thành!');
+        //}
+      }
+
+      function cateEventChange(id) {
+        // let url = '/api/v3/?id=emailtemplate&filter=sukien&display=' + id;
+        //cbotemplate.reload(url, null);
+      }
+
+      function f_newtemplate() {
+        _newtemplate = true;
+        _currentID = randomID();
+        txtTitleTemplate.clear();
+        txttitleEmail.clear();
+        b4j_raiseEvent('event_updateID', { id: _currentID });
+        dialogalarm.show('Mẫu thiết kế email đã sẵn sàng!');
+      }
+
+      function cateTemplate(id) {
+        var url2 = '/api/v3/?id=emailtemplate&filter=id&display=' + id;
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+          // Check if fetch request is done
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            var _rows = JSON.parse(xhr.responseText);
+            var html = _rows[0].text;
+            document.getElementById('editor-text-area').setAttribute('src', html);
+            txtTitleTemplate.setValue(_rows[0].title);
+            txttitleEmail.setValue(_rows[0].mailtitle);
+
+            b4j_raiseEvent('event_updateID', { id: _currentID });
+          }
+        };
+
+        xhr.open("GET", url2, true);
+        xhr.send();
+      }
+
+
+      function f_openmedia() {
+        dialog.showDialog();
+      }
+      // -------------------------- TUMMO DIALOG
+
+      // Show Dialog Box
+
+
+      // Receive result from Dialog Box
+      function callbackDialog(btnName) {
+        _showDialogButton.disabled = false;
+        _showDialogButton.focus();
+        if (btnName == 'close')
+          _statusDialog.textContent = 'Dialog hidden...';
+        else
+          _statusDialog.textContent = btnName + ' button clicked...';
+      }
+
+      $(document).ready(function () {
+        b4j_connect('wss://51.79.254.135:7676/ws/email');
+        var dialog;
+        var _showDialogButton = document.getElementById('show-dialog');
+        var _statusDialog = document.getElementById('dialog-status');
+
+        if (!dialog) {
+          var id = 'dialog';
+          // Instanciate the Dialog Box
+          // dialog = new DialogBox(id, callbackDialog);
+        }
+      });
+
+      async function gzipCompressed(value) {
+        // Convert string to byte-array
+        var byteArray = new TextEncoder().encode(value);
+
+        // Compress the byte-array
+        var cs = new CompressionStream('gzip');
+        const writer = cs.writable.getWriter();
+        writer.write(byteArray);
+        writer.close();
+
+        // Convert compressed data to ArrayBuffer
+        var compressedData = await new Response(cs.readable).arrayBuffer();
+        return compressedData;
+      }
+    </script>
+  </body>
+
+</html>

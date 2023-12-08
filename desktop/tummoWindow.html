@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="/js/jquery-3.7.0.min.js"></script>
+    <script src="/tummo.js" type="text/javascript"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo&family=Nunito&family=Open+Sans&family=Roboto+Condensed:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/tummoCombobox.css">
+    <link rel="stylesheet" href="/tummoButton.css">
+    <script src="/tummoCombobox.js" type="text/javascript"></script>    
+    <script src="/tummoWindow.js" type="text/javascript"></script>    
+    <style>
+        * {
+            --color1: #BDD1FF;
+            --color2: #698BF9;
+            --color3: #516AF0;
+            --color4: #E7E9EE;
+            --color5: #BACAFC;
+            --color6: #EDF1FF;
+            --color7: #C0C0C0;
+            --color8: #292B2F;
+            --color9: #8190A9;
+            --color10: #F6F9FE;
+
+        }
+body {font-family: 'Roboto Condensed';}
+        
+.tummo-windows {  border-radius: 8px; width: 450px;height: 300px; position: fixed;
+    animation: slide-up 0.4s ease-out;
+    margin: 0;
+    padding:0px;
+    left: 50%;
+    top: 50%;
+    background: #4a70eeb7; background-image: linear-gradient(180deg, #4a70eeb7  30%, #4a70eebd 30%, #4a70eec0 40%);
+    transform: translate(-50%, -50%);overflow: hidden;resize: both;}
+.tummo-windows {box-shadow: 2px 3px 4px #02020250;border: 1px solid #698BF9;}
+.t-window-header {cursor: all-scroll;height: 30px;width: 100%;position: relative;color: #fff;height: 30px; background: #84A0C4; background-image: linear-gradient(90deg, #4a70eeb7  30%, #4a70eebd 30%, #4a70eec0 40%);border-top-left-radius: 8px;border-top-right-radius: 8px;display: flex;flex-wrap: nowrap; justify-content: space-between;font-size: 13px;box-shadow: 1px 1px 1.5px #030e30bd;}
+.t-window-header::after {content: "";position: absolute;inset: 0; border-top: 2px solid #06299e5e;opacity:0.5;}
+.t-window-title {display: flex; font-size: 14px;color: #ffffff;float: left;margin-left: 10px;line-height: 30px;}
+.t-window-close-bg {display: flex;inset: 2;z-index: 3; float: right;width: 35px; height: 20px;line-height: 30px;background: #c7480d;  background-image: linear-gradient(20deg, #fc5b5bda  30%, #ee4d68d8 40%, #ec4d4d 30%);border-bottom-left-radius: 8px;box-shadow: 1px 1px 2px #6b6b6d;cursor: pointer;border: 1px solid #aa4343;position: relative;overflow: hidden;}
+.t-window-close-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;  
+ opacity:0.5;
+  z-index: -1;
+  width: 0%;
+  height: 18px;  
+  top:0;
+}
+.t-window-close-bg:hover {opacity: 0.9;transition: 0s 1s border;}
+.t-window-close-bg:hover::before {
+  width: 100%;    
+  
+}
+.close-window {
+    animation: close-up 0.8s;
+}
+@keyframes mymove {
+  from {opacity:0}
+  to {opacity:0.5;}
+}
+@keyframes slide-up {
+    0% {
+        opacity: 0;        
+    }
+  
+    100% {
+        opacity: 1;       
+    }
+}
+@keyframes close-up {
+    0% {
+        opacity: 1;        
+    }
+  
+    100% {
+        opacity: 0;       
+    }
+}
+.t-window-close {width: 35px; height: 20px;background: url(/icons/close-btn.svg);background-size: 12px 12px; background-repeat: no-repeat;background-position: center center;}
+.t-window-body {width: 100%;height: calc(100% - 35px);background: #feffff;}
+.t-window-footer {height: 10px;width: 100%;position: absolute;bottom: 0px; background: #ffffff;background: linear-gradient(65deg, #698BF9 10%, #4a70ee 100%);border-bottom-left-radius: 8px;border-bottom-right-radius: 8px;}
+.tm-btn-group {height: 35px;display: flex;flex-wrap: nowrap; justify-content:flex-end;font-weight: normal;}
+/******************************************
+ *
+ *   Modalbox v1.2 - jQuery
+ *
+ ******************************************/
+
+ .noselect
+{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.myOwnDialog_overlay
+{
+
+}
+.mdl_top
+{
+    position: absolute;
+    background-color: red;
+    left: 4px;
+    right: 4px;
+    height: 4px;
+    top: 0;
+    cursor: n-resize;
+    opacity: 0.0;
+}
+.mdl_bottom
+{
+    position: absolute;
+    background-color: red;
+    left: 4px;
+    right: 4px;
+    height: 4px;
+    bottom: 0;
+    cursor: s-resize;
+    opacity: 0.0;
+}
+.mdl_left
+{
+    position: absolute;
+    background-color: red;
+    top: 4px;
+    bottom: 4px;
+    width: 4px;
+    left: 0px;
+    cursor: w-resize;
+    opacity: 0.0;
+}
+.mdl_right
+{
+    position: absolute;
+    background-color: red;
+    top: 4px;
+    bottom: 4px;
+    width: 4px;
+    right: 0px;
+    cursor: e-resize;
+    opacity: 0.0;
+}
+.titlebar
+{
+    position: absolute;    
+    height: 30px;
+    cursor: all-scroll;height: 30px;width: 100%;position: relative;color: #fff;height: 30px; background: #84A0C4; background-image: linear-gradient(90deg, #4a70eeb7  30%, #4a70eebd 30%, #4a70eec0 40%);border-top-left-radius: 8px;border-top-right-radius: 8px;display: flex;flex-wrap: nowrap; justify-content: space-between;font-size: 13px;box-shadow: 1px 1px 1.5px #030e30bd;
+}
+.titlebar_left
+{
+    position: absolute;
+    left: 0px;
+    right: 30px;
+    height: 30px;
+    cursor: move;
+}
+.titlebar_right
+{
+    position: absolute;
+    width: 30px;
+    right: 0px;
+    height: 30px;
+    color: black;
+    cursor: default;
+}
+.mdl_top_left
+{
+    position: absolute;
+    background-color: blue;
+    top: 0px;
+    left: 0px;
+    width: 4px;
+    height: 4px;
+    cursor: nw-resize;
+    opacity: 0.0;
+}
+.mdl_top_right
+{
+    position: absolute;
+    background-color: blue;
+    top: 0px;
+    right: 0px;
+    width: 4px;
+    height: 4px;
+    cursor: ne-resize;
+    opacity: 0.0;
+}
+.mdl_bottom_left
+{
+    position: absolute;
+    background-color: blue;
+    bottom: 0px;
+    left: 0px;
+    width: 4px;
+    height: 4px;
+    cursor: sw-resize;
+    opacity: 0.0;
+}
+.mdl_bottom_right
+{
+    position: absolute;
+    background-color: blue;
+    bottom: 0px;
+    right: 0px;
+    width: 4px;
+    height: 4px;
+    cursor: se-resize;
+    opacity: 0.0;
+}
+.titlebar_title
+{
+    line-height: 30px;
+    padding-left: 10px;    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mdl_box_body
+{
+    position: absolute;    
+    top: 34px;    
+    overflow: hidden;
+    
+}
+.mdl_box_body::-webkit-scrollbar {
+      width: 7px;
+      }
+      /* Track */
+      .mdl_box_body::-webkit-scrollbar-track {
+      background:#4a70eeb7 ;
+      }
+      
+      /* Handle */
+      .mdl_box_body::-webkit-scrollbar-thumb {
+      border-radius: 3px;
+      background: linear-gradient(90deg, #FFD991 10%, #ffd991d8 100%);
+      }
+      
+      /* Handle on hover */
+      .mdl_box_body::-webkit-scrollbar-thumb:hover {
+      background: #698BF9;
+      }
+.titlebar_right .close {display: flex;inset: 2;z-index: 3; float: right;width: 35px; height: 20px;line-height: 30px;background: #c7480d;  background-image: linear-gradient(20deg, #fc5b5bda  30%, #ee4d68d8 40%, #ec4d4d 30%);border-bottom-left-radius: 8px;box-shadow: 1px 1px 2px #6b6b6d;cursor: pointer;border: 1px solid #aa4343;position: relative;overflow: hidden;}
+.titlebar_right .close::before {
+  content: "";
+  background: url(/icons/close-btn.svg);
+  width: 16px;
+  height: 16px;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  position: absolute;
+  inset: 0;   
+  z-index: 1;
+  top:2px;
+  left: 8px;
+}
+.titlebar_right .close:hover {opacity: 0.9;transition: 0s 1s border;}
+.titlebar_right .close:hover::before {
+  width: 100%;    
+  
+}
+body
+{
+
+}
+.parent
+{
+    position: relative;
+    margin: 50px;
+    overflow: hidden;
+    height: 200px;
+    width: 180px;
+    background:#4a70eeb7 ;
+}
+.scrollable
+{
+    overflow-y: scroll;
+    position: absolute;
+    padding: 0 17px 0 0;
+    width: 180px;
+    height: 100%;
+}
+.scrollbar
+{
+    position: absolute;
+    overflow: auto;
+    top: 0px;
+    right: 0px;
+    z-index: 2;
+    background: #444;
+    width: 7px;
+    border-radius: 5px;
+}
+.b_scroll
+{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 2;
+    background: #444;
+    width: 7px;
+    border-radius: 5px;
+    bottom: 0;
+}
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+}
+    </style>
+</head>
+
+<body>
+ <div style="margin: 100px;">
+    <div id="dialog1">
+       
+    </div>
+
+</div>
+
+    <script>
+         $("#dialog1").myOwnDialog(
+            {
+                autoClose:false,
+                width:"400",
+                pos_y:"250",
+                height:"300",
+                overlay: false,
+                bg_color:'white',
+                title:"This is movable but not resizable",
+                body_margin:"10",
+                body_overflow_x:"hidden",
+                body_overflow_y:"scroll",
+                movable:true,
+                resizable:false,
+                url: '/test.html',
+                touchOutsideForClose:false
+            });
+
+            $("#dialog1").myOwnDialog("open");
+    </script>
+
+   
+   
+
+</body>
+
+</html>

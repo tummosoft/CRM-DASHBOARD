@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="vn">
+
+<head>
+    <meta charset="utf-8">
+    <title>Thời khoá biểu: Khoá tu</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <script src="/tummo.js" type="text/javascript"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo&family=Nunito&family=Open+Sans&family=Roboto+Condensed:wght@300;400&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/templates/css/core.css">
+    <link rel="stylesheet" href="/templates/css/tummoCombobox.css">
+    <link rel="stylesheet" href="/templates/css/tummoCboCalendar.css">
+    <link rel="stylesheet" href="/templates/css/tummoButton.css">
+    <link rel="stylesheet" href="/templates/css/gridcombobox.css">
+    <link rel="stylesheet" href="/templates/css/tummoDataGrid.css">
+    <link rel="stylesheet" href="/templates/css/tummogridpopup.css">
+    <link rel="stylesheet" href="/templates/css/tummoLayout.css">
+    <link rel="stylesheet" href="/templates/css/tummoTextbox.css">
+    <link rel="stylesheet" href="/templates/css/tummoSmallDialog.css">
+    <link rel="stylesheet" href="/templates/css/tummosearchdrop.css">
+    <link rel="stylesheet" href="/templates/css/tummoDropButton.css">
+    <link rel="stylesheet" href="/templates/css/tummoAlarmDialog.css">
+    <link rel="stylesheet" href="/templates/css/tummoloading.css">
+    <link href="/templates/css/tummoWindow.css" rel="stylesheet">
+    <script src="/templates/js/tummoloading.js" type="text/javascript"></script>
+    <script src="/templates/js/tummoAlarmDialog.js" type="text/javascript"></script>
+    <script src="/templates/js/tummoGridCalendar.js" type="text/javascript"></script>
+    <script src="/templates/js/tummogridpopup.js" type="text/javascript"></script>
+    <script src="/templates/js/tummodatagridview.js" type="text/javascript"></script>
+    <script src="/templates/js/tummoCombobox.js" type="text/javascript"></script>
+    <script src="/templates/js/tummoButton.js" type="text/javascript"></script>
+    <script src="/templates/js/tummoLayout.js" type="text/javascript"></script>
+    <script src="/templates/js/tummoTextbox.js" type="text/javascript"></script>
+    <script src="/templates/js/tummoSmallDialog.js" type="text/javascript"></script>
+    <script src="/templates/js/tummosearchdrop.js" type="text/javascript"></script>
+    <script src="/templates/js/tummoDropButton.js" type="text/javascript"></script>
+    <script src="/templates/js/tummo.js" type="text/javascript"></script>
+    <script src="/templates/js/windows.js" type="text/javascript"></script>
+    <script src="/b4j_ws.js" type="text/javascript"></script>
+    <script src="/templates/data/header_sendmail.js" type="text/javascript"></script>
+    <script type="module" src="/jspdf.umd.js" type="text/javascript"></script>
+
+    <style>
+        body {
+            font-size: 13px !important;
+        }
+
+        .detail-event {
+            border: 1px solid #3d7fe9;
+            overflow: hidden;
+            background: #fff;
+            height: calc(100% - 20px);
+        }
+
+        .info-sukien {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .info-sukien .title {
+            color: #140c20;
+        }
+
+        .info-sukien .value {
+            color: #ec9a00;
+        }
+
+        .info-sukien li {
+            line-height: 16px;
+            border-bottom: 1px solid #b7ceec;
+            padding: 5px 0px 5px 5px;
+        }
+
+        .detail-event {
+            width: 100%;
+        }
+
+        .group-sukien {}
+
+        .title-sukien {
+            color: #fff;
+            height: 30px;
+            background: #3d64e6c0;
+            background-image: linear-gradient(90deg, #3d64e68e 30%, #4a70eebd 30%, #3d64e6c0 40%);
+            width: 100%;
+            line-height: 30px;
+            padding-left: 10px;
+        }
+
+        .content {
+            background: #3d64e6c0;
+            background-image: linear-gradient(90deg, #3d64e68e 30%, #4a70eebd 30%, #3d64e6c0 40%);
+        }
+
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #4a70eeb7;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            border-radius: 3px;
+            background: linear-gradient(90deg, #FFD991 10%, #ffd991d8 100%);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #698BF9;
+        }
+    </style>
+</head>
+
+<body id="body" style="font-family: 'Roboto';font-size: 14px;">
+    <div class="thoikhoabieu">
+        <div id="thoikhoabieu">
+
+        </div>
+    </div>
+    <div id="dialogtkb" class="dialog"
+        style="width:590px; height:620px;display: none;overflow: hidden;position: fixed;z-index:9999;border-radius: 8px;box-shadow: 2px 2px 2px #ccc;">
+        <div class="titlebar t-window-header"><span id="dialogtkb_title" class="t-window-title">Biên soạn thời khoá
+                biểu</span>
+            <div id="dialogtkb_close" class="t-window-close-bg" name="close"><span class="t-window-close"></span></div>
+        </div>
+        <div class="t-window-body">
+            <div class="content" style="background: #3d7fe9;display: flex;align-items: center;">
+                <iframe id="frametkb" style="border: none;outline:none;margin-left: 5px;" src="" width="580px"
+                    height="620px"></iframe>
+            </div>
+            <div class="buttonpane" style="display: none;">
+                <div class="buttonset">
+                    <button class="tummo-btn btn-yellow" name="cancel">Thoát</button>
+                </div>
+            </div>
+        </div>
+        <div class="t-window-footer"></div>
+    </div>
+    </div>
+
+    <script type="module">
+        var dialogtkb;
+        dialogtkb = new DialogBox('dialogtkb', callbackDialog);
+
+        var phantrang = [{ id: 0, text: 'Trang 1', value: 0 }, { id: 1, text: 'Trang 2', value: 1 }, { id: 1, text: 'Trang 3', value: 2 }];
+
+        var _controls = [{ id: 'cbokhoatu', type: 'combobox', value: { onChange: f_sukien, style: 'yellow', width: 180, labelWidth: 60, label: 'Sự kiện', url: '/api/v3/?id=sukien' } }, { id: 'txtsearch', type: 'searchboxdrop', value: { onkeypress: f_search_item, onchange: f_changeSearch, label: 'Chọn trang', width: 160, url: '/data/combobox-icons.json' } }, { id: 'cbotemplate', type: 'combobox', value: { onChange: f_filtertemplate, style: 'yellow', width: 180, labelWidth: 80, label: 'Mẫu email', url: '/api/v3/?id=emailtemplate' } }, { id: 'btnpreview', type: 'button', value: { click: f_preview, style: 'yellow', width: 80, labelWidth: 0, text: 'Xem thử' } }];
+        var _control2 = [{ id: 'cbokieugui', type: 'combobox', value: { onChange: f_kieuemail, style: 'yellow', width: 180, labelWidth: 60, label: 'Kiểu gửi', url: '/api/v3/?id=kieumail' } }, { id: 'btnsendmail', type: 'button', value: { click: f_sendmail, style: 'yellow', width: 80, labelWidth: 0, text: 'Gửi mail tất cả' } }];
+
+        var _header = [{ text: 'Mã định danh', width: 100, align: 'center', ctype: 'text' }, { text: 'Tên Phật tử', ctype: 'text', width: 220, align: 'left' }, { text: 'Giới tính', ctype: 'text', width: 50, align: 'center' }, { ctype: 'text', text: 'Email', width: 120, align: 'left' }, { ctype: 'text', text: 'Tel', width: 120, align: 'left' }, { ctype: 'text', text: 'Ngày đăng ký', labelWidth: 50, width: 120, align: 'left' }, { ctype: 'text', text: 'Tin nhắn', width: 180, align: 'left' }, { ctype: 'text', text: 'Lưu trú', width: 140, labelWidth: 50, align: 'left' }];
+
+        var dmgrid;
+        var template;
+        var event;
+        var mailtype;
+
+        function callbackDialog(btnName) {
+            _showDialogButton.disabled = false;
+            _showDialogButton.focus();
+            if (btnName == 'close')
+                _statusDialog.textContent = 'Dialog hidden...';
+            else
+                _statusDialog.textContent = btnName + ' button clicked...';
+        }
+
+        function f_filtertemplate(value) {
+            template = '&template=' + value;
+        }
+
+        function f_kieuemail(id) {
+            mailtype = "&mailtype=" + id;
+        }
+
+        function f_sendmail() {
+            let _data = dmgrid.getRowsSelected();
+
+            if ((template == '') || (template == null)) {
+                alert('Vui lòng chọn mẫu email');
+                return;
+            }
+            if ((mailtype == '') || (mailtype == null)) {
+                alert('Vui lòng chọn kiểu email sẽ gửi');
+                return;
+            }
+            if ((event == '') || (event == null)) {
+                alert('Vui lòng chọn sự kiện để gửi');
+                return;
+            }
+
+            for (var i = 0; i < _data.length; i++) {
+                let _id = _data[i].id;
+                let url = '/quantri/render/?' + event + '&custommer=' + _id + template + '&status=sendmail' + mailtype;
+                fetchData(url, _id);
+            }
+
+        }
+
+        async function fetchData(url, id) {
+            const response = await fetch(url);
+            const rs = await response;
+            let ele = document.getElementById(id);
+            if (rs.status == 200) {     
+                           
+                ele.style.background = '#516AF0';                
+            } else {                
+                ele.style.background = '#F25C05';                
+                
+            }            
+        }
+
+        function f_sukien(value) {
+            event = 'id=' + value;
+            var url2 = '/api/v3/?id=sendmail&filter=' + value;
+            dmgrid.reload(url2);
+        }
+
+        function f_preview() {
+            ///quantri/render/?id=ma_dinhdanh&template=ma_template&khachhang=
+            let _id = '';
+            let _link = 'quantri/render/?';
+
+            let _r = dmgrid.getRowsSelected();
+            let makhach = _r[0].id;
+            _link = _link + event + template + '&custommer=' + makhach;
+
+            document.getElementById('dialogtkb_title').innerHTML = 'Xem trước mẫu email';
+            document.getElementById('frametkb').setAttribute('src', '/quantri/render/?' + event + '&custommer=' + makhach + template + "&status=preview");
+            dialogtkb.showDialog();
+        }
+
+        function hidewaiting() {
+            loading.hide();
+        }
+
+        function f_newrow() {
+            dmgrid.addrow();
+        }
+
+        function f_changeevent() {
+
+        }
+        function f_deleterow() {
+            var _data = { data: dmgrid.deleteRows() };
+            var j = JSON.stringify(_data);
+            b4j_raiseEvent('request_delete', { delete: j });
+        }
+
+        function _fTableChange(row, data) {
+
+        }
+
+        function FetchGrid(url) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                // Check if fetch request is done
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var jsonData = JSON.parse(xhr.responseText);
+                    var _listview = [{ rows: jsonData }];
+                    var url2 = '/api/v3/?id=sendmail';
+                    FetchGrid2(url2, _listview);
+                }
+            };
+            xhr.open("GET", url, true);
+            xhr.send();
+        }
+
+        var url = '/datatest.json';
+        FetchGrid(url);
+
+        function FetchGrid2(url, list) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                // Check if fetch request is done
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var _rows = JSON.parse(xhr.responseText);
+
+                    dmgrid = $('#thoikhoabieu').tummoDataGridView({
+                        width: 650,
+                        height: 250,
+                        header: header_event,
+                        controls: _controls,
+                        control2: _control2,
+                        data: null,
+                        url: '/api/v3/?id=sendmail',
+                        onChange: _fTableChange,
+                        afterEdit: null,
+                        listview: list,
+                        calendar: true,
+                        linerow: true,
+                        pagination: false,
+                        hascheckbox: true,
+                    });
+                }
+                ///api/v3/?id=sukien
+
+            };
+            xhr.open("GET", url, true);
+            xhr.send();
+        }
+
+        //$('#addnewrowx').tummoButton({text:'Demmo button', style: 'yellow', click: f_click}); 
+        //      $('#cbokhoatux').tummoCombobox({label:'Chọn sự kiện',width:220,labelWidth:90, ctype: 'combobox', url:'/datatest.json', text: 'Khoá tu', onChange: f_loadkhoatu });
+
+        function f_click() {
+            alert('Demmo button');
+        }
+
+        function _fEdited(id, data) {
+
+
+        }
+
+
+        function f_filterkhoatu(value) {
+            let key = 'ma_sukien';
+            let rs = dmgrid.filter(key, value);
+        }
+
+        function f_changeSearch(data) {
+            dmgrid.search(data.key, data.value, 'equals');
+
+        }
+
+        function f_search_item(key, value) {
+            if ((key == 'tenkhach') || (key == 'email')) {
+                dmgrid.search(key, value, 'startwith');
+            } else {
+                dmgrid.search(key, value, 'equals');
+            }
+
+        }
+
+        $(window).ready(function () {
+            $(document).ready(function () {
+                b4j_connect('wss://51.79.254.135:7676/ws/edit');
+
+            });
+
+        })
+    </script>
+</body>
+
+</html>

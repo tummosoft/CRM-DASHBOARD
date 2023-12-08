@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&family=Roboto:wght@300;400&display=swap"
+  rel="stylesheet">
+
+<body>
+  <style>
+    @font-face {
+      font-family: logo;
+      src: url(/assets/fonts/LARGEST-GENOME-DEMO-BF6443b75f422b3.ttf);
+    }
+    body {margin: 0;padding: 0; box-sizing: border-box;}
+    .tummo-header {
+      height: 50px;           
+      width: calc( 100% - 4px);
+      margin-left: 2px;    
+      background: #fff;
+      box-shadow: 	0px 3px 3px 0px rgba(0,0,0,0.12),
+		0px 3px 6px 0px rgba(0,0,0,0.22);
+    border:	1px solid rgba(0,0,0,0.03);
+
+      
+   
+    }
+
+    .brand-row {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+
+    .tummo-brand {
+      display: flex;
+      flex-direction: column;
+      height: 45px;
+      width: 50px;      
+      border: 2px solid #f86765;
+      align-items: center;
+      justify-content: center;      
+    }
+
+    .brand-text {
+      font-size: 26px;
+      height: 40px;
+      width: 40px;
+      font-family: logo;
+      color: #FE4B48;
+    }
+
+    .product-name {
+      display: flex;
+      flex-direction: column;            
+      align-items: last baseline;
+      justify-content: center;
+    }
+
+    .product-name #product {
+      font-size: 14px;
+      height: 20px;
+      color: var(--bg4);
+      font-family: 'Roboto';
+      font-weight: bold;
+      text-align: center;
+      width: 100%;
+    }
+
+    .product-name p {
+      font-size: 11px;
+      color: #fff;
+      font-family: 'Roboto';
+      text-align: center;
+    }    
+    .tummo-container {width:100%;height: 100%;}
+    .tummo-row {display: flex;flex-flow: row;padding: 0px 20px 0px 0px;}
+    .tummo-col {flex: 1;padding: 0px;width: 50%;height: 100%;}
+    .space-between {justify-content:space-around;}
+    .menu-right {display: flex;flex-direction: row;justify-content: end;list-style: none;}
+    .col12 {width: 100%;}
+    .col3 {width: calc(33.33% - 20px);height: 100%;}
+    .col9 {width: calc(75% - 20px);}
+    .col2 {width: calc(16.5% - 20px);}
+    .col4 {width: calc(45% - 5px);}
+    .col6 {width: calc(50% - 20px);}
+    .leftBar {    
+    width: 120px;
+    height: 360px;
+    background-color: var(--color6);
+    box-shadow: 	0px 3px 3px 0px rgba(145, 136, 136, 0.12),
+		0px 3px 6px 0px rgba(145, 142, 142, 0.22),
+		0px 5px 10px 0px rgba(0,0,0,0.2),
+		0px 8px 12px 1px rgba(0,0,0,0.19);
+border:	1px solid rgba(0,0,0,0.03);
+    z-index: 50010;
+    transition: .2s;
+    transition-property: left, width;    
+}
+.tummo-layout {
+  display: grid;  
+  grid-template-columns: 120px 1fr;
+}
+.leftbar-brand {list-style: none;display: flex;flex-direction: column;align-items: center;margin: 0;padding: 0;padding-top: 20px;}
+.leftbar-item {list-style: none;display: flex;flex-direction: column;align-items: center;margin: 0;padding: 0;padding-top: 20px;}
+.bar-item-menu {margin-bottom: 5px;}
+.main-layout {width: 100%;height: 100%;}
+.product-copyright {display: flex;flex-direction: row;align-items: center;}
+.img-top {width: 30px;height: 30px;}
+.product-by {color:var(--color3);font-family: 'Roboto Condensed';font-size: 14px;line-height: 50px; }
+.grid-container { display: grid;
+    grid-template-columns: 290px 1fr;  
+    grid-row-gap: 10px;
+    justify-items: stretch;
+    align-items: stretch;}
+.item-menu {color: #fff;font-family: 'Roboto Condensed';font-size: 13px;line-height: 30px;height:30px;display: flex;flex-direction: row;align-items: center;align-self: self-start;cursor: pointer;}
+.item-menu:hover {background: #2ed573;width: 100%;color:#6f41eb}
+.item-menu img {width: 20px;height: 20px;margin-right: 5px;}
+*:root {
+            --main-color: #4168eb;
+            --bg2: #5856D6;
+
+
+            --bg3: #085dc5;
+            --bg4: #48cbff;
+            --bg5: #d6f2ff;
+            --bg6: #eccc68;
+            --bg7: #ff7f50;
+            --bg8: #2ed573;
+            --bg9: #ffffff;
+            --color1: #fff;
+            --color7: #f2f3f5;
+            --color2: #0e315d;
+            --color3: #2b2b2b;
+            --color4: #202046;
+            --color5: #363779;
+            --color6: #2f3542;
+
+            --the-rainbow-fish-analogous-0: #4168eb;
+            --the-rainbow-fish-analogous-33: #6f41eb;
+            --the-rainbow-fish-analogous-66: #41bdeb;
+            --the-rainbow-fish-tetradic-0: #4168eb;
+            --the-rainbow-fish-tetradic-25: #c441eb;
+            --the-rainbow-fish-tetradic-50: #ebc441;
+            --the-rainbow-fish-tetradic-75: #68eb41;
+        }
+  </style>
+  <div class="tummo-layout">
+    <div id="leftbar" class="leftBar">
+        <ul class="leftbar-brand">
+          <li class="bar-item-menu">
+            <div class="tummo-brand">
+              <div class="brand-text">UM</div>
+              </div>
+          </li>
+          <li class="product-name">
+            <div id="product">jPress Admin</div>            
+          </li>         
+        </ul>
+        <ul class="leftbar-item">
+          <li class="item-menu">
+            <img src="/icons/banhxe.svg">Bài viết, sự kiện
+          </li>
+          <li class="item-menu">
+            <img src="/icons/banhxe.svg">Người đăng ký
+          </li>
+          <li class="item-menu">
+            <img src="/icons/banhxe.svg">Thời khoá biểu
+          </li>
+          <li class="item-menu">
+            <img src="/icons/banhxe.svg">Danh mục
+          </li>
+          <li class="item-menu">
+            <img src="/icons/banhxe.svg">Soạn mẫu email
+          </li>
+          <li class="item-menu">
+            <img src="/icons/banhxe.svg">Gửi email
+          </li>
+          <li class="item-menu">
+            <img src="/icons/banhxe.svg">Các vị giảng sư
+          </li>
+          <li class="item-menu">
+            <img src="/icons/banhxe.svg">Người dùng
+          </li>
+          <li class="item-menu">
+            <img src="/icons/banhxe.svg">Nhân sự
+          </li>
+        </ul>
+    </div>
+    <div class="tummo-container">
+      <header class="tummo-header">
+        <div class="tummo-row">
+          <div class="tummo-col">          
+              <div class="product-copyright">
+                <img class="img-top" src="/icons/menu4.svg">
+                <div class="product-by">Ứng dụng quản lý website - <b>jPress Admin</b> - <span style="font-size:12px;color: #6b6868;">Version 1.9.2023 (c) by Tummosoft</span></div>            
+              </div>           
+          </div>
+          <div class="tummo-col">
+            <ul class="menu-right">
+                <li>Bài viết, sự kiện</li>
+            </ul>
+          </div>
+        </div>  
+      </header>
+      <div class="grid-container" style="height: 100%;">
+               <div id="report">
+          <iframe style="width: 100%;height: 100%;border: none;outline: none;" src="/baocao.html"></iframe>
+          </div>
+          <div id="calendar" style="margin-top: 0px;">
+            <iframe style="width: 100%;height: 100%;border: none;outline: none;" src="/baocaocongtac.html"></iframe>
+          </div>
+      </d>
+    </div>
+  </div>
+  
+  <article>
+    
+      
+  </article>
+ 
+
+  <footer class="w3-container w3-teal">
+    <h5>Footer</h5>
+    <p>Footer information goes here</p>
+  </footer>
+ 
+  <script>
+    document.getElementById("leftbar").style.height = window.innerHeight + "px";
+  </script>
+</body>
+
+</html>

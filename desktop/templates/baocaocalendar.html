@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org" prefix="og: https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed:wght@400&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
+        integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+        <link href="/templates/css/tummoReportCalendar.css"
+        rel="stylesheet">
+        <script src="/templates/js/tummo.js" type="text/javascript"></script>
+    <script src="/b4j_ws.js" type="text/javascript"></script>
+    <script src="/templates/js/tummoReportCalendar.js" type="text/javascript"></script>
+    <style>
+        * {margin: 0;padding:0;box-sizing: border-box;}
+        body {            
+            margin: 0;
+            font-family: 'Roboto Condensed';
+        }
+
+       
+    </style>
+</head>
+
+<body>
+    <div id="baocaosukien">
+      
+    </div>
+
+    <script type="text/javascript">
+         var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            // Check if fetch request is done
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var _plan = JSON.parse(xhr.responseText);
+                  $('#baocaosukien').tummoReportCalendar({ plan: _plan });
+            }
+        };
+        xhr.open("GET", "/api/v3/?id=report&filter=onemonth", true);
+        xhr.send();
+        
+
+        // Lấy tất cả các phần tử có thuộc tính data-plan tương ứng
+
+    </script>
+</body>
+
+</html>

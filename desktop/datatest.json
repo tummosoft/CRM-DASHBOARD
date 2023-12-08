@@ -1,0 +1,48 @@
+   [{
+        "IsInitialized": true,
+        "id": "1",
+        "icon": "/images/hinhnhanvien/hinh1.jpg",
+        "value": "100-001",
+        "text": "Puṇḍarīka Bikkhu",
+        "hidenid": "100-001"
+    },
+    {
+        "IsInitialized": true,
+        "id": "2",
+        "icon": "/images/hinhnhanvien/hinh2.jpg",
+        "value": "100-002",
+        "text": "Setanivāsana Bikkhu",
+        "hidenid": "100-002"
+    },
+    {
+        "IsInitialized": true,
+        "id": "3",
+        "icon": "/images/hinhnhanvien/hinh3.jpg",
+        "value": "100-003",
+        "text": "Bodhuṇuti Bikkhu",
+        "hidenid": "100-003"
+    },
+    {
+        "IsInitialized": true,
+        "id": "4",
+        "icon": "/images/hinhnhanvien/hinh4.jpg",
+        "value": "100-004",
+        "text": "Amoha Bikkhu",
+        "hidenid": "100-004"
+    },
+    {
+        "IsInitialized": true,
+        "id": "5",
+        "icon": "/images/hinhnhanvien/hinh5.jpg",
+        "value": "100-005",
+        "text": "Paṇṇa Bikkhu",
+        "hidenid": "100-005"
+    },
+    {
+        "IsInitialized": true,
+        "id": "6",
+        "icon": "/images/hinhnhanvien/hinh6.jpg",
+        "value": "100-006",
+        "text": "Pabhāta Bikkhu",
+        "hidenid": "100-006"
+    }]

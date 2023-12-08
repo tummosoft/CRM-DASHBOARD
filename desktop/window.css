@@ -1,0 +1,117 @@
+/*
+ * Stylesheet for Draggable and Resizable Dialog Box
+ *
+ * Designed by ZulNs, @Gorontalo, Indonesia, 7 June 2017
+ * Extended by FrankBuchholz, Germany, 2019
+ * You can change all colors
+ * You can change some of the sizes without expecting issues, see below
+*/
+
+.dialog {
+	display: none; /* not visible by default */
+	font-family: Verdana, sans-serif;
+	font-size: 12px;
+	font-weight: 400;
+	margin: 0;
+	position: absolute;
+  border-radius: 8px;box-shadow: 2px 3px 4px #02020250;border: 1px solid #698BF9;
+}
+.dialog .titlebar {
+	height: 32px; /* same as .dialog>button height */
+	line-height: 32px; /* same as .dialog>button height */
+	vertical-align: middle;
+	font-size: 1.2em;	
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	cursor: move;
+	height: 30px;width: 100%;position: relative;background: #6b6b6d; background-image: linear-gradient(180deg, #4a70eeb7  30%, #4a70eebd 30%, #4a70eec0 40%);border-top-left-radius: 8px;border-top-right-radius: 8px;display: flex;flex-wrap: nowrap; justify-content: space-between;font-size: 13px;box-shadow: 1px -1px 1px #c7c7c7bd;
+}
+.t-window-close {width: 35px; height: 20px;background: url(/icons/close-btn.svg);background-size: 12px 12px; background-repeat: no-repeat;background-position: center center;}
+.dialog .content {
+	position: relative;	
+	margin: 0;
+	padding: 0;		
+}
+.dialog .buttonpane:before {
+	width: 100%;
+	height: 0;	
+	content: '';
+	position: absolute;
+	top: -16px; /* change allowed */
+}
+.dialog .buttonpane {
+	width: 100%;
+	position: absolute;
+	bottom: 16px; /* change allowed */
+	right: 16px; /* change NOT allowed */
+	white-space: nowrap; /* keep buttons on one line */
+}
+.dialog .buttonset {
+	float: right;
+}
+.dialog button {
+	-webkit-transition: 0.25s;
+	transition: 0.25s;
+	color: #fff;
+}
+.dialog button::-moz-focus-inner {
+	border: 0;
+}
+/* .dialog button.hover, */ /* Let's use standard hover */
+.dialog button:hover,
+.dialog button.active
+{
+	cursor: pointer;
+}
+.dialog>button {
+	width: 32px; /* change NOT allowed */
+	height: 32px; /* same as .dialog .titlebar height */
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 0;
+	border: 0;
+	font-size: 1.4em;
+	background: #fa0;
+}
+/* .dialog>button.hover, */
+.dialog>button:hover,
+.dialog>button.focus
+{
+	box-shadow: inset -16px 0 0 0 #e80, inset 16px 0 0 0 #e80;
+}
+.dialog>button.active {
+	background: #f55; /* irrelevant */
+	border: 1px solid #ddd; /* irrelevant */
+}
+.dialog .buttonset button {
+	height: 30px;
+    line-height: 30px;
+    width: fit-content;
+    padding-left: 3px;
+    padding-right: 10px;
+    cursor: pointer;
+    padding: 0px 10px;
+    overflow: hidden;
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+	border: none;
+	color: #141E46;
+    background: #FFD991;
+    background-image: linear-gradient(180deg, #ffbe45b7 30%, #FFBE45 40%, #ffbe459d 30%);
+}
+.dialog .buttonset button:first-child {
+	margin-left: 0;
+}
+/* .dialog .buttonset button.hover, */
+.dialog .buttonset button:hover,
+.dialog .buttonset button.focus
+{
+	box-shadow: inset 50% 50% 50% 50% rgb(236, 205, 143);
+}
+.dialog .buttonset button.active {
+	background: #f55; /* irrelevant */
+	
+}

@@ -1,0 +1,1674 @@
+[
+    {
+        "IsInitialized": true,
+        "id": "10",
+        "category": "publish",
+        "items": [
+            {
+                "IsInitialized": true,
+                "ctype": "number",
+                "id": "row_00",
+                "name": "id",
+                "text": "10",
+                "value": "10",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_01",
+                "name": "title",
+                "text": "TRÙNG TỤNG TAM TẠNG 2023 – THIỀN VIỆN PHƯỚC SƠN",
+                "value": "TRÙNG TỤNG TAM TẠNG 2023 – THIỀN VIỆN PHƯỚC SƠN",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_02",
+                "name": "creator",
+                "text": "Admin",
+                "value": "Admin",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_03",
+                "name": "description",
+                "text": "Ngài Đại Trưởng Lão Mahākassapa tổ chức kỳ kết tập Tam Tạng và Chú giải Pāḷi lần thứ nhất, sau khi Đức Phật tịch diệt Niết Bàn được 3 tháng 4 ngày (nhằm vào ngày mùng 4 tháng 7 âm lịch, trong mùa an cư nhập hạ) tại động Sattapaṇṇi gần thành Rājagaha xứ Māgaddha.",
+                "value": "Ngài Đại Trưởng Lão Mahākassapa tổ chức kỳ kết tập Tam Tạng và Chú giải Pāḷi lần thứ nhất, sau khi Đức Phật tịch diệt Niết Bàn được 3 tháng 4 ngày (nhằm vào ngày mùng 4 tháng 7 âm lịch, trong mùa an cư nhập hạ) tại động Sattapaṇṇi gần thành Rājagaha xứ Māgaddha.",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_04",
+                "name": "thumbnail",
+                "text": "/assets/baiviet/h1.jpg",
+                "value": "/assets/baiviet/h1.jpg",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_05",
+                "name": "category",
+                "text": "sự kiện bên ngoài",
+                "value": "sự kiện bên ngoài",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_06",
+                "name": "view",
+                "text": "14",
+                "value": "14",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_07",
+                "name": "share",
+                "text": "0",
+                "value": "0",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_08",
+                "name": "status",
+                "text": "publish",
+                "value": "publish",
+                "hidenid": ""
+            }
+        ]
+    },
+    {
+        "IsInitialized": true,
+        "id": "12",
+        "category": "publish",
+        "items": [
+            {
+                "IsInitialized": true,
+                "ctype": "number",
+                "id": "row_00",
+                "name": "id",
+                "text": "12",
+                "value": "12",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_01",
+                "name": "title",
+                "text": "Kinh Pháp Cú Số 007 – Bài Giảng Sư Toại Khanh Paltalk 2019",
+                "value": "Kinh Pháp Cú Số 007 – Bài Giảng Sư Toại Khanh Paltalk 2019",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_02",
+                "name": "creator",
+                "text": "Admin",
+                "value": "Admin",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_03",
+                "name": "description",
+                "text": "Bài Giảng Sư Toại Khanh Paltalk 2019",
+                "value": "Bài Giảng Sư Toại Khanh Paltalk 2019",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_04",
+                "name": "thumbnail",
+                "text": "/assets/baiviet/h1.jpg",
+                "value": "/assets/baiviet/h1.jpg",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_05",
+                "name": "category",
+                "text": "phật pháp cho người bắt đầu",
+                "value": "phật pháp cho người bắt đầu",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_06",
+                "name": "view",
+                "text": "0",
+                "value": "0",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_07",
+                "name": "share",
+                "text": "0",
+                "value": "0",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_08",
+                "name": "status",
+                "text": "publish",
+                "value": "publish",
+                "hidenid": ""
+            }
+        ]
+    },
+    {
+        "IsInitialized": true,
+        "id": "13",
+        "category": "publish",
+        "items": [
+            {
+                "IsInitialized": true,
+                "ctype": "number",
+                "id": "row_00",
+                "name": "id",
+                "text": "13",
+                "value": "13",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_01",
+                "name": "title",
+                "text": "An Giang: Hội thảo Bảo tồn và phát huy giá trị văn hóa phi vật thể kinh lá buông tại chùa Sà-Lôn",
+                "value": "An Giang: Hội thảo Bảo tồn và phát huy giá trị văn hóa phi vật thể kinh lá buông tại chùa Sà-Lôn",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_02",
+                "name": "creator",
+                "text": "Admin",
+                "value": "Admin",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_03",
+                "name": "description",
+                "text": "Chiều ngày 19/03/2023, khoá tu Tuổi trẻ hướng Phật lại được diễn ra tại chùa Giác Ngộ (quận 10, TP.HCM) thu hút hơn 600 hành giả trẻ tham dự. Khoá tu là một cơ hội lành để các hành giả trẻ có thời gian trải nghiệm đời sống tỉnh thức thông qua hành trì các thời khoá cố định. Đến với khoá tu còn là đến với những phút giây nhiệm mầu, quay về nương tựa tự thân, thắp sáng ngọn đuốc nội tại, vững bước đi trên hành trình tầm cầu chân lý giải thoát cao siêu với sự trợ lực của Tăng đoàn và tứ chúng đồng từ dưới mái già lam Giác Ngộ.",
+                "value": "Chiều ngày 19/03/2023, khoá tu Tuổi trẻ hướng Phật lại được diễn ra tại chùa Giác Ngộ (quận 10, TP.HCM) thu hút hơn 600 hành giả trẻ tham dự. Khoá tu là một cơ hội lành để các hành giả trẻ có thời gian trải nghiệm đời sống tỉnh thức thông qua hành trì các thời khoá cố định. Đến với khoá tu còn là đến với những phút giây nhiệm mầu, quay về nương tựa tự thân, thắp sáng ngọn đuốc nội tại, vững bước đi trên hành trình tầm cầu chân lý giải thoát cao siêu với sự trợ lực của Tăng đoàn và tứ chúng đồng từ dưới mái già lam Giác Ngộ.",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_04",
+                "name": "thumbnail",
+                "text": "/assets/baiviet/h1.jpg",
+                "value": "/assets/baiviet/h1.jpg",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_05",
+                "name": "category",
+                "text": "khoá thiền;sự kiện bên ngoài",
+                "value": "khoá thiền;sự kiện bên ngoài",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_06",
+                "name": "view",
+                "text": "3",
+                "value": "3",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_07",
+                "name": "share",
+                "text": "0",
+                "value": "0",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_08",
+                "name": "status",
+                "text": "publish",
+                "value": "publish",
+                "hidenid": ""
+            }
+        ]
+    },
+    {
+        "IsInitialized": true,
+        "id": "14",
+        "category": "publish",
+        "items": [
+            {
+                "IsInitialized": true,
+                "ctype": "number",
+                "id": "row_00",
+                "name": "id",
+                "text": "14",
+                "value": "14",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_01",
+                "name": "title",
+                "text": "Long An: Phân ban TTXH PGNTK TƯ hỗ trợ kinh phí xây dựng tuyến đường ánh sáng tại xã Mỹ Thạnh Bắc",
+                "value": "Long An: Phân ban TTXH PGNTK TƯ hỗ trợ kinh phí xây dựng tuyến đường ánh sáng tại xã Mỹ Thạnh Bắc",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_02",
+                "name": "creator",
+                "text": "Admin",
+                "value": "Admin",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_03",
+                "name": "description",
+                "text": "áng ngày 04/05/2023, phái đoàn đại diện Phân ban TTXH PGNTK TƯ đã đến UBND xã Mỹ Thạnh Bắc (huyện Đức Huệ, tỉnh Long An) để trao kinh phí hỗ trợ cho xã xây dựng tuyến đường ánh sáng trên trục đường ĐT 838.",
+                "value": "áng ngày 04/05/2023, phái đoàn đại diện Phân ban TTXH PGNTK TƯ đã đến UBND xã Mỹ Thạnh Bắc (huyện Đức Huệ, tỉnh Long An) để trao kinh phí hỗ trợ cho xã xây dựng tuyến đường ánh sáng trên trục đường ĐT 838.",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_04",
+                "name": "thumbnail",
+                "text": "/assets/baiviet/h1.jpg",
+                "value": "/assets/baiviet/h1.jpg",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_05",
+                "name": "category",
+                "text": "sự kiện bên ngoài",
+                "value": "sự kiện bên ngoài",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_06",
+                "name": "view",
+                "text": "0",
+                "value": "0",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_07",
+                "name": "share",
+                "text": "0",
+                "value": "0",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_08",
+                "name": "status",
+                "text": "publish",
+                "value": "publish",
+                "hidenid": ""
+            }
+        ]
+    },
+    {
+        "IsInitialized": true,
+        "id": "15",
+        "category": "publish",
+        "items": [
+            {
+                "IsInitialized": true,
+                "ctype": "number",
+                "id": "row_00",
+                "name": "id",
+                "text": "15",
+                "value": "15",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_01",
+                "name": "title",
+                "text": "Ra mắt sách “Chùa Nam Tông người Việt” nhân dịp khánh tuế Hòa thượng Thích Bửu Chánh",
+                "value": "Ra mắt sách “Chùa Nam Tông người Việt” nhân dịp khánh tuế Hòa thượng Thích Bửu Chánh",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_02",
+                "name": "creator",
+                "text": "Admin",
+                "value": "Admin",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_03",
+                "name": "description",
+                "text": "Phật giáo Nguyên Thủy- Ngày 17/4/2023, tại Thiền viện Phước Sơn (Tp Biên Hòa tỉnh Đồng Nai), nhân dịp lễ Khánh tuế lần thứ 65 Hòa thượng Thích Bửu Chánh viện chủ Thiền viện Phước Sơn đã tổ chức ra mắt tác phẩm “Chùa Nam Tông người Việt” (Nhà xuất bản Hồng Đức) của nhiếp ảnh gia Võ Văn Tường phối hợp cùng Hòa thượng Thích Bửu Chánh.",
+                "value": "Phật giáo Nguyên Thủy- Ngày 17/4/2023, tại Thiền viện Phước Sơn (Tp Biên Hòa tỉnh Đồng Nai), nhân dịp lễ Khánh tuế lần thứ 65 Hòa thượng Thích Bửu Chánh viện chủ Thiền viện Phước Sơn đã tổ chức ra mắt tác phẩm “Chùa Nam Tông người Việt” (Nhà xuất bản Hồng Đức) của nhiếp ảnh gia Võ Văn Tường phối hợp cùng Hòa thượng Thích Bửu Chánh.",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_04",
+                "name": "thumbnail",
+                "text": "/assets/baiviet/h1.jpg",
+                "value": "/assets/baiviet/h1.jpg",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_05",
+                "name": "category",
+                "text": "bài giảng của thượng toạ thích bửu chánh",
+                "value": "bài giảng của thượng toạ thích bửu chánh",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_06",
+                "name": "view",
+                "text": "0",
+                "value": "0",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_07",
+                "name": "share",
+                "text": "0",
+                "value": "0",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_08",
+                "name": "status",
+                "text": "publish",
+                "value": "publish",
+                "hidenid": ""
+            }
+        ]
+    },
+    {
+        "IsInitialized": true,
+        "id": "17",
+        "category": "publish",
+        "items": [
+            {
+                "IsInitialized": true,
+                "ctype": "number",
+                "id": "row_00",
+                "name": "id",
+                "text": "17",
+                "value": "17",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_01",
+                "name": "title",
+                "text": "Bài giảng - Pháp thực tính",
+                "value": "Bài giảng - Pháp thực tính",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_02",
+                "name": "creator",
+                "text": "Admin",
+                "value": "Admin",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_03",
+                "name": "description",
+                "text": "Bài giảng về Trạng thái và tứ ý nghĩa của tâm, sở hữu, sắc pháp do Tỳ khưu Giác Tuệ giảng trên room Phật giáo nguyên thủy qua mạng Paltalk năm 2009",
+                "value": "Bài giảng về Trạng thái và tứ ý nghĩa của tâm, sở hữu, sắc pháp do Tỳ khưu Giác Tuệ giảng trên room Phật giáo nguyên thủy qua mạng Paltalk năm 2009",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_04",
+                "name": "thumbnail",
+                "text": "/assets/baiviet/h1.jpg",
+                "value": "/assets/baiviet/h1.jpg",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_05",
+                "name": "category",
+                "text": "bài giảng của chư vị giáo thọ khác",
+                "value": "bài giảng của chư vị giáo thọ khác",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_06",
+                "name": "view",
+                "text": "6",
+                "value": "6",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_07",
+                "name": "share",
+                "text": "0",
+                "value": "0",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_08",
+                "name": "status",
+                "text": "publish",
+                "value": "publish",
+                "hidenid": ""
+            }
+        ]
+    },
+    {
+        "IsInitialized": true,
+        "id": "18",
+        "category": "publish",
+        "items": [
+            {
+                "IsInitialized": true,
+                "ctype": "number",
+                "id": "row_00",
+                "name": "id",
+                "text": "18",
+                "value": "18",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_01",
+                "name": "title",
+                "text": "Nội quy chung của khoá thiền",
+                "value": "Nội quy chung của khoá thiền",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_02",
+                "name": "creator",
+                "text": "Admin",
+                "value": "Admin",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_03",
+                "name": "description",
+                "text": "Thiền sinh nghiêm túc thực hiện nội quy của khoá thiền",
+                "value": "Thiền sinh nghiêm túc thực hiện nội quy của khoá thiền",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_04",
+                "name": "thumbnail",
+                "text": "/assets/baiviet/h1.jpg",
+                "value": "/assets/baiviet/h1.jpg",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_05",
+                "name": "category",
+                "text": "khoá thiền;nội quy khoá tu",
+                "value": "khoá thiền;nội quy khoá tu",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_06",
+                "name": "view",
+                "text": "5",
+                "value": "5",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_07",
+                "name": "share",
+                "text": "0",
+                "value": "0",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_08",
+                "name": "status",
+                "text": "publish",
+                "value": "publish",
+                "hidenid": ""
+            }
+        ]
+    },
+    {
+        "IsInitialized": true,
+        "id": "19",
+        "category": "publish",
+        "items": [
+            {
+                "IsInitialized": true,
+                "ctype": "number",
+                "id": "row_00",
+                "name": "id",
+                "text": "19",
+                "value": "19",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_01",
+                "name": "title",
+                "text": "HT. Thích Bửu Chánh (giảng tại Chùa An Lạc)",
+                "value": "HT. Thích Bửu Chánh (giảng tại Chùa An Lạc)",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_02",
+                "name": "creator",
+                "text": "Admin",
+                "value": "Admin",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_03",
+                "name": "description",
+                "text": "HT. Thích Bửu Chánh",
+                "value": "HT. Thích Bửu Chánh",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_04",
+                "name": "thumbnail",
+                "text": "/assets/baiviet/h1.jpg",
+                "value": "/assets/baiviet/h1.jpg",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_05",
+                "name": "category",
+                "text": "khoá thiền;bài giảng của thượng toạ thích bửu chánh",
+                "value": "khoá thiền;bài giảng của thượng toạ thích bửu chánh",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_06",
+                "name": "view",
+                "text": "5",
+                "value": "5",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_07",
+                "name": "share",
+                "text": "0",
+                "value": "0",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_08",
+                "name": "status",
+                "text": "publish",
+                "value": "publish",
+                "hidenid": ""
+            }
+        ]
+    },
+    {
+        "IsInitialized": true,
+        "id": "20",
+        "category": "publish",
+        "items": [
+            {
+                "IsInitialized": true,
+                "ctype": "number",
+                "id": "row_00",
+                "name": "id",
+                "text": "20",
+                "value": "20",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_01",
+                "name": "title",
+                "text": "Chia Sẻ Kinh Nghiệm Thiền Quán (Phần 1) - Thiền Sư Kim Triệu - Khippapañño",
+                "value": "Chia Sẻ Kinh Nghiệm Thiền Quán (Phần 1) - Thiền Sư Kim Triệu - Khippapañño",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_02",
+                "name": "creator",
+                "text": "Admin",
+                "value": "Admin",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_03",
+                "name": "description",
+                "text": "Thiền Sư Kim Triệu - Khippapañño",
+                "value": "Thiền Sư Kim Triệu - Khippapañño",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_04",
+                "name": "thumbnail",
+                "text": "/assets/baiviet/h1.jpg",
+                "value": "/assets/baiviet/h1.jpg",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_05",
+                "name": "category",
+                "text": "bài giảng của chư vị giáo thọ khác",
+                "value": "bài giảng của chư vị giáo thọ khác",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_06",
+                "name": "view",
+                "text": "0",
+                "value": "0",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_07",
+                "name": "share",
+                "text": "0",
+                "value": "0",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_08",
+                "name": "status",
+                "text": "publish",
+                "value": "publish",
+                "hidenid": ""
+            }
+        ]
+    },
+    {
+        "IsInitialized": true,
+        "id": "21",
+        "category": "publish",
+        "items": [
+            {
+                "IsInitialized": true,
+                "ctype": "number",
+                "id": "row_00",
+                "name": "id",
+                "text": "21",
+                "value": "21",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_01",
+                "name": "title",
+                "text": "Cách di chuyển đến Thiền viện Phước Sơn",
+                "value": "Cách di chuyển đến Thiền viện Phước Sơn",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_02",
+                "name": "creator",
+                "text": "Admin",
+                "value": "Admin",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_03",
+                "name": "description",
+                "text": "Cách di chuyển đến Thiền viện Phước Sơn",
+                "value": "Cách di chuyển đến Thiền viện Phước Sơn",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_04",
+                "name": "thumbnail",
+                "text": "/assets/baiviet/h1.jpg",
+                "value": "/assets/baiviet/h1.jpg",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_05",
+                "name": "category",
+                "text": "khoá thiền;nội quy khoá tu",
+                "value": "khoá thiền;nội quy khoá tu",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_06",
+                "name": "view",
+                "text": "7",
+                "value": "7",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_07",
+                "name": "share",
+                "text": "0",
+                "value": "0",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_08",
+                "name": "status",
+                "text": "publish",
+                "value": "publish",
+                "hidenid": ""
+            }
+        ]
+    },
+    {
+        "IsInitialized": true,
+        "id": "22",
+        "category": "publish",
+        "items": [
+            {
+                "IsInitialized": true,
+                "ctype": "number",
+                "id": "row_00",
+                "name": "id",
+                "text": "22",
+                "value": "22",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_01",
+                "name": "title",
+                "text": "HẠNH PHÚC TÂM BÌNH AN – THIỀN SƯ DĪPAṄKARA THERĪ",
+                "value": "HẠNH PHÚC TÂM BÌNH AN – THIỀN SƯ DĪPAṄKARA THERĪ",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_02",
+                "name": "creator",
+                "text": "Admin",
+                "value": "Admin",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_03",
+                "name": "description",
+                "text": "Quyển sách này tập hợp những bài pháp thoại của Thiền sư chúng ta, Sayalay Dīpaṅkara tôn kính. Qua nhiều năm chúng tôi tập hợp những bài giảng Pháp Dhamma của Thiền sư bằng băng ghi âm, Sayalay hiếm khi cho phép phát hành những ghi âm cũng như hình ảnh của mình đến công chúng. Sự khiêm cung trong giảng dạy và nói tiếng Anh là lý do chính cho ‘sự không chia sẻ’ này mặc dù bất cứ học trò nào cũng đều biết rõ tận đáy lòng rằng, Thiền sư luôn giảng dạy hết mình trong mỗi bài giảng và mỗi khóa thiền.",
+                "value": "Quyển sách này tập hợp những bài pháp thoại của Thiền sư chúng ta, Sayalay Dīpaṅkara tôn kính. Qua nhiều năm chúng tôi tập hợp những bài giảng Pháp Dhamma của Thiền sư bằng băng ghi âm, Sayalay hiếm khi cho phép phát hành những ghi âm cũng như hình ảnh của mình đến công chúng. Sự khiêm cung trong giảng dạy và nói tiếng Anh là lý do chính cho ‘sự không chia sẻ’ này mặc dù bất cứ học trò nào cũng đều biết rõ tận đáy lòng rằng, Thiền sư luôn giảng dạy hết mình trong mỗi bài giảng và mỗi khóa thiền.",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_04",
+                "name": "thumbnail",
+                "text": "/assets/baiviet/h1.jpg",
+                "value": "/assets/baiviet/h1.jpg",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_05",
+                "name": "category",
+                "text": "kinh sách, tài liệu",
+                "value": "kinh sách, tài liệu",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_06",
+                "name": "view",
+                "text": "0",
+                "value": "0",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_07",
+                "name": "share",
+                "text": "0",
+                "value": "0",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_08",
+                "name": "status",
+                "text": "publish",
+                "value": "publish",
+                "hidenid": ""
+            }
+        ]
+    },
+    {
+        "IsInitialized": true,
+        "id": "25",
+        "category": "publish",
+        "items": [
+            {
+                "IsInitialized": true,
+                "ctype": "number",
+                "id": "row_00",
+                "name": "id",
+                "text": "25",
+                "value": "25",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_01",
+                "name": "title",
+                "text": "Bức Tượng Sáp Và Con Bọ Chét",
+                "value": "Bức Tượng Sáp Và Con Bọ Chét",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_02",
+                "name": "creator",
+                "text": "Admin",
+                "value": "Admin",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_03",
+                "name": "description",
+                "text": "Có một vị sư tu hành tên là Thạch Minh. Ông là một người có tâm hồn thanh tịnh và sáng suốt. Trải qua nhiều năm tu hành, ông đã trở thành một người nổi tiếng với những bài giảng đầy sức sống và sự giản đơn.",
+                "value": "Có một vị sư tu hành tên là Thạch Minh. Ông là một người có tâm hồn thanh tịnh và sáng suốt. Trải qua nhiều năm tu hành, ông đã trở thành một người nổi tiếng với những bài giảng đầy sức sống và sự giản đơn.",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_04",
+                "name": "thumbnail",
+                "text": "/assets/baiviet/ffhw0msm9p.jpeg",
+                "value": "/assets/baiviet/ffhw0msm9p.jpeg",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_05",
+                "name": "category",
+                "text": "tin tức",
+                "value": "tin tức",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_06",
+                "name": "view",
+                "text": "30",
+                "value": "30",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_07",
+                "name": "share",
+                "text": "0",
+                "value": "0",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_08",
+                "name": "status",
+                "text": "publish",
+                "value": "publish",
+                "hidenid": ""
+            }
+        ]
+    },
+    {
+        "IsInitialized": true,
+        "id": "26",
+        "category": "publish",
+        "items": [
+            {
+                "IsInitialized": true,
+                "ctype": "number",
+                "id": "row_00",
+                "name": "id",
+                "text": "26",
+                "value": "26",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_01",
+                "name": "title",
+                "text": "Chỉ Một Con Đường Là Tứ Niệm Xứ (Satipatthàna)",
+                "value": "Chỉ Một Con Đường Là Tứ Niệm Xứ (Satipatthàna)",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_02",
+                "name": "creator",
+                "text": "Admin",
+                "value": "Admin",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_03",
+                "name": "description",
+                "text": "Này các Tỷ kheo, đây là con đường độc nhất, đưa đến thanh tịnh cho chúng sanh, vượt khỏi sầu bi, diệt trừ khổ ưu, thành tựu chánh trí, chứng ngộ Niết bàn. Ðó là Bốn niệm xứ",
+                "value": "Này các Tỷ kheo, đây là con đường độc nhất, đưa đến thanh tịnh cho chúng sanh, vượt khỏi sầu bi, diệt trừ khổ ưu, thành tựu chánh trí, chứng ngộ Niết bàn. Ðó là Bốn niệm xứ",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_04",
+                "name": "thumbnail",
+                "text": "/assets/baiviet/83d1pg4iyp.jpeg",
+                "value": "/assets/baiviet/83d1pg4iyp.jpeg",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_05",
+                "name": "category",
+                "text": "tin tức",
+                "value": "tin tức",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_06",
+                "name": "view",
+                "text": "51",
+                "value": "51",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_07",
+                "name": "share",
+                "text": "1",
+                "value": "1",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_08",
+                "name": "status",
+                "text": "publish",
+                "value": "publish",
+                "hidenid": ""
+            }
+        ]
+    },
+    {
+        "IsInitialized": true,
+        "id": "27",
+        "category": "publish",
+        "items": [
+            {
+                "IsInitialized": true,
+                "ctype": "number",
+                "id": "row_00",
+                "name": "id",
+                "text": "27",
+                "value": "27",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_01",
+                "name": "title",
+                "text": "Ý Nghĩa Bồ Tát Tất Đạt Đa (Siddhattha) Đản Sinh Bước Đi 7 Bước",
+                "value": "Ý Nghĩa Bồ Tát Tất Đạt Đa (Siddhattha) Đản Sinh Bước Đi 7 Bước",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_02",
+                "name": "creator",
+                "text": "Admin",
+                "value": "Admin",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_03",
+                "name": "description",
+                "text": "Khi Bậc Đại sĩ an trú trong thai bào, Tứ Đại vương canh giữ bốn phương nơi Hoàng hậu Māyā trú ngụ, với ý nghĩ “không cho một ai, người hay phi nhân làm hại đấng Đại sĩ”",
+                "value": "Khi Bậc Đại sĩ an trú trong thai bào, Tứ Đại vương canh giữ bốn phương nơi Hoàng hậu Māyā trú ngụ, với ý nghĩ “không cho một ai, người hay phi nhân làm hại đấng Đại sĩ”",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_04",
+                "name": "thumbnail",
+                "text": "/assets/baiviet/shsxora7wr.webp",
+                "value": "/assets/baiviet/shsxora7wr.webp",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_05",
+                "name": "category",
+                "text": "tin tức",
+                "value": "tin tức",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_06",
+                "name": "view",
+                "text": "28",
+                "value": "28",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_07",
+                "name": "share",
+                "text": "0",
+                "value": "0",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_08",
+                "name": "status",
+                "text": "publish",
+                "value": "publish",
+                "hidenid": ""
+            }
+        ]
+    },
+    {
+        "IsInitialized": true,
+        "id": "28",
+        "category": "publish",
+        "items": [
+            {
+                "IsInitialized": true,
+                "ctype": "number",
+                "id": "row_00",
+                "name": "id",
+                "text": "28",
+                "value": "28",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_01",
+                "name": "title",
+                "text": "Bốn loại thức ăn của loài hữu tình",
+                "value": "Bốn loại thức ăn của loài hữu tình",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_02",
+                "name": "creator",
+                "text": "Admin",
+                "value": "Admin",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_03",
+                "name": "description",
+                "text": "Này các Tỷ-kheo, có bốn loại đồ ăn này đưa đến sự tồn tại, hay sự chấp thủ tái sanh cho các loài hữu tình hay chúng sanh",
+                "value": "Này các Tỷ-kheo, có bốn loại đồ ăn này đưa đến sự tồn tại, hay sự chấp thủ tái sanh cho các loài hữu tình hay chúng sanh",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_04",
+                "name": "thumbnail",
+                "text": "/assets/baiviet/1dt981v60f.webp",
+                "value": "/assets/baiviet/1dt981v60f.webp",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_05",
+                "name": "category",
+                "text": "tin tức",
+                "value": "tin tức",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_06",
+                "name": "view",
+                "text": "23",
+                "value": "23",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_07",
+                "name": "share",
+                "text": "0",
+                "value": "0",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_08",
+                "name": "status",
+                "text": "publish",
+                "value": "publish",
+                "hidenid": ""
+            }
+        ]
+    },
+    {
+        "IsInitialized": true,
+        "id": "29",
+        "category": "publish",
+        "items": [
+            {
+                "IsInitialized": true,
+                "ctype": "number",
+                "id": "row_00",
+                "name": "id",
+                "text": "29",
+                "value": "29",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_01",
+                "name": "title",
+                "text": "Cảm Giác Dễ Chịu Và Những Suy Nghĩ Bất Thiện",
+                "value": "Cảm Giác Dễ Chịu Và Những Suy Nghĩ Bất Thiện",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_02",
+                "name": "creator",
+                "text": "Admin",
+                "value": "Admin",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_03",
+                "name": "description",
+                "text": "Những cảm giác dễ chịu dẫn đến những suy nghĩ bất thiện đều bắt nguồn từ những cảm giác. Hầu hết mọi người đều bận tâm với những thứ như tình dục và thức ăn. ",
+                "value": "Những cảm giác dễ chịu dẫn đến những suy nghĩ bất thiện đều bắt nguồn từ những cảm giác. Hầu hết mọi người đều bận tâm với những thứ như tình dục và thức ăn. ",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_04",
+                "name": "thumbnail",
+                "text": "/assets/baiviet/7xsro1jm1t.webp",
+                "value": "/assets/baiviet/7xsro1jm1t.webp",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_05",
+                "name": "category",
+                "text": "tin tức",
+                "value": "tin tức",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_06",
+                "name": "view",
+                "text": "33",
+                "value": "33",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_07",
+                "name": "share",
+                "text": "0",
+                "value": "0",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_08",
+                "name": "status",
+                "text": "publish",
+                "value": "publish",
+                "hidenid": ""
+            }
+        ]
+    },
+    {
+        "IsInitialized": true,
+        "id": "30",
+        "category": "publish",
+        "items": [
+            {
+                "IsInitialized": true,
+                "ctype": "number",
+                "id": "row_00",
+                "name": "id",
+                "text": "30",
+                "value": "30",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_01",
+                "name": "title",
+                "text": "Lịch sử Phật giáo Nam Tông Việt Nam",
+                "value": "Lịch sử Phật giáo Nam Tông Việt Nam",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_02",
+                "name": "creator",
+                "text": "Admin",
+                "value": "Admin",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_03",
+                "name": "description",
+                "text": "Phật giáo nguyên thuỷ- Nam tông (Theravada) có bề dày lịch sử rất lâu đời, sự truyền thừa được các sử gia thừa nhận là không bị gián đoạn.",
+                "value": "Phật giáo nguyên thuỷ- Nam tông (Theravada) có bề dày lịch sử rất lâu đời, sự truyền thừa được các sử gia thừa nhận là không bị gián đoạn.",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_04",
+                "name": "thumbnail",
+                "text": "/assets/baiviet/izyhk82do4.webp",
+                "value": "/assets/baiviet/izyhk82do4.webp",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_05",
+                "name": "category",
+                "text": "tin tức",
+                "value": "tin tức",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_06",
+                "name": "view",
+                "text": "25",
+                "value": "25",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_07",
+                "name": "share",
+                "text": "0",
+                "value": "0",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_08",
+                "name": "status",
+                "text": "publish",
+                "value": "publish",
+                "hidenid": ""
+            }
+        ]
+    },
+    {
+        "IsInitialized": true,
+        "id": "31",
+        "category": "publish",
+        "items": [
+            {
+                "IsInitialized": true,
+                "ctype": "number",
+                "id": "row_00",
+                "name": "id",
+                "text": "31",
+                "value": "31",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_01",
+                "name": "title",
+                "text": "Tánh biết có không?!",
+                "value": "Tánh biết có không?!",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_02",
+                "name": "creator",
+                "text": "Admin",
+                "value": "Admin",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_03",
+                "name": "description",
+                "text": "Tất cả những đoạn trích sau đây đều từ “ Cuộc Tranh luận của Vua Milinda ” ",
+                "value": "Tất cả những đoạn trích sau đây đều từ “ Cuộc Tranh luận của Vua Milinda ” ",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_04",
+                "name": "thumbnail",
+                "text": "/assets/baiviet/ibhfsomqze.webp",
+                "value": "/assets/baiviet/ibhfsomqze.webp",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_05",
+                "name": "category",
+                "text": "phật pháp căn bản",
+                "value": "phật pháp căn bản",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_06",
+                "name": "view",
+                "text": "20",
+                "value": "20",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_07",
+                "name": "share",
+                "text": "0",
+                "value": "0",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_08",
+                "name": "status",
+                "text": "publish",
+                "value": "publish",
+                "hidenid": ""
+            }
+        ]
+    },
+    {
+        "IsInitialized": true,
+        "id": "32",
+        "category": "publish",
+        "items": [
+            {
+                "IsInitialized": true,
+                "ctype": "number",
+                "id": "row_00",
+                "name": "id",
+                "text": "32",
+                "value": "32",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_01",
+                "name": "title",
+                "text": "Đức Phật và Công Chúa Yasodhara (Da Du Đà La)",
+                "value": "Đức Phật và Công Chúa Yasodhara (Da Du Đà La)",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_02",
+                "name": "creator",
+                "text": "Admin",
+                "value": "Admin",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_03",
+                "name": "description",
+                "text": "Công Chúa Yasodhara (Da Du Đà La), thường được gọi là Rahulamata, hay Bimba, hay Bhaddakaccana, là con của vua Suppabuddha",
+                "value": "Công Chúa Yasodhara (Da Du Đà La), thường được gọi là Rahulamata, hay Bimba, hay Bhaddakaccana, là con của vua Suppabuddha",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_04",
+                "name": "thumbnail",
+                "text": "/assets/baiviet/401nfp6fgk.webp",
+                "value": "/assets/baiviet/401nfp6fgk.webp",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_05",
+                "name": "category",
+                "text": "phật pháp căn bản",
+                "value": "phật pháp căn bản",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_06",
+                "name": "view",
+                "text": "65",
+                "value": "65",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_07",
+                "name": "share",
+                "text": "0",
+                "value": "0",
+                "hidenid": ""
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "id": "row_08",
+                "name": "status",
+                "text": "publish",
+                "value": "publish",
+                "hidenid": ""
+            }
+        ]
+    }
+]

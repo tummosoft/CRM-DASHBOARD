@@ -1,0 +1,129 @@
+.tm-listview {
+    position: relative;
+    min-width: 150px;
+    width: 100%;
+    max-height: 200px;
+    height: 100%;
+    background: #ffffff;
+    overflow: hidden;
+    background-image: linear-gradient(135deg, #fffbfb 10%, #ffffff 100%);
+    overflow-y: scroll;
+    overflow-x: hidden;        
+}
+
+.tm-listview-items {    
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    
+}
+.tm-listview::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* Track */
+.tm-listview::-webkit-scrollbar-track {
+    background: var( --color7);
+}
+
+/* Handle */
+.tm-listview::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background: linear-gradient(65deg, var(--color11) 10%, var(--color11) 100%);
+}
+
+/* Handle on hover */
+.tm-listviews::-webkit-scrollbar-thumb:hover {
+    background: #698BF9;
+}
+
+.list-item {
+    height: 30px;
+    line-height: 30px;
+    padding-left: 25px;
+    cursor: pointer;
+    background: #ffffff;
+    color: #171817;
+    position: relative;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;   
+    position: relative; 
+    
+}
+.list-item img {position: absolute;left: 5px;top:3px;height: 22px;}
+.list-item:hover {
+    background: #fae2b5;
+    background-image: linear-gradient(180deg, #DFE8F6 50%, #DFE8F6 10%, #DFE8F6 100%);
+    color: #3d7fe9;
+}
+
+.active {
+    border-top: 1px solid #bed4f7;
+    border-bottom: 1px solid #bed4f7;
+    background: #DFE8F6;
+    background-image: linear-gradient(135deg, #DFE8F6 10%, #DFE8F6 100%);
+    font-weight: bold;
+    color: #0d63ee;
+}
+
+.line-item {
+    border-bottom: 1px solid #bed4f7;
+    height: 1px;            
+}
+.has-checkbox {margin-left: 23px;}
+.list-item input[type="checkbox"] {outline:none; border: 1px solid #bed4f7;position: absolute;top:3px;}
+
+.list-item [type="checkbox"]:before {
+position: relative;
+display: block;
+width: 11px;
+height: 11px;
+border: 1px solid #3d7fe9;
+content: "";
+background: #DFE8F6
+}
+
+.list-item [type="checkbox"]:after {
+position: relative;
+display: block;
+left: 2px;
+top: -11px;
+width: 7px;
+height: 7px;
+border-width: 1px;
+border-style: solid;
+border-color: #93bcfd;
+content: "";
+background-image: linear-gradient(135deg, #bed4f7 0%, #f0f6ff 100%);
+background-repeat: no-repeat;
+background-position: center;
+}
+
+.list-item [type="checkbox"]:checked:after {    
+background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iIzNkN2ZlOSIgY2xhc3M9ImJpIGJpLWNoZWNrIiB2aWV3Qm94PSIwIDAgMTYgMTYiPgogIDxwYXRoIGQ9Ik0xMC45NyA0Ljk3YS43NS43NSAwIDAgMSAxLjA3IDEuMDVsLTMuOTkgNC45OWEuNzUuNzUgMCAwIDEtMS4wOC4wMkw0LjMyNCA4LjM4NGEuNzUuNzUgMCAxIDEgMS4wNi0xLjA2bDIuMDk0IDIuMDkzIDMuNDczLTQuNDI1YS4yNjcuMjY3IDAgMCAxIC4wMi0uMDIyeiIvPgo8L3N2Zz4=), linear-gradient(135deg, #bed4f7 0%, #bed4f7 100%);
+
+}
+
+.list-item [type="checkbox"]:disabled:after {
+-webkit-filter: opacity(0.4);
+}
+
+.list-item [type="checkbox"]:not(:disabled):checked:hover:after {
+background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iIzNkN2ZlOSIgY2xhc3M9ImJpIGJpLWNoZWNrIiB2aWV3Qm94PSIwIDAgMTYgMTYiPgogIDxwYXRoIGQ9Ik0xMC45NyA0Ljk3YS43NS43NSAwIDAgMSAxLjA3IDEuMDVsLTMuOTkgNC45OWEuNzUuNzUgMCAwIDEtMS4wOC4wMkw0LjMyNCA4LjM4NGEuNzUuNzUgMCAxIDEgMS4wNi0xLjA2bDIuMDk0IDIuMDkzIDMuNDczLTQuNDI1YS4yNjcuMjY3IDAgMCAxIC4wMi0uMDIyeiIvPgo8L3N2Zz4=), linear-gradient(135deg, #bed4f7 0%, #bed4f7 100%);
+}
+
+.list-item [type="checkbox"]:not(:disabled):hover:after {
+background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iIzNkN2ZlOSIgY2xhc3M9ImJpIGJpLWNoZWNrIiB2aWV3Qm94PSIwIDAgMTYgMTYiPgogIDxwYXRoIGQ9Ik0xMC45NyA0Ljk3YS43NS43NSAwIDAgMSAxLjA3IDEuMDVsLTMuOTkgNC45OWEuNzUuNzUgMCAwIDEtMS4wOC4wMkw0LjMyNCA4LjM4NGEuNzUuNzUgMCAxIDEgMS4wNi0xLjA2bDIuMDk0IDIuMDkzIDMuNDczLTQuNDI1YS4yNjcuMjY3IDAgMCAxIC4wMi0uMDIyeiIvPgo8L3N2Zz4=), linear-gradient(135deg, #bed4f7 0%, #bed4f7 100%);
+cursor: pointer;
+}
+
+.list-item [type="checkbox"]:not(:disabled):hover:before {
+border-color:  #3d7fe9;
+-webkit-filter: blur(2px);
+cursor: pointer;
+}

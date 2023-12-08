@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="vi" prefix="og: https://ogp.me/ns#">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quản trị website - jPress Admin 3.0.1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <script src="/tummo.js" type="text/javascript"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo&family=Nunito&family=Open+Sans&family=Roboto+Condensed:wght@300;400&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/bulma.css">
+    <link rel="stylesheet" href="/core.css">
+    <link rel="stylesheet" href="/tummoCombobox.css">
+    <link rel="stylesheet" href="/tummoCboCalendar.css">
+    <link rel="stylesheet" href="/tummoButton.css">
+    <link rel="stylesheet" href="/gridcombobox.css">
+    <link rel="stylesheet" href="/tummoDataGrid.css">
+    <link rel="stylesheet" href="/tummoGridPopup.css">
+    <link rel="stylesheet" href="/tummoLayout.css">
+    <link rel="stylesheet" href="/tummoTextbox.css">
+    <link rel="stylesheet" href="/tummoSmallDialog.css">
+    <link rel="stylesheet" href="/tummosearchdrop.css">
+    <link rel="stylesheet" href="/tummoDropButton.css">
+    <link rel="stylesheet" href="/tummoAlarmDialog.css">
+    <link rel="stylesheet" href="/tummoloading.css">
+    <link rel="stylesheet" href="/tummotabv2.css">
+    <script src="/tummoloading.js" type="text/javascript"></script>
+    <script src="/tummoAlarmDialog.js" type="text/javascript"></script>
+    <script src="/tummoGridCalendar.js" type="text/javascript"></script>
+    <script src="/tummogridpopup.js" type="text/javascript"></script>
+    <script src="/tummodatagridview.js" type="text/javascript"></script>
+    <script src="/tummoCombobox.js" type="text/javascript"></script>
+    <script src="/tummoButton.js" type="text/javascript"></script>
+    <script src="/tummoLayout.js" type="text/javascript"></script>
+    <script src="/tummoTextbox.js" type="text/javascript"></script>
+    <script src="/tummoSmallDialog.js" type="text/javascript"></script>
+    <script src="/tummosearchdrop.js" type="text/javascript"></script>
+    <script src="/tummoDropButton.js" type="text/javascript"></script>
+    <script src="/tummotab.js" type="text/javascript"></script>
+    <script src="/b4j_ws.js" type="text/javascript"></script>
+    <script src="/data/header_sukien.js" type="text/javascript"></script>
+    <style type="text/css">
+        :root {
+            --color-1: #323232;
+            --color-2: #7F2C01;
+            --color-3: #F25C05;
+            --color-4: #461500;
+            --color-5: #7F0202;
+            --color-7: #5E0101;
+            --color-8: #0A0000;
+            --font-1: 18px;
+            --font-2: 14px;
+
+            --bg-1: #FFD991;
+            --bg-2: #F2B441;
+            --bg-3: #321702;
+            --bg-4: #FBB797;
+            --bg-5: #DDCF8D;
+            --bg-6: #FFBE45;
+            --bg-7: #806C49;
+            --bg-8: #CC9837;
+        }
+
+        .l-verify-tip {
+            background: f1f1f1;
+        }
+    </style>
+    <style type="text/css">
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 14px;
+        }
+
+        #layout1 {
+            width: 100%;
+            margin: 40px;
+            height: 400px;
+            margin: 0;
+            padding: 0;
+        }
+
+        #accordion1 {
+            height: 270px;
+        }
+
+        h4 {
+            margin: 20px;
+        }
+
+        .header-top {
+            background: #FFD991;
+            height: 50px;
+            font-family: Roboto;
+        }
+
+        .header-top h2 {
+            color: #F25C05;
+        }
+
+        .bottom {
+            text-align: center;
+            margin-top: 7px;
+            font-size: 12px;
+        }
+
+        .line {
+            border-bottom: 1px dotted #F2B441;
+        }
+
+        .bottom p {
+            margin-bottom: 5px;
+        }
+
+        .quantri {
+            list-style: none;
+            font-size: 13px;
+        }
+
+        .quantri li {
+            line-height: 30px;
+            padding-left: 5px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+        .quantri li:hover {
+            background: #FFD991;
+        }
+
+        .quantri li a {
+            text-decoration: none;
+            padding-left: 5px;
+            color: #7F2C01;
+        }
+
+        .quantri li a:hover {
+            color: #F25C05;
+        }
+
+        .header-top {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .group-logo {
+            height: 100%;
+            width: 90px;
+        }
+
+        .group-logo img {
+            height: 50px;
+        }
+
+        .group-info {
+            padding: 5px;
+        }
+
+        .t-navbar {
+            background-color: white;
+            height: 60px;
+            margin: 0px;
+            padding-left: 20px;
+            padding-right: 20px;
+            position: relative;
+            z-index: 30;
+            box-shadow: 0 2px 10px rgba(0,0,0,.2);
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+            align-content: space-between;
+        }
+        
+        .t-navbar-brand {}
+        .t-navbar-burger {height: 50px;margin: 5px;}
+        .t-navbar-item {display: flex;flex-direction: row;}
+        .t-navbar-item img {
+            margin: 5px;
+            height: 50px;
+        }
+        .t-navbar-logo {height: 50px;}
+        .t-navbar-text {margin-top: 5px; height: 25px; font-family: 'Roboto';font-size: 24px;color: #F2B441;font-weight: bold;}
+        .group-brand {height: 60px; display: flex; flex-direction: column;align-content: center;align-items:self-start;}
+        .group-brand p {font-size: 12px;color:#FE4B48}
+        .detail-event {
+            border: 1px solid #3d7fe9;
+            overflow: hidden;
+            background: #fff;
+            height: calc(100% - 20px);
+            margin-top: 5px;
+        }
+
+        .info-sukien {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .info-sukien .title {
+            color: #140c20;
+            font-size: 14px;
+        }
+
+        .info-sukien .value {
+            color: #ec9a00;
+        }
+
+        .info-sukien li {
+            line-height: 16px;
+            border-bottom: 1px solid #b7ceec;
+            padding: 5px 0px 5px 5px;
+            color: #232324;
+        }
+
+        .detail-event {
+            width: 100%;
+            border-radius: 8px;
+            margin-left: 2px;
+        }
+
+        .group-sukien {}
+
+        .title-sukien {
+            color: #fff;
+            height: 30px;
+            background: #b7ceec;
+            background-image: linear-gradient(180deg, #4a70eeb7 30%, #4a70eebd 30%, #4a70eec0 40%);
+            width: 100%;
+            line-height: 30px;
+            padding-left: 10px;
+            display: flex;            
+            gap:5px;            
+            align-items: center;
+        }
+        .panel-icon {width: 22px;height: 22px;margin-right:0px;}
+        .item-icon {width: 16px;height: 16px;margin-right: 3px;}
+        .item-menu {display: flex;cursor: pointer;}
+    </style>
+</head>
+<body>
+    <nav class="t-navbar is-transparent">
+        <div class="t-navbar-brand">
+            <div class="t-navbar-item">
+                <a class="t-navbar-logo" href="https://bulma.io">
+                    <img src="logo.svg" alt="Bulma: a modern CSS framework based on Flexbox">
+                </a>
+                <div class="group-brand">
+                <div class="t-navbar-text">
+                    THIỀN VIỆN PHƯỚC SƠN                                        
+                </div>                
+                <p>jPress 2.1 - Quản trị website - Updated: 15/09/2023</p>
+            </div>
+            </div>                       
+        </div>     
+        <div class="tummo-tab">
+            <ul class="tab-items-vn">
+                <li id="tab3-btn" class="tab-item">Đăng ký sự kiện
+                    <div class="btn-close"><div class="tab-close-btn"></div></div>
+                </li>
+                <li id="tab2-btn" class="tab-item">Biên soạn mẫu email
+                    <div class="btn-close"><div class="tab-close-btn"></div></div>
+                </li>
+                <li id="tab1-btn" class="tab-item tab-item-active">Đăng ký sự kiện
+                    <div class="btn-close"><div class="tab-close-btn"></div></div>
+                </li>
+            </ul>
+        </div>        
+    </nav>
+    <div class="container is-fluid" style="margin-top: 10px;">
+        <div id="collayout" class="columns">
+            <div class="column is-2" style="height: 100%;">
+                <div id="page1" class="layout-col"
+            style="padding-bottom:10px;padding-left: 2px; background: #84A0C4; background-image: linear-gradient(90deg, #4a70eeb7  30%, #4a70eebd 30%, #4a70eec0 40%);width: 100%;box-shadow: 2px 2px 2px #3d64e68e;border-radius: 8px;">
+            <div class="detail-event">
+                <div class="group-sukien">
+                    <div class="title-sukien">
+                        <img class="panel-icon" src="/icons/event.svg">
+                        <div class="text-sukien">Quản lý bài viết & Sự kiện</div>
+                    </div>
+                    <ul class="info-sukien">                        
+                        <li class="item-menu"><img class="item-icon" src="/icons/item-menu.svg"> Quản lý sự kiện</li>
+                        <li class="item-menu"><img class="item-icon" src="/icons/item-menu.svg"> Bài viết & sự kiện mới</li>
+                        <li class="item-menu"><img class="item-icon" src="/icons/item-menu.svg"> Phật tử đăng ký sự kiện</li>
+                        <li class="item-menu"><img class="item-icon" src="/icons/item-menu.svg"> Gửi mail</li>
+                    </ul>
+                </div>
+                <div class="group-sukien">
+                    <div class="title-sukien"><img class="panel-icon" src="/icons/nhansu.svg"> <div class="text-sukien">Quản trị nhân sự</div></div>
+                    <ul class="info-sukien">
+                        <li class="item-menu"><img class="item-icon" src="/icons/item-menu.svg">Các vị giáo thọ</li>
+                        <li class="item-menu"><img class="item-icon" src="/icons/item-menu.svg">Nhân sự chuyên trách khác</li>
+                        <li class="item-menu"><img class="item-icon" src="/icons/item-menu.svg">Người dùng phần mềm</li>
+                        <li class="item-menu"><img class="item-icon" src="/icons/item-menu.svg">Lịch công tác</li>                        
+                        <li class="item-menu"><img class="item-icon" src="/icons/item-menu.svg"> Công văn, thông cáo</li>
+                    </ul>
+                </div>
+                <div class="group-sukien">
+                    <div class="title-sukien"><img class="panel-icon" src="/icons/folder.svg"> <div class="text-sukien">Quản trị tài nguyên</div></div>
+                    <ul class="info-sukien">
+                        <li class="item-menu"><img class="item-icon" src="/icons/item-menu.svg">Hình ảnh & tập tin</li>
+                        <li class="item-menu"><img class="item-icon" src="/icons/item-menu.svg">Thiết kế banner, hình ảnh</li>
+                        <li class="item-menu"><img class="item-icon" src="/icons/item-menu.svg"> Album ảnh</li>
+                    </ul>
+                </div>
+                <div class="group-sukien">
+                    <div class="title-sukien"><img class="panel-icon" src="/icons/user.svg"> <div class="text-sukien">Quản lý người dùng</div></div>
+                    <ul class="info-sukien">
+                        <li class="item-menu"><img class="item-icon" src="/icons/item-menu.svg">Người dùng đăng ký</li>
+                        <li class="item-menu"><img class="item-icon" src="/icons/item-menu.svg">Tin nhắn từ người dùng</li>                        
+                    </ul>
+                </div>
+                <div class="group-sukien">
+                    <div class="title-sukien"><img class="panel-icon" src="/icons/class.svg"> <div class="text-sukien">Quản lý các khoá học</div></div>
+                    <ul class="info-sukien">
+                        <li class="item-menu"><img class="item-icon" src="/icons/item-menu.svg">Các khoá học</li>
+                        <li class="item-menu"><img class="item-icon" src="/icons/item-menu.svg">Học viên đăng ký</li>
+                    </ul>
+                </div>
+                 <div class="group-sukien">
+                    <div class="title-sukien"><img class="panel-icon" src="/icons/thongke.svg"> <div class="text-sukien">Thống kê website</div></div>
+                    <ul class="info-sukien">
+                        <li class="item-menu"><img class="item-icon" src="/icons/item-menu.svg">Cài đặt Email</li>
+                        <li class="item-menu"><img class="item-icon" src="/icons/item-menu.svg">Cài đặt Database</li>
+                        <li class="item-menu"><img class="item-icon" src="/icons/item-menu.svg">Cài đặt bài viết</li>
+                        <li class="item-menu"><img class="item-icon" src="/icons/item-menu.svg">Lưu lượng truy cập</li>
+                        <li class="item-menu"><img class="item-icon" src="/icons/item-menu.svg">Số liệu từ Google Analytics</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="resize-line"></div>
+        </div>
+            </div>            
+            <div id="colmain" class="column">
+                <div id="tabcontent" style="width: 100%;height: 100%;">
+                    <div id="tab1" style="height:100%">
+                    <iframe style="width: 100%;height: 100%;" id="tab1_iframe" src="/dangkysukien.html"></iframe>
+                    </div>
+                    <div id="tab2" style="display: none;height:100%">
+                        <iframe style="width: 100%;height: 100%;" id="tab1_iframe" src="/biensoanemail.html"></iframe>
+                    </div>
+                </div>
+            </div>
+          </div>
+      </div>
+    <script>
+       
+
+var tabother = {text:'Tab 4', url:'', id:'tab4',default:true,html:'Đây là tab 4'};
+
+var _h = document.getElementsByTagName('html')[0];
+$('#collayout').height($(window).height() - 50);
+
+function addtab() {
+    testcombobox.addTab(tabother);
+    
+}
+
+function openTab(data) {
+    
+}
+
+$('.tab-item').on('click', function () {
+    var id = $(this).attr('id');
+    if (id == 'tab1-btn') {
+        $('#tab1').show();
+        $('#tab1-btn').addClass('tab-item-active');
+        
+        $('#tab2').hide();
+        $('#tab2-btn').removeClass('tab-item-active');
+    }
+    else {
+        $('#tab1').hide();
+        $('#tab1-btn').removeClass('tab-item-active');
+        $('#tab2').show();
+        $('#tab2-btn').addClass('tab-item-active');
+    }
+});
+
+
+    </script>
+</body>
+
+</html>

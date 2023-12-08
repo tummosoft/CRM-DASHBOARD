@@ -1,0 +1,21 @@
+.tummo-textbox {border-radius: 4px; border: 1px solid #FFBE45;transition: 2s;background: #fff;height: 25px;line-height: 25px;width: 160px;position: relative;display: flex;flex-direction: row;}
+.t-textbox-icon {width: 16px;height: 16px;cursor: pointer;height: 25px;width: 25px;}
+.tummo-textbox::before:hover {border: 1px solid #2742db;}
+.tummo-textbox:focus {outline: 1px solid #a6b1f1;border: 1px solid #2742db;}
+.tummo-textbox input {color:#333646; width: calc(100% - 15px);border: none;outline: none;margin-left: 5px;}
+.editor-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding:10px;
+}
+.clear-fix {clear: both;}
+.textbox-vaild-corection {color:#2742db;position: absolute;height: 20px;}
+.textbox-vaild-ingorrect {color:rgb(238, 10, 10);position: absolute;height: 20px;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: rgb(250, 85, 85);
+    text-decoration-thickness: 1px;    
+}
+.tummo-textbox-x {display: flex;flex-direction: row;gap:5px;}
+.t-textbox-label {margin-right: 5px;height: 25px;line-height: 25px;display: flex;padding-left:5px;padding-right:5px;text-align: left;}

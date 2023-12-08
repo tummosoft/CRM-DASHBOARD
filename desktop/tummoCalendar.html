@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="/js/jquery-3.7.0.min.js"></script>
+    <script src="/tummo.js" type="text/javascript"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo&family=Nunito&family=Open+Sans&family=Roboto+Condensed:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/tummoCombobox.css">
+    <link rel="stylesheet" href="/tummoButton.css">
+    <link rel="stylesheet" href="/zabuto_calendar.css">
+    <script src="/zabuto_calendar.js" type="text/javascript"></script>    
+    
+    <style>
+        * {
+            --color1: #BDD1FF;
+            --color2: #698BF9;
+            --color3: #516AF0;
+            --color4: #E7E9EE;
+            --color5: #BACAFC;
+            --color6: #EDF1FF;
+            --color7: #C0C0C0;
+            --color8: #292B2F;
+            --color9: #8190A9;
+            --color10: #F6F9FE;
+
+        }
+body {font-family: 'Roboto Condensed';}
+.tummo-calendar {font-family: 'Roboto Condensed';font-size: 13px;background: #7c9cee; background-image: linear-gradient(120deg, #a8bef7c9 30%, #a3b8ec 30%, #95b1f8ce 40%);border: 1px solid #516AF0;width: 350px;height: fit-content;overflow: hidden;border-radius: 8px;line-height: 30px;text-align: center;}
+.calendar-header {cursor: pointer;width: 100%;height: 25px;background: #6b6b6d; background-image: linear-gradient(180deg, #4a70eeb7  30%, #4a70eebd 30%, #4a70eec0 40%);color: #E7E9EE;position: relative;display: flex;flex-direction: row;align-content: space-between;}
+.tm-last-month {position: absolute; width: 25px;height: 25px;left: 0;top:0; background: #BDD1FF;background-image: url(/icons/arrow-left.svg);background-repeat: no-repeat;background-size: 16px 16px;background-position: center center;}
+
+.tm-next-month {position: absolute; width: 25px;height: 25px;right: 0;top:0; background: #BDD1FF;background-image: url(/icons/arrow-right.svg);background-repeat: no-repeat;background-size: 16px 16px;background-position: center center;}
+.tm-next-month:hover {background: #F6F9FE;}
+.tm-title {width: calc(100% - 50px);margin-left: 25px;font-size: 14px;line-height: 25px;}
+.tm-last-month:hover {background: #F6F9FE;}
+.tm-calendar-body {position: relative;height: 100%;}
+.tm-calendar-body::after {content:'';left: 0;right:0px; inset: 0; position: absolute;background: #ffffff; z-index: -1;opacity: 0.8;}
+.tm-week {background:#C0C0C0;background-image: linear-gradient(90deg, #f0f0f1 30%, #f0f0f1 30%, #f0f0f1 40%); color: #292B2F;height: 30px;margin: 0;padding: 0;box-sizing: border-box;}
+.tm-week {display: grid;grid-template-columns: repeat(7, 1fr);column-gap: 5px; list-style: none;cursor: pointer;padding-left: 5px;padding-right: 10px;color:#516AF0;}
+.tm-days {display: grid;grid-template-columns: repeat(7, 1fr);column-gap: 5px; list-style: none;cursor: pointer;padding-left: 5px;padding-right: 10px;}
+.tm-days li {color: #292B2F;text-align: center;height: 25px;font-size: 14px;line-height: 25px;}
+.tm-days li:hover {background: #698BF9;color: #fff;}
+.day-selected {background: #fdb46b;width: 25px;height: 25px;margin: 0 auto;border-radius: 50%;color:#fff;box-shadow: 1px 1px 2px #516AF0;}
+.tm-hiden {display: none;}
+    </style>
+</head>
+
+<body>
+ <div style="margin: 100px;">
+  <div id="demo-calendar-event"></div>
+<div id="demo-calendar-event-log"></div>
+
+</div>
+
+<div class="tummo-calendar">
+<div class="calendar-header">
+  <div class="tm-last-month"></div>
+  <div id="month-title" class="tm-title">Tháng 8 - 2023</div>
+<div class="tm-next-month"></div>
+</div>
+<div class="tm-calendar-body">
+<ul class="tm-week">
+  <li>T.Hai</li>
+  <li>T.Ba</li>
+  <li>T.Tư</li>
+  <li>T.Năm</li>
+  <li>T.Sáu</li>
+  <li>T.Bảy</li>
+  <li>C.Nhật</li>
+</ul>
+<ul id="daysonmonth" class="tm-days">
+</ul>
+</div>
+</div>
+<div id="console" style="width: 500px;height: 400px;">
+
+</div>
+<script>
+$(function($){
+    $.fn.tummoCalendar({
+      
+    })
+});
+
+
+var today = new Date();
+var year = today.getFullYear();
+var month = today.getMonth() + 1;
+var day = today.getDate();
+var startDay = new Date(year, month - 1, 1);
+var endDay = new Date(year, month, 0);
+
+var column = startDay.getDay();
+var column_end = parseInt(endDay.getDate()) + 1;
+
+var days;  
+var countday = 1;
+for (var j = 0; j <= 45; j++) {
+  if ((j >= column) && (j <=  column_end)) {
+    days += '<li class="tm-day" value="' + year + '-' + month + '-' + countday + '">' + countday +'</li>';    
+    countday = countday + 1;
+  } else {
+     days += '<li class="tm-day tm-hiden"></li>';        
+  }
+}
+
+$('#daysonmonth').html(days);
+
+$('.tm-days li').click(function (e) {
+  if ($(this).hasClass('day-selected')) {
+    $(this).removeClass('day-selected');
+  } else {
+    $(this).addClass('day-selected');  
+  }
+  
+});
+var rs = "Ngày " + day + " tháng " + month + " " + year;
+
+var monthtitle = $('#month-title').html(rs);
+
+$('#console').html(endDay + column_end);
+
+
+var $el = $('#demo-calendar-event');
+$(document).ready(function () {
+  $el.zabuto_calendar({
+    classname: 'table clickable'
+  });
+});
+
+<!-- listeners -->
+$el.on('zabuto:calendar:init', function () {
+  writeToEventLog('zabuto:calendar:init');
+});
+
+$el.on('zabuto:calendar:goto', function (e) {
+  writeToEventLog('zabuto:calendar:goto' + ' year=' + e.year + ' month=' + e.month);
+});
+
+$el.on('zabuto:calendar:day', function (e) {
+  var now = new Date();
+  if (e.today) {
+    $(e.element).css('color', 'blue');
+  } else if (e.date.getTime() < now.getTime()) {
+    $(e.element).css('color', 'red');
+  } else {
+    $(e.element).css('color', 'green');
+  }
+  writeToEventLog('zabuto:calendar:day' + ' date=' + e.date.toDateString() + ' value=' + e.value + ' today=' + e.today);
+});
+
+function writeToEventLog(message) { /* ... */ }
+         
+    </script>
+
+   
+   
+
+</body>
+
+</html>

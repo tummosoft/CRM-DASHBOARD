@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link href="style.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<script src="/js/jquery-3.7.0.min.js"></script>
+<script src="/tummo.js" type="text/javascript"></script>
+</head>
+<body>
+    <style>
+        * {box-sizing: border-box;}
+        body {font-family:Roboto; font-size: 13px;}
+        .sidebar {display: block;
+    width: 48px;
+    background: #e9ecf1;
+    height: 100vh;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    border-right: 1px solid #ddd;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+    z-index: 999;}
+    .other-side {height: 100%;
+    flex: 0 0 208px;
+    overflow: overlay;
+    overflow-x: hidden;
+    box-shadow: inset -1px 0px 0px #f0f2f4;
+    padding-bottom: 32px;
+    position: relative;
+    transition: all 0.1s ease-in;}
+       .tummo-commbobox-xxl {padding: 0px;
+    margin: 0px;
+    width: fit-content;
+    z-index: 9999;        
+    border: 1px solid #4a70eeb7;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background: #4a70eeb7;
+    background-image: linear-gradient(120deg, #a8bef7c9 30%, #a3b8ec 30%, #95b1f8ce 40%);
+    color: #E7E9EE;    
+    max-height: 180px;            
+    position: absolute;
+    left: 56px;
+    width: 232px;    
+    padding: 12px;
+    border-radius: 8px;
+    transition: all 0.2s;    
+    pointer-events: none;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);}
+    .tummo-select {
+        box-sizing: border-box;
+        display: inline-block;        
+    vertical-align: middle;
+    color: #515a6e;    
+    line-height: normal;
+    position: relative;
+    height: 250px;
+    
+    }
+    .tummo-select-selection {
+    height: 25px;
+    position: relative;
+    border: 1px solid #4a70eeb7;      
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 2px rgba(45,140,240,.2);
+    box-shadow: 0 0 0 2px rgba(45,140,240,.2);
+    
+}
+.tummo-select-selection {    
+    outline: none;
+    display: flex;
+    align-content: space-between;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    border-radius: 4px;    
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    overflow: hidden;
+}
+.tummo-select-selection input {font-size: 13px; outline: none;border: none;padding-left: 5px;color: #333646;width: calc(100% - 25px);text-overflow: ellipsis;}
+.tummo-select-dropdown { 
+    max-height: 200px;      
+    z-index: 9999;  
+    position: relative;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    
+}
+.tummo-select-dropdown::after {content: ' ';position: absolute; width: 25px;height: 25px;background: url(/icons/arrow-top.svg);background-repeat: no-repeat;background-size: 20px 20px; background-position: center;top:-8px;left: 0px;transform: rotate(-90deg);z-index: 9996;}
+.tummo-select-dropdown-inner {overflow-y: scroll;              
+    overflow-x: hidden;    
+    background: #4a70eeb7;
+    background-image: linear-gradient(120deg, #a8bef7c9 30%, #a3b8ec 30%, #95b1f8ce 40%);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;    
+    color: #ccc;
+    position: absolute;    
+    width: max-content;
+    top: 5px;
+    left: 0;
+    border-radius: 4px; 
+    max-height: inherit;   
+    margin-top: 2px;
+    border: 1px solid #4a70eeb7;        
+    -webkit-box-shadow: 0 0 0 2px rgba(45,140,240,.2);
+    box-shadow: 0 0 0 2px rgba(45,140,240,.2);    }
+.tummo-select-dropdown-list {    
+          
+    padding:0;
+    list-style: none;    
+    margin: 0;
+}
+.tummo-select-dropdown-list li {color:#333646;padding-left: 5px;height: 25px;line-height: 25px;cursor:default;}
+.tummo-select-dropdown-list li:hover {background: #ffd991d8;}
+.select-btn {width: 25px;height: 25px;background: #4a70ee;background-image: url(/icons/arrow.svg);background-size: 16px 16px;background-repeat: no-repeat; background-position: center center;transform: rotate(180deg) }
+.select-btn:hover {width: 25px;height: 25px;background: #ffd991d8;background-image: url(/icons/arrow-hover.svg);background-size: 16px 16px;background-repeat: no-repeat; background-position: center center;transform: rotate(0deg)}
+.tummo-select-dropdown-inner::-webkit-scrollbar {
+    width: 7px;
+}
+/* Track */
+.tummo-select-dropdown-inner::-webkit-scrollbar-track {
+    background:#4a70eeb7 ;
+}
+
+/* Handle */
+.tummo-select-dropdown-inner::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background: linear-gradient(90deg, #FFD991 10%, #ffd991d8 100%);
+}
+
+/* Handle on hover */
+.tummo-select-dropdown-inner::-webkit-scrollbar-thumb:hover {
+    background: #698BF9;
+}
+.svg-loading {background: url(/icons/loading.svg);width: 22px;height: 22px;background-size: 22px 22px;background-position: center center;animation: rolatex 2s infinite;position: relative; }
+@keyframes rolatex {
+  0% {transform: rotate(5deg);}
+  50% {transform: rotate(180deg);}  
+  99% {transform: rotate(360deg);}
+  100% {transform: rotate(0deg);}
+}
+.tummo-dialog-alarm-quick {
+    display: none;
+  position: fixed;
+  width: 210px;
+  height: 60px;
+ 
+  background: #698BF9;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  border-radius: 8px;
+  z-index: 9999;
+  border: 2px solid #FFD991;
+  box-shadow: 1px 1px 2px #333646;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  animation: dialogmove 3s ease-in;  
+}
+@keyframes dialogmove {
+  0% {top:50%;}  
+  50% {opacity: 1;}
+  100% {top:-10%;opacity: 0;}
+}
+.tummo-dialog-alarm-quick-content {font-size: 14px;padding:10px;width: 100%;}
+  </style>
+   
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script>
+    (function ($) {
+    $.fn.tummoAlarmQuick = function (options) {
+        var settings = $.extend({            
+            text: 'Tummo Combobox',                                              
+        }, options);
+        
+        config = settings;
+        
+        let div = document.createElement("div");        
+        div.setAttribute("class", "tummo-dialog-alarm-quick");
+        div.style.display = "none";
+        let child = div.appendChild(document.createElement("div"));
+        child.setAttribute("class", "tummo-dialog-alarm-quick-content");
+        child.setAttribute("id", "alarmtitle");
+        child.innerHTML = settings.text;        
+        document.body.appendChild(div);
+        
+        this.show= function show(text) {
+            document.getElementById("alarmtitle").innerHTML = text;
+            div.style.display = "block";
+        }
+
+        setTimeout(function () {
+            div.style.display = "none";
+    }, 3000);
+
+        this.hide= function hide() {
+            div.style.display = "none";
+        }
+
+        return this;
+    }
+})(jQuery);   
+
+
+  </script>
+
+  <div style="margin-top: 200px;"></div>
+  <div id="dialogalarm">
+     
+  </div>
+ 
+  <script>
+var dig = $('#dialogalarm').tummoAlarmQuick({text: 'Tummo Combobox'});
+dig.show('Dữ liệu đã được cập nhật hoàn thành!');
+
+  </script>
+</body>
+</html>

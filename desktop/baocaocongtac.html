@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi" prefix="og: https://ogp.me/ns#">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed:wght@400&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
+        integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+        <link href="/tummoReportCalendar.css"
+        rel="stylesheet">
+        <script src="/tummo.js" type="text/javascript"></script>
+    <script src="/b4j_ws.js" type="text/javascript"></script>
+    <script src="/tummoReportCalendar.js" type="text/javascript"></script>
+    <style>
+        * {margin: 0;padding:0;box-sizing: border-box;}
+        body {            
+            margin: 0;
+            font-family: 'Roboto Condensed';
+        }
+
+       
+    </style>
+</head>
+
+<body>
+    <div id="baocaosukien">
+      
+    </div>
+
+    <script type="text/javascript">
+       let _plan = [
+    {
+        "IsInitialized": true,
+        "start": "2023-09-01",
+        "theend": "2023-09-04",
+        "text": " Lớp thiền Vipassanā và học Pāli - Abhidhamma"
+    },
+    {
+        "IsInitialized": true,
+        "start": "2023-09-08",
+        "theend": "2023-09-12",
+        "text": "Khóa thiền Vipassanā miên mật 2023"
+    },
+    {
+        "IsInitialized": true,
+        "start": "2023-09-14",
+        "theend": "2023-09-16",
+        "text": "Khóa Thiền Vipassanā do Ngài Trí Dũng hướng dẫn"
+    }
+];
+        $('#baocaosukien').tummoReportCalendar({ plan: _plan });
+
+        // Lấy tất cả các phần tử có thuộc tính data-plan tương ứng
+
+    </script>
+</body>
+
+</html>

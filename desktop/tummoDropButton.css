@@ -1,0 +1,86 @@
+.tummo-btn-v2 {height:27px; line-height:27px;width: fit-content; cursor: pointer;overflow: hidden;border-radius: 4px;display: flex;gap:2px;flex-direction: row;align-content: center;padding-left: 5px;}
+.btn-black-v2 {background: #516AF0;  background-image: linear-gradient(180deg, #292b2fc0  30%, #292b2fd2 40%, #292b2fd2 30%);color: #fff;}
+.btn-yellow-v2 {color: #141E46; background: #FFD991;  background-image: linear-gradient(180deg, #ffbe45b7  30%, #FFBE45 40%, #ffbe459d 30%);box-shadow: 1px 1px 2px #535353;}
+
+.tummo-btn-v2:hover{
+  opacity: 0.9; 
+  transition: 0s 1s opacity;
+}
+.tummo-btn-v2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-bottom: 2px solid #516AF0;  
+  z-index: -1;
+  width: 0%;
+  height: 25px;  
+  width: 27px;  
+  top:0;
+}
+.btn-icon {width: 22px;height: 22px;margin: auto;}
+.tummo-btn-v2:hover::before {
+  width: 100%;  
+  transition: width 1s;  
+  animation: mymove 1s infinite;  
+}
+.btn-line {border-right: 1px solid #f5e8d19d;height: 27px;width: 2px;}
+.btn-text {line-height: 27px;height: 27px;margin-left: 4px;}
+@keyframes mymove {
+  from {left: 50%;width: 0%;}
+  to {left: 0%;}
+}
+.tummo-button-dropdown { 
+max-height: 200px;      
+z-index: 9999;
+position: absolute;
+-webkit-transition: all .2s ease-in-out;
+transition: all .2s ease-in-out;
+display: none;
+}
+
+.tummo-button-dropdown::after {content: ' ';position: absolute; width: 25px;height: 25px;background: url(/icons/arrow-top.svg);background-repeat: no-repeat;background-size: 20px 20px; background-position: center;top:-8px;left: 0px;transform: rotate(-90deg);z-index: 9996;}
+.tummo-button-dropdown-inner {overflow-y: scroll;              
+overflow-x: hidden;    
+background: #4a70eeb7;
+background-image: linear-gradient(120deg, #a8bef7c9 30%, #a3b8ec 30%, #95b1f8ce 40%);
+-webkit-box-sizing: border-box;
+box-sizing: border-box;    
+color: #ccc;
+position: absolute;    
+top: 5px;
+left: 0;
+border-radius: 4px; 
+max-height: inherit;   
+margin-top: 2px;
+border: 1px solid #4a70eeb7;        
+-webkit-box-shadow: 0 0 0 2px rgba(45,140,240,.2);
+box-shadow: 0 0 0 2px rgba(45,140,240,.2);    }
+.tummo-button-dropdown-list {    
+ text-align: left;     
+padding:0;
+list-style: none;    
+margin: 0;
+}
+.line-dropdown-list {height: 1px;border-bottom: 1px solid #4a70eeb7;margin-top: -5px;margin-bottom: 2px;}
+.tummo-button-dropdown-list li {color:#333646;padding-left: 5px;height: 25px;line-height: 25px;cursor:default;}
+.tummo-button-dropdown-list li:hover {background: #ffd991d8;}
+.tummo-button-dropdown-inner::-webkit-scrollbar {
+width: 7px;
+}
+/* Track */
+.tummo-button-dropdown-inner::-webkit-scrollbar-track {
+background:#4a70eeb7 ;
+}
+
+/* Handle */
+.tummo-button-dropdown-inner::-webkit-scrollbar-thumb {
+border-radius: 3px;
+background: linear-gradient(90deg, #FFD991 10%, #ffd991d8 100%);
+}
+
+/* Handle on hover */
+.tummo-button-dropdown-inner::-webkit-scrollbar-thumb:hover {
+background: #698BF9;
+}
+.btn-item-drop {height: 22px;line-height: 22px;display: flex;gap:5px;width: 100%;align-items: center;}
+.item-icon {height: 20px;width: 20px;}

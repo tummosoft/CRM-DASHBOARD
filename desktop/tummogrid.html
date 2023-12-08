@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="/tummo.js" type="text/javascript"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo&family=Nunito&family=Open+Sans&family=Roboto+Condensed:wght@300;400&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/tummoCombobox.css">
+    <link rel="stylesheet" href="/tummoCboCalendar.css">
+    <link rel="stylesheet" href="/tummoButton.css">
+    <link rel="stylesheet" href="/tummoDataGrid.css">
+    <link rel="stylesheet" href="/tummoGridPopup.css">
+    <script src="/tummoCombobox.js" type="text/javascrip
+    t"></script>
+    <script src="/tummoGridCalendar.js" type="text/javascript"></script>
+    <script src="/tummogridpopup.js" type="text/javascript"></script>
+    <style>
+        body {
+            font-family: 'Roboto Condensed';
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="demogrid">
+
+    </div>
+    <script>
+
+
+        (function ($) {
+            $.fn.tummoDataGrid = function (options) {
+                var settings = $.extend({
+                    width: 450,
+                    height: 250,
+                    hascheckbox: false,
+                    controls: null,
+                    calendar: false,
+                    listview: null,
+                    header: null,
+                    rows: null,
+                })(options);
+
+                var config = settings[0];
+                var _thisID = $(this).attr('id');
+                var _columntype = [];
+                var _hascalendar = config.calendar;
+                var _haslistview = false;
+                var clen = null;
+                var listviewid = '';
+                var listview = null;
+                var emptyrow = '';
+                var rowindex = 0;
+                var _rowselect = [];
+
+                if (settings.listview !== null) {
+                    _haslistview = true;
+                }
+
+                function drawshell(vheader, vcontrols) {
+                    var _headitems = vheader;
+                    var _controlitems = vcontrols;
+                    var _lengthcolumn = _headitems.length + 2;
+
+                    var _table = '<div class="table"><table id="' + _thisID + '_table" cellspacing="0" border="0" cellpadding="0">';
+                    var _thead = '<thead><tr style="height: 35px;">';
+                    var _controls = '';
+                    // if (controlitems.length > 0) {
+                    _controls = ' <th colspan="' + _lengthcolumn + '">';
+                    _controls += '<div id="' + _thisID + '_control" class="grid-controls-wrapper"><ul class="grid-controls">';
+                    for (var i = 0; i < _controlitems.length; i++) {
+                        if (_controlitems[i].ctype === 'button') {
+                            _controls += '<li class="control-item"> <div class="tummo-btn btn-yellow" onclick="' + _controlitems[i].click.name + '()">' + _controlitems[i].text + '</div></li>';
+                        }
+                    }
+                    //} 
+
+                    _controls += '</ul></div></th></tr>';
+                    var header = '<tr>';
+                    if (config.hascheckbox == true) { header += '<th class="tm-checkbox"><input id="' + _thisID + '_check" class="tummo-checkbox check-head" type="checkbox"></th>'; }
+                    for (var i = 0; i < _headitems.length; i++) {
+                        _columntype[i] = _headitems[i].ctype;
+                        header += '<th width="' + _headitems[i].width + '" align="' + _headitems[i].align + '">' + _headitems[i].text + '</th>';
+                    }
+
+                    header += '</tr>';
+                    var _tfoot = '<tfoot><tr><th colspan="' + _lengthcolumn + '"><ul id="' + _thisID + '_pages" class="gird-pages"> </ul></th></tr></tfoot> ';
+                    _thead += _controls + header + '</tr></thead>';
+                    _table += _thead + '<tbody></tbody>' + _tfoot + '</table></div>';
+
+                    return _table;
+                }
+
+                function drawbody(rows) {
+                    var allrows = [];
+                    rowindex = rows.length;
+                    for (var i = 0; i < rows.length; i++) {
+                        var item = rows[i];
+                        var rowid = item.id;
+                        var cell = item.cell;
+                        allrows[i] = '<tr id="' + rowid + '">';
+                        if (i == 0) {
+                            emptyrow = '<tr id="index">';
+                        }
+                        for (var j = 0; j < cell.length; j++) {
+                            if ((config.hascheckbox == true) && (j == 0)) {
+                                allrows[i] += '<td><div col="-1" class="tm-checkbox"><input type="checkbox" class="tummo-checkbox" data="' + item.value + '"></div></td>';
+                                if (i == 0) {
+                                    emptyrow += '<td><div col="-1" class="tm-checkbox"><input type="checkbox" class="tummo-checkbox"></div></td>';
+                                }
+                            }
+                            var _thistype = '' + _columntype[j];
+                            if (_thistype == 'time') {
+                                allrows[i] += '<td><div id="row_' + i + j + '" class="t-grid-cell-time" col="' + j + '"><div class="t-grid-label text-center" name="' + cell[j].name + '">' + cell[j].text + '</div></div></td>';
+                                if (i == 0) {
+                                    emptyrow += '<td><div id="row_index' + j + '" class="t-grid-cell-time" col="' + j + '"><div  name="' + cell[j].name + '" class="t-grid-label text-center" contenteditable="true" name="' + cell[j].name + '"></div></div></td>';
+                                }
+                            } else if (_thistype == 'date') {
+                                allrows[i] += '<td><div id="row_' + i + j + '" class="t-grid-cell-date" col="' + j + '"><div class="t-grid-label t-grid-icon" name="' + cell[j].name + '">' + cell[j].text + '</div><div class="t-grid-btn icons-calendar"></div></div></td>';
+                                if (i == 0) {
+                                    emptyrow += '<td><div id="row_index' + j + '" class="t-grid-cell-date" col="' + j + '"><div class="t-grid-label t-grid-icon" name="' + cell[j].name + '"></div><div class="t-grid-btn icons-calendar"></div></div></td>';
+
+                                }
+                            } else if (_thistype == 'text') {
+                                allrows[i] += '<td><div id="row_' + i + j + '" class="t-grid-cell-text" col="' + j + '"><div class="t-grid-label text-left" name="' + cell[j].name + '">' + cell[j].text + '</div></div></td>';
+                                if (i == 0) {
+                                    emptyrow += '<td><div id="row_index' + j + '" class="t-grid-cell-text" col="' + j + '" contenteditable="true"><div class="t-grid-label text-left" name="' + cell[j].name + '"></div></div></td>';
+                                }
+                            } else if (_thistype == 'listview') {
+                                allrows[i] += '<td><div id="row_' + i + j + '" class="t-grid-cell-text" col="' + j + '" data-src="' + cell[j].datasrc + '"><img class="grid-avatar" src="' + cell[j].datasrc + '"><div class="t-grid-label cell3 text-left" name="' + cell[j].name + '">' + cell[j].text + '</div><div class="t-grid-btn icons-menu"></div></div></div></td>';
+                                if (i == 0) {
+                                    emptyrow += '<td><div id="row_index' + j + '" class="t-grid-cell-text" col="' + j + '"  name="' + cell[j].name + '"><img class="grid-avatar" src="/icons/banhxe.svg"><div class="t-grid-label cell3 text-left"></div><div class="t-grid-btn icons-menu"></div></div></div></td>';
+                                }
+                            }
+                        }
+                        allrows[i] += '</tr>';
+                        if (i == 0) {
+                            emptyrow += '</tr>';
+                        }
+                    }
+
+                    return allrows.join('');
+                }
+
+                this.addrow = function addrow() {
+                    rowindex = rowindex + 1;
+                    var mapObj = {
+                        row_index: "row_" + rowindex,
+                        index: '' + rowindex
+                    };
+
+                    var newrow = replaceAll(emptyrow, mapObj, rowindex);
+                    $(this).find('tbody').append(newrow);
+
+                }
+
+
+                if (_hascalendar == true) {
+                    var div = document.createElement('div');
+                    div.id = _thisID + '_calendar';
+                    div.attributes = {
+                        callby: "row",
+                        style: 'position:fixed;display: none;'
+                    }
+                    calendarid = div.id;
+                    $(this).append(div);
+
+                    var today = new Date();
+                    clen = $('#' + calendarid).tummogridcalendar({
+                        width: 250,
+                        date: new Date(),
+                        click: f_last
+                    });
+                }
+                if (_haslistview == true) {
+                    var div = document.createElement('div');
+                    div.id = _thisID + '_popup';
+                    div.attributes = {
+                        callby: "row",
+                        style: 'position:fixed;display: none;'
+                    }
+                    listviewid = div.id;
+                    $(this).append(div);
+                    listview = $('#' + listviewid).tummogridpopup({ click: f_listviewClick, rows: config.listview, width: 125 });
+
+                }
+
+                var is_calendar = false;
+                var is_popup = false;
+                function showcalendar(date, offset, id) {
+                    var today = new Date(date);
+                    clen.showcalendar(offset, id);
+                };
+
+                var _shelltable = drawshell(config.header, config.controls);
+                $(this).append(_shelltable);
+                var _convertrow = StringToObject(config.rows);
+                var _bd = drawbody(_convertrow);
+                $(this).find('table tbody').append(_bd);
+
+                // EVENT
+                $('#' + _thisID + '_table').find('tbody').on('click', '.t-grid-btn', function (e) {
+                    var xid = $(this).parent().attr('id');
+                    var getcol = $('#' + xid).attr('col');
+                    var gettype = _columntype[getcol];
+                    var x = $('#' + xid).offset().left;
+                    var y = $('#' + xid).offset().top + 30;
+                    var w = $('#' + xid).width();
+                    var offset = { x: x, y: y };
+                    var val = $('#' + xid).find('.t-grid-label').text();
+
+                    if (gettype == "date") {
+                        if (is_calendar == false) {
+                            showcalendar(val, offset, xid);
+                            is_calendar = true;
+                        } else {
+                            clen.hidecalendar();
+                            is_calendar = false;
+                        }
+                    } else if (gettype == "listview") {
+                        if (is_popup == false) {
+                            console.log(w);
+                            listview.width(w);
+                            listview.show(val, offset, xid);
+                            is_popup = true;
+                        } else {
+                            listview.hide();
+                            is_popup = false;
+                        }
+
+                    }
+                });
+
+                $('#' + _thisID + '_table').find('tbody').on('click', '.t-grid-label', function (e) {
+                    var id = $(this).parent().attr('id');
+                    var getcol = $(this).parent().attr('col');
+                    var gettype = _columntype[getcol];
+
+                    if (gettype == "text") {
+                        $('#' + id).find('.t-grid-label').attr('contenteditable', 'true');
+                    } else if (gettype == "time") {
+                        $('#' + id).find('.t-grid-label').attr('contenteditable', 'true');
+                    };
+                });
+
+                $('#' + _thisID + '_table').find('tbody').on('click', '.tummo-checkbox', function (e) {
+                    var prid = $(this).parent().parent().parent().attr('id');
+                    if ($(this).is(':checked')) {
+                        _rowselect.push(prid);
+                    } else {
+                        _rowselect.splice(_rowselect.indexOf(prid), 1);
+                    }
+                    getRows();
+                });
+
+                this.deleteRows = function deleteRows(xrows) {
+                    for (var i = 0; i < xrows.length; i++) {
+                        $('#' + xrows[i]).remove();
+                    }
+                }
+
+                this.getRowsSelected = function () {
+                    return _rowselect;
+                };
+
+                this.getRows = function getRows() {
+                    var exportrows = [];
+                    var rows = $('#' + _thisID + '_table').find(' tbody tr');
+                    var i = 0;
+                    rows.each(function (index) {
+                        var vtext;
+                        var vname;
+                        var row = [];
+                        for (var j = 0; j <= _columntype.length; j++) {
+                            try {
+
+                                var myElement = $('#row_' + i + j).find('.t-grid-label');
+
+                                vtext = myElement.text();
+                                vname = myElement.attr('name');
+                            } catch (error) {
+
+                            }
+                            if (vname != undefined) {
+                                var cell = { name: vname, text: vtext };
+                                row.push(cell);
+                            }
+                        }
+                        exportrows[i] = {
+                            id: i,
+                            cell: row
+                        }
+                        i = i + 1;
+                    });
+                    return exportrows;
+
+                };
+
+                function f_last(value, id) {
+                    $('#' + id).find('.t-grid-label').text(value);
+                    clen.hidecalendar();
+                }
+
+                function f_listviewClick(data) {
+                    var cellid = data.id;
+                    $('#' + cellid).find('.t-grid-label').text(data.text);
+                    $('#' + cellid).find('.grid-avatar').attr('src', data.src);
+                    listview.hide();
+                }
+                return this;
+            };
+        })(jQuery);
+
+        var _controls = [{ ctype: 'button', text: 'Thêm dòng', click: f_addrow }, { ctype: 'button', text: 'Xoá dòng', click: f_delrow }];
+
+        var _header = [{ text: 'Giờ', width: 70, align: 'center', ctype: 'time' }, { text: 'Ngày tháng', ctype: 'date', width: 120, align: 'center' }, { text: 'Nội dung', ctype: 'text', width: 220, align: 'center' }, { ctype: 'listview', text: 'Người hướng dẫn', width: 290, align: 'center' }];
+
+        var _rows = [{
+            id: 1, cell: [{ name: 'hours', text: '12:00', align: 'center', cvalue: 'rows' },
+            { name: 'day', text: '12/07/2023', cvalue: '12/07/2023' },
+            { name: 'content', text: 'The text-overflow property The text-overflow property The text-overflow property The text-overflow property', cvalue: '' },
+            { name: 'note', text: 'The text-overflow property', dataid: "1", datasrc: "/assets/images/cacvigiaotho/co-thu-nowak.jpg", cvalue: '' }]
+        }];
+
+        var popupitem = [{ id: '0', icon: '/assets/images/cacvigiaotho/ngai-zatila-1.jpg', text: 'Nguyễn Văn A', cvalue: 'value' }, { id: '1', icon: '/assets/images/cacvigiaotho/ngai-zatila-1.jpg', text: 'Nguyễn Văn A', cvalue: 'value' }, { id: '0', icon: '/assets/images/cacvigiaotho/ngai-zatila-1.jpg', text: 'Nguyễn Văn A', cvalue: 'value' },
+        { id: '0', icon: '/assets/images/cacvigiaotho/ngai-zatila-1.jpg', text: 'Nguyễn Văn A', cvalue: 'value' }
+        ];
+        var _listview = [{
+            rows: popupitem
+        }];
+
+        var dmgrid = $('#demogrid').tummoDataGrid({
+            width: 450,
+            height: 250,
+            controls: _controls,
+            header: _header,
+            rows: _rows,
+            calendar: true,
+            hascheckbox: true,
+            listview: popupitem,
+        });
+
+        var listnhanvien = [{ name: 'id', id: '1', value: 'id1', text: 'Nguyễn Văn A', icon: '<img class="grid-avatar" src="/assets/images/cacvigiaotho/co-thu-nowak.jpg">', iconcolor: '' }, { id: '2', value: 'id2', text: 'Nguyễn Văn B', icon: '<img class="grid-avatar" src="/assets/images/cacvigiaotho/co-thu-nowak.jpg">', iconcolor: '' }, { id: '3', value: 'id3', text: 'Nguyễn Văn C', icon: '<img class="grid-avatar" src="/assets/images/cacvigiaotho/co-thu-nowak.jpg">', iconcolor: '' }, { id: '3', value: 'id3', text: 'Nguyễn Văn C', icon: '<img class="grid-avatar" src="/assets/images/cacvigiaotho/co-thu-nowak.jpg">', iconcolor: '' }, { id: '3', value: 'id3', text: 'Nguyễn Văn C', icon: '<img class="grid-avatar" src="/assets/images/cacvigiaotho/co-thu-nowak.jpg">', iconcolor: '' }, { id: '3', value: 'id3', text: 'Nguyễn Văn C', icon: '<img class="grid-avatar" src="/assets/images/cacvigiaotho/co-thu-nowak.jpg">', iconcolor: '' }, { id: '3', value: 'id3', text: 'Nguyễn Văn C', icon: '<img class="grid-avatar" src="/assets/images/cacvigiaotho/co-thu-nowak.jpg">', iconcolor: '' }, { id: '3', value: 'id3', text: 'Nguyễn Văn C', icon: '<img class="grid-avatar" src="/assets/images/cacvigiaotho/co-thu-nowak.jpg">', iconcolor: '' }];
+
+        var _lstv = [{ rows: listnhanvien, checkbox: false, editEnable: false }];
+
+
+        // ADD ROW
+
+        function f_delrow() {
+            // var rowselect =  dmgrid.getRowsSelected();
+            //dmgrid.deleteRows(rowselect);
+            console.log(dmgrid.getRows());
+        }
+
+        function f_addrow() {
+            dmgrid.addrow();
+        }
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

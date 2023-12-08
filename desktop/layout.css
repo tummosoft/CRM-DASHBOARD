@@ -1,0 +1,30 @@
+.tummo-layout {            
+    width: 800px;    
+    height: 650px;                         
+}
+.main-layout {display: grid; grid-template-columns: 150px auto;width: 100%;height: 100%;overflow: hidden;margin:6px;}                
+.tummo-layout-header {
+    background: #C9DFFF url(icons/gridbar.jpg) repeat-x left bottom;            
+    border: 1px solid #84A0C4;
+    position: relative;
+    height: 30px;
+    margin: 3px;            
+    padding-right: 10px;
+    line-height: 30px;
+    padding-left: 5px;
+    color: #3d7fe9;            
+}
+.tummo-layout-header::before {content: ' '; background: #d2deee; height: 4px;position: absolute;bottom: -5px;left: 0px;}
+.main-layout {margin: 4px;margin-left: 2px;}
+.layout-column {height: calc(100%-50px) ;position: relative;border: 1px solid #84A0C4;}
+.layout-column::after {
+    content: ' ';
+    position: absolute;
+    width: 4px;
+    height: calc(100% + 6px) ;
+    cursor: col-resize;
+    top: -4px;
+    right: 0;
+    border-left: 1px solid #84A0C4;
+    background: #d2deee;                
+}

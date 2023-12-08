@@ -1,0 +1,50 @@
+[
+    {
+        "IsInitialized": true,
+        "id": "m1",    
+        "name":  "tenkhach",  
+        "value": "-1",
+        "icon": "/icons/buddhist.png",
+        "text": "Tìm theo họ tên Phật tử"
+    },
+    {
+        "IsInitialized": true,
+        "id": "m2",        
+        "name": "email",
+        "value": "-1",
+        "icon": "/icons/email.svg",
+        "text": "Tìm theo địa chỉ email"
+    },   
+    {
+        "IsInitialized": true,
+        "id": "m5",       
+        "name": "khoa",
+        "value": "0",
+        "icon": "/icons/wait.svg",
+        "text": "Danh sách dự bị"
+    },
+    {
+        "IsInitialized": true,
+        "id": "m6",      
+        "name": "khoa",
+        "value": "1",
+        "icon": "/icons/lock.svg",
+        "text": "Danh sách đã khoá"
+    },
+    {
+        "IsInitialized": true,
+        "id": "m7",        
+        "name": "thongbao_huy",
+        "value": "1",
+        "icon": "/icons/cancel.svg",
+        "text": "Huỷ vào giờ chót"
+    },
+    {
+        "IsInitialized": true,
+        "id": "m8",        
+        "name": "diem_danh",     
+        "value": "1",      
+        "icon": "/icons/buddhist2.png",
+        "text": "Phật tử đã có mặt"
+    }
+]

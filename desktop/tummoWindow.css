@@ -1,0 +1,49 @@
+.tummo-windows {  border-radius: 8px;box-shadow: 2px 3px 4px #02020250;border: 1px solid #698BF9;}
+.t-window-header {cursor: all-scroll;height: 30px;width: 100%;position: relative;background: #6b6b6d; background-image: linear-gradient(180deg, #4a70eeb7  30%, #4a70eebd 30%, #4a70eec0 40%);border-top-left-radius: 8px;border-top-right-radius: 8px;display: flex;flex-wrap: nowrap; justify-content: space-between;font-size: 13px;box-shadow: 1px 1px 1.5px #030e30bd;}
+.t-window-header::after {content: "";position: absolute;inset: 0; border-top: 2px solid #06299e5e;opacity:0.5;}
+.t-window-title {display: flex; font-size: 14px;color: #ffffff;float: left;margin-left: 10px;line-height: 30px;}
+.t-window-close-bg {display: flex;inset: 2;z-index: 3; float: right;width: 35px; height: 20px;line-height: 30px;background: #c7480d;  background-image: linear-gradient(20deg, #fc5b5bda  30%, #ee4d68d8 40%, #ec4d4d 30%);border-bottom-left-radius: 8px;box-shadow: 1px 1px 2px #6b6b6d;cursor: pointer;border: 1px solid #aa4343;position: relative;overflow: hidden;}
+.t-window-close-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;  
+ opacity:0.5;
+  z-index: -1;
+  width: 0%;
+  height: 18px;  
+  top:0;
+}
+.t-window-close-bg:hover {opacity: 0.9;transition: 0s 1s border;}
+.t-window-close-bg:hover::before {
+  width: 100%;    
+  
+}
+.close-window {
+    animation: close-up 0.8s;
+}
+@keyframes mymove {
+  from {opacity:0}
+  to {opacity:0.5;}
+}
+@keyframes slide-up {
+    0% {
+        opacity: 0;        
+    }
+  
+    100% {
+        opacity: 1;       
+    }
+}
+@keyframes close-up {
+    0% {
+        opacity: 1;        
+    }
+  
+    100% {
+        opacity: 0;       
+    }
+}
+.t-window-close {width: 35px; height: 20px;background: url(/icons/close-btn.svg);background-size: 12px 12px; background-repeat: no-repeat;background-position: center center;}
+.t-window-body {width: 100%;height: calc(100% - 35px);background: #feffff;}
+.t-window-footer {height: 10px;width: 100%;position: relative;background: #ffffff;background: linear-gradient(65deg, #698BF9 10%, #4a70ee 100%);border-bottom-left-radius: 8px;border-bottom-right-radius: 8px;}
+.tm-btn-group {height: 35px;display: flex;flex-wrap: nowrap; justify-content:flex-end;font-weight: normal;}

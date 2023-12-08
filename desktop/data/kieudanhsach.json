@@ -1,0 +1,50 @@
+[
+    {
+        "IsInitialized": true,
+        "id": "ds1",       
+        "name": "ngay_dangky",
+        "value": "1",
+        "icon": "/icons/calendar3.svg",
+        "text": "Danh sách chính thức"
+    },
+    {
+        "IsInitialized": true,
+        "id": "ds2",       
+        "name": "khoa",
+        "value": "2",
+        "icon": "/icons/wait.svg",
+        "text": "Danh sách dự bị"
+    },
+    {
+        "IsInitialized": true,
+        "id": "ds3",      
+        "name": "khoa",
+        "value": "1",
+        "icon": "/icons/lock.svg",
+        "text": "Danh sách đã khoá"
+    },
+    {
+        "IsInitialized": true,
+        "id": "ds4",        
+        "name": "thongbao_huy",
+        "value": "1",
+        "icon": "/icons/cancel.svg",
+        "text": "Danh sách huỷ"
+    },
+    {
+        "IsInitialized": true,
+        "id": "ds5",        
+        "name": "diem_danh",     
+        "value": "1",      
+        "icon": "/icons/buddhist2.png",
+        "text": "Phật tử đã có mặt"
+    },
+    {
+        "IsInitialized": true,
+        "id": "ds6",       
+        "name": "diem_danh",
+        "value": "0",
+        "icon": "/icons/question.svg",
+        "text": "Phật tử chưa đến"
+    }
+]

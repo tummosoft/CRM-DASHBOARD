@@ -1,0 +1,230 @@
+[
+    {
+        "IsInitialized": true,
+        "id": "1",
+        "items": [
+            {
+                "IsInitialized": true,
+                "ctype": "hours",
+                "hidenid": "",
+                "name": "hours",
+                "text": "08:00",
+                "value": "08:00"
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "day",
+                "hidenid": "",
+                "name": "day",
+                "text": "24-06-2023",
+                "value": "2023-06-24"
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "hidenid": "",
+                "name": "content",
+                "text": "Tập trung tại thiền viện",
+                "value": "Tập trung tại thiền viện"
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "listview",
+                "hidenid": "100-001",
+                "name": "mentor",
+                "text": "Puṇḍarīka Bikkhu",
+                "value": "/images/hinhnhanvien/hinh1.jpg"
+            }
+        ]
+    },
+    {
+        "IsInitialized": true,
+        "id": "2",
+        "items": [
+            {
+                "IsInitialized": true,
+                "ctype": "hours",
+                "hidenid": "",
+                "name": "hours",
+                "text": "10:00",
+                "value": "10:00"
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "day",
+                "hidenid": "",
+                "name": "day",
+                "text": "24-06-2023",
+                "value": "2023-06-24"
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "hidenid": "",
+                "name": "content",
+                "text": "Thiền sinh nhận chổ nghỉ",
+                "value": "Thiền sinh nhận chổ nghỉ"
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "listview",
+                "hidenid": "100-002",
+                "name": "mentor",
+                "text": "Setanivāsana Bikkhu",
+                "value": "/images/hinhnhanvien/hinh2.jpg"
+            }
+        ]
+    },
+    {
+        "IsInitialized": true,
+        "id": "3",
+        "items": [
+            {
+                "IsInitialized": true,
+                "ctype": "hours",
+                "hidenid": "",
+                "name": "hours",
+                "text": "11:30",
+                "value": "11:30"
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "day",
+                "hidenid": "",
+                "name": "day",
+                "text": "24-06-2023",
+                "value": "2023-06-24"
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "hidenid": "",
+                "name": "content",
+                "text": "Thiền sinh thọ thực",
+                "value": "Thiền sinh thọ thực"
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "listview",
+                "hidenid": "100-003",
+                "name": "mentor",
+                "text": "Bodhuṇuti Bikkhu",
+                "value": "/images/hinhnhanvien/hinh3.jpg"
+            }
+        ]
+    },
+    {
+        "IsInitialized": true,
+        "id": "4",
+        "items": [
+            {
+                "IsInitialized": true,
+                "ctype": "hours",
+                "hidenid": "",
+                "name": "hours",
+                "text": "12:00",
+                "value": "12:00"
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "day",
+                "hidenid": "",
+                "name": "day",
+                "text": "24-06-2023",
+                "value": "2023-06-24"
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "hidenid": "",
+                "name": "content",
+                "text": "Thiền sinh về cốc nghỉ ngơi h",
+                "value": "Thiền sinh về cốc nghỉ ngơi h"
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "listview",
+                "hidenid": "100-001",
+                "name": "mentor",
+                "text": "Puṇḍarīka Bikkhu",
+                "value": "/images/hinhnhanvien/hinh1.jpg"
+            }
+        ]
+    },
+    {
+        "IsInitialized": true,
+        "id": "5",
+        "items": [
+            {
+                "IsInitialized": true,
+                "ctype": "hours",
+                "hidenid": "",
+                "name": "hours",
+                "text": "13:30",
+                "value": "13:30"
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "day",
+                "hidenid": "",
+                "name": "day",
+                "text": "24-06-2023",
+                "value": "2023-06-24"
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "hidenid": "",
+                "name": "content",
+                "text": "Nghe pháp tại chánh điện",
+                "value": "Nghe pháp tại chánh điện"
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "listview",
+                "hidenid": "100-004",
+                "name": "mentor",
+                "text": "Amoha Bikkhu",
+                "value": "/images/hinhnhanvien/hinh4.jpg"
+            }
+        ]
+    },
+    {
+        "IsInitialized": true,
+        "id": "9",
+        "items": [
+            {
+                "IsInitialized": true,
+                "ctype": "hours",
+                "hidenid": "",
+                "name": "hours",
+                "text": "11:00",
+                "value": "11:00"
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "day",
+                "hidenid": "",
+                "name": "day",
+                "text": "25-06-2023",
+                "value": "2023-06-25"
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "text",
+                "hidenid": "",
+                "name": "content",
+                "text": "Thiền hành",
+                "value": "Thiền hành"
+            },
+            {
+                "IsInitialized": true,
+                "ctype": "listview",
+                "hidenid": "100-005",
+                "name": "mentor",
+                "text": "Paṇṇa Bikkhu",
+                "value": "/images/hinhnhanvien/hinh5.jpg"
+            }
+        ]
+    }
+]

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="/js/jquery-3.7.0.min.js"></script>
+  <link href="/tummosearchbox.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>  
+   <style>
+    body {font-family: 'Roboto';font-size: 13px;}
+   .tummo-select-drop {
+    box-sizing: border-box;
+    display: inline-block;        
+vertical-align: middle;
+color: #515a6e;    
+line-height: normal;
+position: relative;
+height: 250px;
+
+}
+.tummo-select-selection-drop {
+height: 25px;
+position: relative; 
+outline: 0;
+
+}
+.cbo-blue-drop {border: 1px solid #4a70eeb7;     
+    }
+.cbo-yellow-drop {   
+    border: 1px solid #FFBE45;
+   }
+.tummo-select-selection-drop {    
+outline: none;
+display: flex;
+align-content: space-between;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+cursor: pointer;
+position: relative;
+border-radius: 4px;    
+-webkit-transition: all .2s ease-in-out;
+transition: all .2s ease-in-out;
+overflow: hidden;
+}
+.tummo-select-selection-drop input {font-size: 13px; outline: none;border: none;padding-left: 5px;color: #333646;width: calc(100% - 25px);text-overflow: ellipsis;}
+.tummo-select-dropdown-drop { 
+max-height: 200px;      
+z-index: 9999;
+min-width: 100%;  
+position: relative;
+-webkit-transition: all .2s ease-in-out;
+transition: all .2s ease-in-out;
+display: none;
+}
+
+.tummo-select-dropdown-drop::after {content: ' ';position: absolute; width: 25px;height: 25px;background: url(/icons/arrow-top.svg);background-repeat: no-repeat;background-size: 20px 20px; background-position: center;top:-8px;left: 0px;transform: rotate(-90deg);z-index: 9996;}
+.tummo-select-dropdown-inner-drop {overflow-y: scroll;              
+overflow-x: hidden;    
+background: #4a70eeb7;
+background-image: linear-gradient(120deg, #a8bef7c9 30%, #a3b8ec 30%, #95b1f8ce 40%);
+-webkit-box-sizing: border-box;
+box-sizing: border-box;    
+color: #ccc;
+position: absolute;    
+min-width: max-content;
+top: 5px;
+left: 0;
+border-radius: 4px; 
+max-height: inherit;   
+margin-top: 2px;
+border: 1px solid #4a70eeb7;        
+-webkit-box-shadow: 0 0 0 2px rgba(45,140,240,.2);
+box-shadow: 0 0 0 2px rgba(45,140,240,.2);    }
+.tummo-select-dropdown-list-drop {    
+ text-align: left;     
+padding:0;
+list-style: none;    
+margin: 0;
+}
+.tummo-select-dropdown-list-drop li {color:#333646;padding-left: 5px;padding-right:5px; height: 25px;line-height: 25px;cursor:default;}
+.tummo-select-dropdown-list-drop li:hover {background: #ffd991d8;}
+
+.btn-blue-drop-drop:hover {width: 25px;height: 25px;background: #ffd991d8;background-image: url(/icons/arrow-hover.svg);background-size: 16px 16px;background-repeat: no-repeat; background-position: center center;transform: rotate(0deg)}
+.btn-yellow-drop {background: #FFBE45;
+    background-image: linear-gradient(180deg, #ffbe45b7 30%, #FFBE45 40%, #dd9f2c 30%);}
+
+.btn-blue-drop {background: #4a70ee;
+    background-image: linear-gradient(180deg, #4a70ee7a 30%, #4a70ee2c 40%, #4a70ee52 30%);}
+.btn-yellow-drop:hover {}
+.select-btn-drop {width: 25px;height: 25px;background-image: url(/icons/options.svg);background-size: 18px 18px;background-repeat: no-repeat; background-position: center center;transform: rotate(180deg) }
+.tummo-select-dropdown-inner-drop::-webkit-scrollbar {
+width: 7px;
+}
+/* Track */
+.tummo-select-dropdown-inner-drop::-webkit-scrollbar-track {
+background:#4a70eeb7 ;
+}
+
+/* Handle */
+.tummo-select-dropdown-inner-drop::-webkit-scrollbar-thumb {
+border-radius: 3px;
+background: linear-gradient(90deg, #FFD991 10%, #ffd991d8 100%);
+}
+
+/* Handle on hover */
+.tummo-select-dropdown-inner-drop::-webkit-scrollbar-thumb:hover {
+background: #698BF9;
+}
+.list-icon {width: 15px;height: 15px;margin-right: 5px;}
+   </style>
+       
+       <div style="width:190px;" class="tummo-select-selection-drop cbo-yellow-drop">
+        <div id="search_btn" class="select-btn-drop btn-yellow-drop"></div><input id="search_input" value="Default"></div>
+       <div class="tummo-select-dropdown-drop">
+         <div class="tummo-select-dropdown-inner-drop">
+           <ul class="tummo-select-dropdown-list-drop">
+            <li id="item" class="tummo-select-item"><img class="list-icon" src="/icons/byname.svg"> Item 11</li>
+            <li id="item" class="tummo-select-item">Item 11</li>
+            <li id="item" class="tummo-select-item">Item 11</li>
+         </ul>
+         </div>
+
+       </div>
+       <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">60% 40% 39% 61% / 62% 0% 100% 38%</font></font>
+       <div id="search"></div>
+  <script>
+       (function ($) {
+    $.fn.tummoSearchBoxMulti = function (options) {
+        var settings = $.extend({            
+            data: null,                   
+            width: null,           
+            onChange: function(value) {                
+            },            
+            value: '',          
+            url: '', 
+            style:'yellow',          
+            checkbox:false,
+        }, options);
+        
+        var config = settings;
+        
+        var id = $(this).attr('id');        
+        var _inputWidth = config.width;
+        var _yell = '';
+        var _yebtn = '';
+         if (config.style == 'yellow') {
+            _yell = 'cbo-yellow-drop';
+            _yebtn = 'btn-yellow-drop';
+         } else {
+            _yell = 'cbo-blue-drop';
+            _yebtn = 'btn-blue-drop';
+         }  
+        $(this).addClass('tummo-select-drop');
+        function drawitem(data) {
+            var result = '';
+            console.log(data);
+            for (var i = 0; i < data.length; i++) {   
+                let _icon = '';
+                if (data[i].icon != null) {
+                    _icon = '<img class="list-icon" src="' + data[i].icon +'">';
+                }
+                      
+                if (i == 0) {
+                   $('#' + id + '_input').val(data[i].text);
+                }
+                result += '<li id="' + data[i].id + '" text="' + data[i].text + '" class="tummo-select-item-drop" cvalue="' + data[i].value + '">';               
+                result += _icon + data[i].text + '</li>';
+               
+            }
+           $('#' + id + '_item').html(result);
+           
+        }
+           
+        var drawbox = '<div style="width:' + _inputWidth +'px;" class="tummo-select-selection-drop ' + _yell + '"><input id="' + id + '_input" value="Default"><div id="' + id + '_btn" class="select-btn-drop ' + _yebtn + '"></div></div><div id="' + id + '_drop" class="tummo-select-dropdown-drop"><div class="tummo-select-dropdown-inner-drop"><ul id="' + id + '_item" class="tummo-select-dropdown-list-drop"></ul></div></div>';  
+
+        $(this).append(drawbox);
+        
+        function loadData(url) {           
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                // Check if fetch request is done
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var jsonData = JSON.parse(xhr.responseText);                                     
+                    drawitem(jsonData);                    
+                }
+            };
+            xhr.open("GET", url, true);
+            xhr.send();        
+        }
+
+        loadData(config.url);        
+        var _dropopen = false;
+
+        this.reload = function(url) {
+            loadData(url);        
+        }
+
+        var _wDrop;
+
+        var hascheked = false;
+        function reCheckWidth() {      
+            if (hascheked == false) {
+                _wDrop = $('#' + id + '_item').width();                     
+                if (_wDrop <  _inputWidth) { 
+                    document.getElementById(id + '_item').style.width = _inputWidth + 'px';                                        
+                }
+                hascheked = true;
+            }         
+        }
+        
+        function showExpand(id) {
+            var ele = document.getElementById(id);          
+            if (_dropopen == false) {
+                
+                ele.style.display = 'block';
+                _dropopen = true;
+            } else {
+                ele.style.display = 'none';
+                _dropopen = false;
+            }   
+            reCheckWidth(); 
+        }
+                
+        $('#' + id + '_item').on('click', '.tummo-select-item-drop', function (e) {
+            text = $(this).attr('text');
+            $('#' + id + '_input').val(text);            
+            var value = $(this).attr('cvalue');
+            $('#' + id + '_input').attr('by', value);
+            settings.onChange(value);                
+            showExpand(id + '_drop');
+        });
+
+        $('#' + id + '_btn').on('click', function(){           
+            showExpand(id + '_drop');
+        });
+        
+        return this;
+    }
+})(jQuery); 
+
+$('#search').tummoSearchBoxMulti({onChange: f_changeevent, label:'Chọn trang',width:90, url: '/data/combobox-icons.json'});
+ 
+function f_changeevent() {
+
+}
+  </script>
+</body>
+</html>

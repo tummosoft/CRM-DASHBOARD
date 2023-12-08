@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="/logo.svg">
+  <title th:text="${pagetitle}"></title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.js"></script>
+  <script src="/templates/js/tummo.js" type="text/javascript"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Heebo&family=Nunito&family=Open+Sans&family=Roboto+Condensed:wght@300;400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/templates/css/grid.css" >
+  <link rel="stylesheet" href="/templates/css/core.css">
+  <link rel="stylesheet" href="/templates/css/tummoCombobox.css">
+  <link rel="stylesheet" href="/templates/css/tummoCboCalendar.css">
+  <link rel="stylesheet" href="/templates/css/tummoButton.css">
+  <link rel="stylesheet" href="/templates/css/gridcombobox.css">
+  <link rel="stylesheet" href="/templates/css/tummoDataGrid.css">
+  <link rel="stylesheet" href="/templates/css/tummogridpopup.css">
+  <link rel="stylesheet" href="/templates/css/tummoLayout.css">
+  <link rel="stylesheet" href="/templates/css/tummoTextbox.css">
+  <link rel="stylesheet" href="/templates/css/tummoSmallDialog.css">
+  <link rel="stylesheet" href="/templates/css/tummosearchdrop.css">
+  <link rel="stylesheet" href="/templates/css/tummoDropButton.css">
+  <link rel="stylesheet" href="/templates/css/tummoAlarmDialog.css">
+  <link rel="stylesheet" href="/templates/css/tummoButtonUpload.css">
+  <link rel="stylesheet" href="/templates/css/tummoloading.css">
+  <link href="/templates/css/grid.css" rel="stylesheet">
+  <script src="/templates/js/tummoloading.js" type="text/javascript"></script>
+  <script src="/templates/js/tummoAlarmDialog.js" type="text/javascript"></script>
+  <script src="/templates/js/tummoGridCalendar.js" type="text/javascript"></script>
+  <script src="/templates/js/tummogridpopup.js" type="text/javascript"></script>
+  <script src="/templates/js/tummodatagridview.js" type="text/javascript"></script>
+  <script src="/templates/js/tummoCombobox.js" type="text/javascript"></script>
+  <script src="/templates/js/tummoButton.js" type="text/javascript"></script>
+  <script src="/templates/js/tummoLayout.js" type="text/javascript"></script>
+  <script src="/templates/js/tummoTextbox.js" type="text/javascript"></script>
+  <script src="/templates/js/tummoSmallDialog.js" type="text/javascript"></script>
+  <script src="/templates/js/tummosearchdrop.js" type="text/javascript"></script>
+  <script src="/templates/js/tummoDropButton.js" type="text/javascript"></script>
+  <script src="/templates/js/tummo.js" type="text/javascript"></script>
+  <script src="/templates/js/tummoAlarmQuick.js" type="text/javascript"></script>
+  <script src="/templates/js/tummoButtonUpload.js" type="text/javascript"></script>
+  <script src="/b4j_ws.js" type="text/javascript"></script>
+  <script src="/data/header_thoikhoabieu.js" type="text/javascript"></script>
+  <style>
+    .grid-container-x {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-row-gap: 10px;
+      height: 100%;
+      align-content: stretch;
+      justify-items: stretch;
+      align-items: stretch;
+    }
+    ::-webkit-scrollbar {
+width: 7px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+background:#4a70eeb7 ;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+border-radius: 3px;
+background: linear-gradient(90deg, #FFD991 10%, #ffd991d8 100%);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #698BF9;
+}
+  </style>
+</head>
+
+<body>
+  <body style="font-family: 'Roboto Condensed';font-size: 13px;padding-right: 10px;overflow-x: hidden;">
+    <div class="tummo-layout">
+      <div th:insert="~{/fragments/sidebar::leftbar}">            
+      </div>
+      <div class="tummo-container">
+        <div th:insert="~{/fragments/menu::header}">            
+        </div>
+        <div id="contentbody" class="grid-container-x" style="height: 100%;margin-top: 60px;"> 
+            <div style="width: 100%;margin: 0 auto; background: #fff;" class="tummo-editor-body">
+              <iframe id="tablecontent"
+                style="border: none;outline:none;height:100%;"
+                src="" width="100%" height="100%"></iframe>
+      
+            </div>
+          </div>
+        </d>
+      </div>
+    </div>    
+     
+  <script>
+     /*<![CDATA[*/
+     var id = /*[[${id}]]*/ 'id';
+    var category = /*[[${category}]]*/ 'category';
+    /*]]>*/
+
+       
+        getParameter = (key) => {
+            address = window.location.search
+            parameterList = new URLSearchParams(address)
+            return parameterList.get(key)
+        }
+        let _id = getParameter("id");
+        let _category = getParameter("category");
+        var _url = '/quantri/suabaiviet/?id=' + _id +'&category=' + _category;
+       document.getElementById("leftbar").style.height = window.innerHeight + "px";
+       document.getElementById("contentbody").style.height = window.innerHeight - 60 + "px";
+       document.getElementById("contentbody").style.width = window.width - 120 + "px";
+        console.log(_url);
+       let _h = window.innerHeight - 160;
+      document.getElementById("tablecontent").style.height = _h + 'px';
+      document.getElementById("tablecontent").setAttribute('src', _url);
+            
+      $(document).ready(function () {
+        b4j_connect('wss://51.79.254.135:7676/ws/email');        
+      });
+      
+    </script>
+  </body>
+
+</html>

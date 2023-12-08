@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Thời khoá biểu: Khoá tu</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.js"></script>
+  <script src="/tummo.js" type="text/javascript"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Heebo&family=Nunito&family=Open+Sans&family=Roboto+Condensed:wght@300;400&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/core.css">
+  <link rel="stylesheet" href="/tummoCombobox.css">
+  <link rel="stylesheet" href="/tummoCboCalendar.css">
+  <link rel="stylesheet" href="/tummoButton.css">
+  <link rel="stylesheet" href="/gridcombobox.css">
+  <link rel="stylesheet" href="/tummoDataGrid.css">
+  <link rel="stylesheet" href="/tummoGridPopup.css">
+  <link rel="stylesheet" href="/tummoTextbox.css">
+  <link rel="stylesheet" href="/tummoWindow.css">
+  <link rel="stylesheet" href="/window.css">
+  <link href="https://cdn.jsdelivr.net/npm/@wangeditor/editor@latest/dist/css/style.css" rel="stylesheet">
+  <script src="https://unpkg.com/@wangeditor/editor@latest/dist/index.js"></script>
+  <script src="/tummoGridCalendar.js" type="text/javascript"></script>
+  <script src="/tummogridpopup.js" type="text/javascript"></script>
+  <script src="/tummoDataGrid.js" type="text/javascript"></script>
+  <script src="/tummoCombobox.js" type="text/javascript"></script>
+  <script src="/tummoButton.js" type="text/javascript"></script>
+  <script src="/tummoDropButton.js" type="text/javascript"></script>
+  <script src="/tummoTextbox.js" type="text/javascript"></script>
+  <script src="/tummoButtonUpload.js" type="text/javascript"></script>
+  <script src="/window.js" type="text/javascript"></script>
+  <script src="/tummoAlarmQuick.js" type="text/javascript"></script>
+  <script src="/b4j_ws.js" type="text/javascript"></script>
+
+</head>
+<style>
+  
+</style>
+
+<body style="font-family: 'Roboto Condensed';font-size: 13px;padding-right: 10px;">
+
+  <div id="biensoanemail" class="tummo-editor-wrapper">
+    <div id="self-toolbar" class="tummo-editor-ctrl">
+      <ul class="self-toolbar">
+        <li class="toolbar-item"><span style="margin-left: 6px;margin-right: 10px;">Sự kiện</span>
+          <div id="cboevents"></div>
+        </li>
+        <li class="toolbar-item"><span style="margin-left: 6px;margin-right: 5px;">Mẫu đã lưu</span>
+          <div id="cbotemplate"></div>
+        </li>
+        <li class="toolbar-item">
+          <div id="btnthoikhoabieu"></div>
+        </li>
+        <li class="toolbar-item">
+          <div id="btnxempdf"></div>
+        </li>
+      </ul>
+    </div>
+    <div id="self-toolbar" class="tummo-editor-ctrl">
+      <ul class="self-toolbar">
+        <li class="toolbar-item">
+          <div id="txtTitleTemplate"></div>
+        </li>
+        <li class="toolbar-item">
+          <div id="btnnew"></div>
+        </li>
+        <li class="toolbar-item">
+          <div id="btnSave"></div>
+        </li>
+        <li class="toolbar-item">
+          <div id="maillist"></div>
+        </li>
+        <li class="toolbar-item">
+          <div id="mediamanager"></div>
+        </li>
+        <li class="toolbar-item">
+          <div id="attachment"></div>
+        </li>
+      </ul>
+    </div>
+    <div id="self-toolbar" class="tummo-editor-ctrl">
+      <ul class="self-toolbar">
+        <li class="toolbar-item">
+          <div id="txtTitle"></div>
+        </li>
+        <li class="toolbar-item"><span style="margin-left: 6px;margin-right: 5px;">Kiểu danh sách</span>
+          <div id="ccadress"></div>
+        </li>
+        <li class="toolbar-item">
+          <div style="margin-left: 6px;margin-right: 5px;">Kèm thời khoá biểu</div>
+          <div class="yellow-checkbox" style="display: flex;align-items: center;"><input type="checkbox" id="chktkb">
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div id="editor-toolbar" class="tummo-editor-ctrl" style="height: 40px;">
+
+    </div>
+    <div class="tummo-editor-body">
+      <div id="editor-text-area">
+
+      </div>
+      <textarea id="hidencontent" style="display: none" name="content">
+
+    </textarea>
+    </div>
+  </div>
+
+  <div id="dialog" class="dialog" style="min-width:810px; min-height:630px;display: none;">
+    <div class="titlebar t-window-header"><span class="t-window-title">Quản lý hình ảnh </span>
+      <div class="t-window-close-bg" id="btnclose" name="close"><span class="t-window-close"></span></div>
+
+      <!-- enter symbol here like &times; or &#x1f6c8; or use the default X if empty -->
+    </div>
+    <div class="t-window-body">
+      <div class="content">
+        <iframe style="border: none;outline:none;" src="/uploadimage.html" width="100%" height="100%"></iframe>
+      </div>
+      <div class="buttonpane">
+        <div class="buttonset">
+          <button class="tummo-btn btn-yellow" name="ok">Chèn ảnh</button>
+          <button class="tummo-btn btn-yellow" name="cancel">Thoát</button>
+        </div>
+      </div>
+    </div>
+    <div class="t-window-footer"></div>
+  </div>
+  <div id="alarm"></div>
+  <script>
+    var _currentID = randomID();
+    var _newtemplate = true;
+
+    var dialogalarm = $('#alarm').tummoAlarmQuick({ text: 'Dữ liệu đã được cập nhật hoàn thành!' });
+
+    var cbosukien = $('#cboevents').tummoCombobox({ text: 'Thẻ HTML', onChange: cateEventChange, width: 190, url: '/api/v3/?id=sukien', label: 'Sự kiện', labelWidth: 75 });
+    var cbotemplate = $('#cbotemplate').tummoCombobox({ text: 'Thẻ HTML', onChange: cateTemplate, width: 190, url: '/api/v3/?id=emailtemplate', label: 'Sự kiện', labelWidth: 75 });
+    $('#mediamanager').tummoButton({ click: f_openmedia, text: 'Chèn ảnh', style: 'yellow', width: 140, icon: '<img src="/icons/insertimage.svg">' });
+
+    $('#btnthoikhoabieu').tummoButton({ click: f_tkb, text: 'Xem thời khoá biểu', style: 'yellow', width: 140, icon: '<img src="/icons/thoikhoabieu.svg">' });
+    $('#btnxempdf').tummoButton({ click: f_viewPdf, text: 'Xem trước PDF', style: 'yellow', width: 140, icon: '<img src="/icons/pdfpreview.svg">' });
+    $('#btnSave').tummoButton({ click: f_savetemplate, text: 'Lưu mẫu', style: 'yellow', width: 140, icon: '<img src="/icons/save.svg">' });
+    $('#btnnew').tummoButton({ click: f_newtemplate, text: 'Tạo mẫu mới', style: 'yellow', width: 140, icon: '<img src="/icons/newtemplate.svg">' });
+
+    var txtTitleTemplate = $('#txtTitleTemplate').tummoTextbox({ placeholder: 'Tên mẫu mới', type: 'text', width: 290, fullwidth: false, label: 'Mẫu', labelWidth: 50 });
+    var txttitleEmail = $('#txtTitle').tummoTextbox({ placeholder: 'Tiêu đề email', type: 'text', width: 290, fullwidth: false, label: 'Tiêu đề', labelWidth: 50 });
+    var kieudanhsach = $('#ccadress').tummoCombobox({ text: 'Thẻ HTML', url: '/data/kieudanhsach.json', onChange: categoryChange, width: 190, data: null });
+
+    var urlupload = '/upload/v2/?target=attachment';
+
+    var attachment = $('#attachment').tummoButtonUpload({ text: 'Upload tập tin', server: urlupload, event: f_uploaded, style: 'yellow', width: 140, icon: '<img src="/icons/upload.svg">' });
+
+    $('#maillist').tummoButton({ click: f_click, text: 'Email bổ sung', style: 'yellow', width: 140, icon: '<img src="/icons/emailbosung.svg">' });
+
+    function f_click() { }
+    function categoryChange() {
+
+    }
+
+    function f_viewPdf() {
+
+    }
+
+    function f_uploaded(event) {
+      if (event == true) {
+        dialogalarm.show('Tệp đã được tải thành công lên máy chủ!');
+      }
+
+    }
+
+    function f_tkb() {
+
+    }
+
+    function f_savetemplate() {
+      if (txtTitleTemplate.getValue() !== null || txtTitleTemplate.getValue() !== '') {
+        let tkbcheck = $('#chktkb').is(':checked');
+
+        b4j_raiseEvent('newtemplate_event', { id: _currentID, danhsach: kieudanhsach.getValue(), tempaltetitle: txtTitleTemplate.getValue(), newemail: txttitleEmail.getValue(), body: editor.getHtml(), masukien: cbosukien.getValue(), tkb: tkbcheck, attach: '' });
+        _newtemplate = false;
+        dialogalarm.show('Dữ liệu đã được cập nhật hoàn thành!');
+      }
+    }
+
+    function cateEventChange(id) {
+      let url = '/api/v3/?id=emailtemplate&filter=sukien&display=' + id;
+      cbotemplate.reload(url, null);
+    }
+
+    function f_newtemplate() {
+      _newtemplate = true;
+      _currentID = randomID();
+      txtTitleTemplate.clear();
+      txttitleEmail.clear();
+      editor.setHtml('');
+      b4j_raiseEvent('event_updateID', { id: _currentID });
+      dialogalarm.show('Mẫu thiết kế email đã sẵn sàng!');
+    }
+
+    function cateTemplate(id) {
+      var urlupload = '/upload/v2/?target=attachment&saveto=' + id;
+      attachment.setURL(urlupload);
+      _currentID = id;
+      _newtemplate = false;
+      var url2 = '/api/v3/?id=emailtemplate&filter=id&display=' + id;
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        // Check if fetch request is done
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          var _rows = JSON.parse(xhr.responseText);
+          var html = _rows[0].text;
+          inserTextToEditor(html);
+          txtTitleTemplate.setValue(_rows[0].title);
+          txttitleEmail.setValue(_rows[0].mailtitle);
+
+          b4j_raiseEvent('event_updateID', { id: _currentID });
+        }
+      };
+
+      xhr.open("GET", url2, true);
+      xhr.send();
+    }
+
+
+    function f_openmedia() {
+      dialog.showDialog();
+    }
+    // -------------------------- TUMMO DIALOG
+
+    // Show Dialog Box
+
+
+    // Receive result from Dialog Box
+    function callbackDialog(btnName) {
+      _showDialogButton.disabled = false;
+      _showDialogButton.focus();
+      if (btnName == 'close')
+        _statusDialog.textContent = 'Dialog hidden...';
+      else
+        _statusDialog.textContent = btnName + ' button clicked...';
+    }
+
+    // ----------------------- EDITOR
+    var editorbody = '';
+    const E = window.wangEditor;
+    const LANG = location.href.indexOf('lang=en') > 0 ? 'en' : 'en';
+    E.i18nChangeLanguage(LANG);
+    const $text1 = $('#hidencontent');
+    window.editor = E.createEditor({
+      selector: '#editor-text-area',
+      html: '<p><br></p>',
+      config: {
+        placeholder: 'Type here...',
+        height: 500,
+        MENU_CONF: {
+          uploadImage: {
+            server: '/upload/v2/id=images',
+            base64LimitSize: 10 * 1024 * 1024 // 10M 以下插入 base64
+          }
+        }
+      }
+    }
+    )
+
+    window.toolbar = E.createToolbar({
+      editor,
+      selector: '#editor-toolbar',
+      config: {}
+    });
+
+    window.addEventListener("message", function (_data) {
+      let result = _data.data[0];
+      inserImageToEditor(result);
+
+    });
+
+    function inserTextToEditor(html) {
+      if (editor.isDisabled()) editor.enable();
+      if (!editor.isFocused()) editor.focus();
+
+      editor.select([]);
+
+      E.SlateTransforms.setNodes(editor, { type: 'paragraph' }, { mode: 'highest' });
+      editor.setHtml(html);
+    }
+
+
+    function inserImageToEditor(image) {
+      if (editor.isDisabled()) editor.enable();
+      if (!editor.isFocused()) editor.focus();
+
+      E.SlateTransforms.setNodes(editor, { type: 'paragraph' }, { mode: 'highest' });
+      editor.dangerouslyInsertHtml('<img src="' + image + '"/>');
+    }
+
+    
+      $(document).ready(function () {
+        b4j_connect('/ws/edit');
+        var dialog;
+        var _showDialogButton = document.getElementById('show-dialog');
+        var _statusDialog = document.getElementById('dialog-status');
+
+        if (!dialog) {
+          var id = 'dialog';
+          // Instanciate the Dialog Box
+          dialog = new DialogBox(id, callbackDialog);
+        }
+      });
+
+    
+  </script>
+</body>
+
+</html>

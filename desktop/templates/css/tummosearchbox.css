@@ -1,0 +1,20 @@
+.tummo-searchbox {border: 1px solid #FFBE45;transition: 2s;background: #fff;font-size: 13px;height: 25px;line-height: 25px;width: 160px;position: relative;display: flex;flex-direction: row; border-radius: 4px;  }
+    .t-textbox-icon {width: 16px;height: 16px;cursor: pointer;height: 25px;width: 25px;}
+    .tummo-searchbox::before:hover {border: 1px solid #2742db;}
+    .tummo-searchbox:focus {outline: 1px solid #a6b1f1;border: 1px solid #2742db;}
+    .tummo-searchbox input {color: #333646; width: calc(100% - 25px); border: none;outline: none;margin-left: 5px;}
+    .editor-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding:10px;
+    }
+    .clear-fix {clear: both;}
+    .textbox-vaild-corection {color:#2742db;position: absolute;height: 20px;font-size: 13px;}
+    .textbox-vaild-ingorrect {color:rgb(238, 10, 10);position: absolute;height: 20px;font-size: 13px;
+        text-decoration: underline;
+        text-decoration-style: wavy;
+        text-decoration-color: rgb(250, 85, 85);
+        text-decoration-thickness: 1px;    
+    }
+    .t-textbox-label {margin-right: 5px;height: 25px;line-height: 25px;font-family: "Roboto Condensed";font-size: 14px;display: flex;padding-left:5px;padding-right:5px;text-align: left;}

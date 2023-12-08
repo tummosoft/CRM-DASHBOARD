@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Thời khoá biểu: Khoá tu</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <script src="/tummo.js" type="text/javascript"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo&family=Nunito&family=Open+Sans&family=Roboto+Condensed:wght@300;400&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/core.css">
+    <link rel="stylesheet" href="/tummoCombobox.css">
+    <link rel="stylesheet" href="/tummoCboCalendar.css">
+    <link rel="stylesheet" href="/tummoButton.css">
+    <link rel="stylesheet" href="/gridcombobox.css">
+    <link rel="stylesheet" href="/tummoDataGrid.css">
+    <link rel="stylesheet" href="/tummoGridPopup.css">
+    <link rel="stylesheet" href="/tummoLayout.css">
+    <link rel="stylesheet" href="/tummoTextbox.css">
+    <link rel="stylesheet" href="/tummoSmallDialog.css">
+    <link rel="stylesheet" href="/tummosearchdrop.css">
+    <link rel="stylesheet" href="/tummoDropButton.css">
+    <link rel="stylesheet" href="/tummoAlarmDialog.css">
+    <link rel="stylesheet" href="/tummoloading.css">
+    <script src="/tummoloading.js" type="text/javascript"></script>
+    <script src="/tummoAlarmDialog.js" type="text/javascript"></script>
+    <script src="/tummoGridCalendar.js" type="text/javascript"></script>
+    <script src="/tummogridpopup.js" type="text/javascript"></script>
+    <script src="/tummodatagridview.js" type="text/javascript"></script>
+    <script src="/tummoCombobox.js" type="text/javascript"></script>
+    <script src="/tummoButton.js" type="text/javascript"></script>
+    <script src="/tummoLayout.js" type="text/javascript"></script>
+    <script src="/tummoTextbox.js" type="text/javascript"></script>
+    <script src="/tummoSmallDialog.js" type="text/javascript"></script>
+    <script src="/tummosearchdrop.js" type="text/javascript"></script>
+    <script src="/tummoDropButton.js" type="text/javascript"></script>
+    <script src="/b4j_ws.js" type="text/javascript"></script>    
+    <script type="module" src="/jspdf.umd.js" type="text/javascript"></script>
+    
+    <style>
+        body {
+            font-size: 13px !important;
+        }
+
+        .detail-event {
+            border: 1px solid #3d7fe9;
+            overflow: hidden;
+            background: #fff;
+            height: calc(100% - 20px);
+        }
+
+        .info-sukien {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .info-sukien .title {
+            color: #140c20;
+        }
+
+        .info-sukien .value {
+            color: #ec9a00;
+        }
+
+        .info-sukien li {
+            line-height: 16px;
+            border-bottom: 1px solid #b7ceec;
+            padding: 5px 0px 5px 5px;
+        }
+
+        .detail-event {
+            width: 100%;
+        }
+
+        .group-sukien {}
+
+        .title-sukien {
+            color: #fff;
+            height: 30px;
+            background: #3d64e6c0;
+            background-image: linear-gradient(90deg, #3d64e68e 30%, #4a70eebd 30%, #3d64e6c0 40%);
+            width: 100%;
+            line-height: 30px;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+
+<body id="body" style="font-family: 'Roboto';font-size: 14px;">
+    <div class="thoikhoabieu">
+        <div id="thoikhoabieu">
+
+        </div>
+    </div>
+    <div id="dialogcall" style="display:none;"></div>
+    <div id="xacdinhsukien" style="display:none;"></div>
+    <div id="loading" style="display:none;z-index:12334;position: fixed;"></div>
+    
+    <script type="module"> 
+        var loading = $('#loading').tummoWaiting({
+            text:null,
+        });
+        loading.show();
+
+        var header_event = [{name:"id", type:"int", text:"id", display:false, width:0, render:null},
+{name:"ma_dinhdanh", type:"text", text:"Mã định danh", display:true, width:50, render:null},
+{name:"tenkhach", type:"text", text:"Họ tên Phật tử", display:true, width:220, render:null},
+{name:"gioitinh", type:"text", text:"Giới tính", display:true, align:"center", width:50, render:null},
+{name:"email", type:"render", text:"Email", display:true, width:90, render:function render(items) {
+    let html = '';
+    let result = items.filter((value) => value.name == 'xacminh_email');    
+    let checkverify = result[0].value;    
+    let getdata = items.filter((value) => value.name == 'email');
+    if (checkverify == '1') {
+        html = '<div class="t-grid-label t-grid-icon" oldvalue="' + getdata[0].value + '" hidenid="" cvalue="' + getdata[0].value + '" name="email">' + getdata[0].value + '</div><div class="t-grid-icon-render"><img class="icons-row" src="/icons/xacminh.svg"></div>';    
+    } else if (checkverify == '0') { 
+        html = '<div class="t-grid-label t-grid-icon" oldvalue="' + getdata[0].value + '" hidenid="" cvalue="' + getdata[0].value + '" name="email">' + getdata[0].value + '</div><div class="t-grid-icon-render"><img class="icons-row" src="/icons/diemdanh.svg""></div>';         
+    }
+    
+    return html;}
+},
+{name:"dienthoai", type:"render", text:"Điện thoại",click: f_xacminhdt, display:true, width:140, render:function render(items) {
+    let html = '';
+    let result = items.filter((value) => value.name == 'xacminh_dienthoai');    
+    let checkverify = result[0].value;    
+    let getdata = items.filter((value) => value.name == 'dienthoai');
+    if (checkverify == '1') {
+        html = '<div class="t-grid-label t-grid-icon" oldvalue="' + getdata[0].value + '" hidenid="" cvalue="' + getdata[0].value + '" name="email">' + getdata[0].value + '</div><div class="t-grid-icon-render"><img class="icons-row" src="/icons/xacminh.svg"></div>';   
+    } else if (checkverify == '2') { 
+        html = '<div class="t-grid-label t-grid-icon" oldvalue="' + getdata[0].value + '" hidenid="" cvalue="' + getdata[0].value + '" name="email">' + getdata[0].value + '</div><div class="t-grid-icon-render"><img class="btn-animation" src="/icons/misscall.svg""></div>';    
+    } else if (checkverify == '0') { 
+        html = '<div class="t-grid-label t-grid-icon" oldvalue="' + getdata[0].value + '" hidenid="" cvalue="' + getdata[0].value + '" name="email">' + getdata[0].value + '</div><div class="t-grid-available-click t-grid-icon-render"><img class="btn-animation" src="/icons/call.svg""></div>';   
+    } else if (checkverify == '-1') { 
+        html = '<div class="t-grid-label t-grid-icon" oldvalue="' + getdata[0].value + '" hidenid="" cvalue="' + getdata[0].value + '" name="email">' + getdata[0].value + '</div><div class="t-grid-icon-render"><img class="icons-row" src="/icons/userdelete.svg"></div>';          
+    }
+    
+    return html;}
+},
+{name:"id_sukien", type:"text", text:"ID sự kiện", display:false, width:0, render:null},
+{name:"ngay_dangky", type:"text", text:"Ngày đăng ký",align:'center', display:true, width:120, render:null},
+{name:"luutru", type:"date", text:"Lưu trú", display:false, width:90, render:null},
+{name:"xacminh_email", type:"text", text:"Xác minh Email", display:false, width:120, render:null},
+{name:"xacminh_dienthoai", type:"text", text:"Xác minh điện thoại", display:false, width:0, render:null},
+{name:"tinhtrang", type:"text", text:"Tình trạng", display:false, width:0, render:null},
+{name:"khoa", type:"render", text:"Khoá", display:true, width:50, render:function render(items) {
+    let html = '';
+    let result = items.filter((value) => value.name == 'khoa'); 
+    if (result[0].value == '0') {
+        html = '<div class="t-grid-label" name="' + result[0].name + '" cvalue="' + result[0].value + '"><span style="text-align:center;width:90%;"><img class="icons-row" src="/icons/dubi2.svg"></span></div>';
+    } else {      
+        html = '<div class="t-grid-label" name="' + result[0].name + '" cvalue="' + result[0].value + '"><span style="text-align:center;width:90%;"><img class="icons-row" src="/icons/lock.svg"></span></div>';   
+    }
+
+    return html;}
+},
+{name:"diem_danh", type:"render", text:"Điểm danh", display:true, click:f_diemdanh,width:50, render:function render(items) {
+    let html = '';
+    let result = items.filter((value) => value.name == 'diem_danh'); 
+    if (result[0].value == '0') {
+        html = '<div class="tm-checkbox t-grid-label" name="' + result[0].name + '" cvalue="' + result[0].value + '"><input style="position: absolute;left: calc(50% - 7px);top: 3px;" type="checkbox" name="checkbox" class="tummo-item-checkbox" value="uncheck"></div>';   
+    } else {      
+        html = '<div class="t-grid-label t-grid-icon" oldvalue="' + result[0].value + '" hidenid="" cvalue="' + result[0].value + '" name="' +  result[0].name + '"></div><div class="t-grid-icon-render"><img style="margin-left:-5px" class="icons-row" src="/icons/xacminh.svg"></div>';     
+    }
+    
+    return html;
+}},
+{name:"thongbao_huy", type:"render", text:"Huỷ", display:true, width:50, click:f_diemdanh, render:function render(items) {
+    let html = '';
+    let result = items.filter((value) => value.name == 'thongbao_huy'); 
+    if (result[0].value == '0') {
+        html = '<div class="t-grid-label" name="' + result[0].name + '" cvalue="' + result[0].value + '"><span style="text-align:center;margin:auto"><img class="icons-row" src="/icons/line-gray.svg"></span></div>';
+    } else {      
+        html = '<div class="t-grid-label" name="' + result[0].name + '" cvalue="' + result[0].value + '"><span style="text-align:center;margin:auto"><img class="icons-row" src="/icons/cancel.svg"></span></div>';   
+    }
+
+    return html;
+}}];
+
+function f_xacminhdt(data) {    
+    showcall(data);        
+}
+
+function f_diemdanh(data) {           
+        let ex = JSON.stringify(data);        
+        b4j_raiseEvent('diemdanh_changed', {row:ex});
+}
+
+        var phantrang = [{ id: 0, text: 'Trang 1', value: 0 }, { id: 1, text: 'Trang 2', value: 1 }, { id: 1, text: 'Trang 3', value: 2 }];
+        var dropItems = [{ id: 'menu1', icon: '/icons/lock.svg', text: 'Khoá danh sách', value: 'khoadanhsach' }, { text: 'line' }, { id: 'menu5', text: 'Gửi email', icon: '/icons/email.svg', value: '2' }, { id: 'menu7', text: 'Xuất Excel', icon: '/icons/excel.svg', value: 'xuatexcel' }];
+        var _controls = [{ id: 'btncontrol', type: 'dropbutton', value: { text: 'Công cụ', icon: '/icons/menu2.svg', style: 'yellow', width: 85, dropwidth: 200, data: dropItems, click: f_menucontrol, } }, { id: 'cbokhoatu', type: 'combobox', value: { onChange: f_filterkhoatu, style: 'yellow', width: 160, label: 'Sự kiện', url: '/api/v3/?id=sukien' } }, { id: 'txtsearch', type: 'searchboxdrop', value: { onkeypress: f_search_item, onchange: f_changeSearch, label: 'Chọn trang', width: 160, url: '/data/combobox-icons.json' } }];
+        var _header = [{ text: 'Mã định danh', width: 100, align: 'center', ctype: 'text' }, { text: 'Tên Phật tử', ctype: 'text', width: 220, align: 'left' }, { text: 'Giới tính', ctype: 'text', width: 50, align: 'center' }, { ctype: 'text', text: 'Email', width: 120, align: 'left' }, { ctype: 'text', text: 'Tel', width: 120, align: 'left' }, { ctype: 'text', text: 'Ngày đăng ký', labelWidth: 50, width: 120, align: 'left' }, { ctype: 'text', text: 'Tin nhắn', width: 180, align: 'left' }, { ctype: 'text', text: 'Lưu trú', width: 140, labelWidth: 50, align: 'left' }];
+
+        var dmgrid;        
+        
+        var jsPDF = window.jspdf.jsPDF;
+           const doc = new jsPDF();
+           
+       var exportToPDF = function exportToPDF(filename) {         
+            doc.autoTable({ html: '#thoikhoabieu' });
+            doc.save(filename + '.pdf');
+        }
+
+        function exportToCSV() {
+            const table = document.getElementById("thoikhoabieu");
+            const rows = table.querySelectorAll("tr");
+            const csvData = [];
+
+            // Lặp qua từng dòng của bảng và trích xuất dữ liệu
+            rows.forEach(function(row) {
+                const rowData = [];
+                const cols = row.querySelectorAll("td, th");
+                cols.forEach(function(col) {
+                    rowData.push(col.textContent);
+                });
+                csvData.push(rowData.join(","));
+            });
+
+            // Tạo chuỗi CSV
+            const csvString = csvData.join("\n");
+
+            // Tạo một đối tượng Blob để lưu trữ dữ liệu CSV
+            const blob = new Blob([csvString], { type: "text/csv" });
+
+            // Tạo một đường dẫn URL từ Blob và tạo một liên kết để tải xuống
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "table.csv";
+            a.style.display = "none";
+            document.body.appendChild(a);
+            a.click();
+
+            // Giải phóng đối tượng URL sau khi tải xuống
+            URL.revokeObjectURL(url);
+        }
+
+        
+
+        var xacnhansukien = $('#xacdinhsukien').tummoAlarmDialog({
+            text:'Đăng ký sự kiện', click: f_xacnhan,
+        });
+        function f_menucontrol(menuID) {
+            if (menuID == 'menu7') { // XUẤT PDF
+                exportToCSV();
+            } else if (menuID == 'menu1') {                
+                xacnhansukien.setText('Bạn chắc chắn muốn khoá danh sách cuả sự kiện?');
+                xacnhansukien.showdialog();
+            }
+
+                    
+        }
+        
+        function f_xacnhan(value) {
+            if (value == '1') {
+                xacnhansukien.hide();
+                var rowed = [];
+                    rowed = dmgrid.getRowsSelected();
+                if (rowed.length > 0) {
+                    loading.show();
+                    var rowselet = JSON.stringify(rowed);
+                    b4j_raiseEvent('event_multipleselect', {eventid: 'menu1', data: rowselet});   
+                } else {
+                    xacnhansukien.setText('Bạn chưa lựa chọn Phật tử nào từ danh sách!');
+                    xacnhansukien.showdialog();
+                }
+
+                
+            };
+            // loading.show();
+        }
+
+        function hidewaiting() {
+            loading.hide();
+        }
+
+        function f_newrow() {
+            dmgrid.addrow();
+        }
+
+        function f_changeevent() {
+
+        }
+        function f_deleterow() {
+            var _data = { data: dmgrid.deleteRows() };
+            var j = JSON.stringify(_data);
+            b4j_raiseEvent('request_delete', { delete: j });
+        }
+
+        function f_loadkhoatu(value) {
+            var filter = value.value;
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                // Check if fetch request is done
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var _rows = JSON.parse(xhr.responseText);
+                    dmgrid.reload(_rows);
+                }
+            };
+            var url2 = '/api/v3/?id=dangkyevent&filter=' + filter;
+            xhr.open("GET", url2, true);
+            xhr.send();
+        }
+
+        function _fTableChange(row, data) {
+            console.log('ON CHANGED');
+            console.log(data);
+            console.log(row);
+        }
+
+        function FetchGrid(url) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                // Check if fetch request is done
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var jsonData = JSON.parse(xhr.responseText);
+                    var _listview = [{ rows: jsonData }];
+                    var url2 = '/api/v3/?id=dangkyevent';
+                    FetchGrid2(url2, _listview);
+                }
+            };
+            xhr.open("GET", url, true);
+            xhr.send();
+        }
+
+        var url = '/datatest.json';
+        FetchGrid(url);
+        
+        function FetchGrid2(url, list) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                // Check if fetch request is done
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var _rows = JSON.parse(xhr.responseText);
+                 
+                    dmgrid = $('#thoikhoabieu').tummoDataGridView({
+                        width: 650,
+                        height: 250,                        
+                        header: header_event,
+                        controls: _controls,
+                        data: null,
+                        url: '/api/v3/?id=dangkyevent',
+                        onChange: _fTableChange,
+                        afterEdit: null,
+                        listview: list,
+                        calendar: true,
+                        linerow: true,
+                        hascheckbox: true,                        
+                    });
+                }
+                ///api/v3/?id=sukien
+
+            };
+            xhr.open("GET", url, true);
+            xhr.send();
+        }
+
+        //$('#addnewrowx').tummoButton({text:'Demmo button', style: 'yellow', click: f_click}); 
+        //      $('#cbokhoatux').tummoCombobox({label:'Chọn sự kiện',width:220,labelWidth:90, ctype: 'combobox', url:'/datatest.json', text: 'Khoá tu', onChange: f_loadkhoatu });
+
+        function f_click() {
+            alert('Demmo button');
+        }
+
+        function _fEdited(id, data) {
+            
+            
+        }
+
+        
+        // ------------------------------
+        var dialogcall = $('#dialogcall').tummoSmallDialog({
+            width: 450, height: 200, title: 'Liên lạc xác minh đến Phật tử có số điện thoại', text: '0917 152 135', buttons: [{ name: 'btncancel', text: 'Thành công', click: f_confirmDialog, icon: '/icons/call.svg' }, { name: 'btncancel', text: 'Thất bại', click: f_confirmDialog, icon: '/icons/misscall.svg' }, { name: 'btncancel', text: 'Huỷ tham gia', click: f_confirmDialog, icon: '/icons/huythamgia.svg' }]
+        });
+
+        function f_confirmDialog(whatbutton, callFrom) {            
+            var _col = $('#' + callFrom).attr('col');
+            var _row = $('#' + callFrom).attr('row');
+            var _cellid = 'row_' + _row + '10';
+            var ele = document.getElementById(_cellid).querySelector('.t-grid-label');
+            if (whatbutton == 0) {
+                ele.textContent = '1';
+                ele.setAttribute('cvalue', '1');
+                changeICON(1,callFrom);
+                let rowdata = dmgrid.getRowAtCell(callFrom);
+                b4j_raiseEvent('dangkysukien_changed', {id:1, row: rowdata });
+            } else if (whatbutton == 1) {
+                ele.textContent = '2';
+                ele.setAttribute('cvalue', '2');
+                let rowdata = dmgrid.getRowAtCell(callFrom);
+                b4j_raiseEvent('dangkysukien_changed', {id:2, row: rowdata });
+            } else if (whatbutton == 2) {
+                ele.textContent = '-1';
+                ele.setAttribute('cvalue', '-1');
+                changeICON(-1,callFrom);
+                let rowdata = dmgrid.getRowAtCell(callFrom);
+                b4j_raiseEvent('dangkysukien_changed', {id:-1, row: rowdata });
+            }
+            dialogcall.hide();
+        }
+
+        function changeICON(eventID, cellID) {
+            console.log(cellID);
+                $('#' + cellID).find('div').removeClass('t-grid-available-click');
+                var cld = $('#' + cellID).find('.t-grid-icon-render img');
+                if (eventID == 1) {
+                    cld.attr('src', '/icons/xacminh.svg');                   
+                } else if (eventID == -1) {
+                    cld.attr('src', '/icons/userdelete.svg'); 
+                }          
+                   
+                cld.removeClass('btn-animation');
+                cld.addClass('icons-row');
+                var pr = document.getElementById(cellID).parentNode.parentNode;
+                var id = pr.getAttribute("id");
+                document.getElementById(id).setAttribute('status', 'changed');
+        }
+        
+        function requestUpdate() {
+            var _row = dmgrid.getRow('9');            
+        }
+
+        function f_filterkhoatu(value) {
+            let key = 'ma_sukien';
+            let rs = dmgrid.filter(key, value);
+        }
+
+        function f_changeSearch(data) {
+            dmgrid.search(data.key, data.value, 'equals');
+
+        }
+
+        function f_search_item(key, value) {
+
+            if (key == 'tenkhach') {
+                dmgrid.search(key, value, 'startwith');
+            } else {
+                dmgrid.search(key, value, 'equals');
+            }
+
+        }
+
+        function f_search(e) {
+
+        }
+        function showcall(data) {
+            dialogcall.setText(data[0].text);
+            dialogcall.showdialog(data[0].id);
+            let rowdata = dmgrid.getRow(data[0].id);             
+        }
+
+        function f_keypress(data) {
+            let key = data.key;
+            let value = data.value;            
+            let rs = dmgrid.search(key, value, 'startwith');
+        }
+
+        $(window).ready(function () {
+            $(document).ready(function () {
+                b4j_connect('/ws/edit');
+                loading.hide();
+            });
+
+        })
+    </script>
+</body>
+
+</html>

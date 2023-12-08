@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link href="style.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <style>
+        * {box-sizing: border-box;}
+        .filemanager {width: 760px;height: 450px;background: #ccc;padding:10px; padding-left:0px;overflow : hidden;}
+        .imagethumbnail {display: grid; grid-template-columns: repeat(5, 120px); row-gap: 10px;column-gap: 10px;list-style: none;overflow-y: scroll;height: 400px;width: 730px; 
+  scrollbar-color: red orange;
+  scrollbar-width: 3px;}
+        .file-item {width: 120px;height: 120px;position: relative;}
+        .file-info {position: absolute;left: 0;bottom: 0;height: 20px;width: 100%;background: #a84242;z-index: 144;text-overflow:ellipsis;overflow:hidden;font-family: 'Roboto', sans-serif;font-size: 12px;line-height: 20px;padding-left: 5px;color: white;}
+        .img-item {width: 120px;height: 120px;}
+        .checkitem {position: absolute;top: 5px;left: 0;}
+ 
+        .item {
+  margin-bottom: 20px;
+  font-size: 15px;
+  letter-spacing: 5px;
+}
+/* 最后一个元素底边距为0 */
+.item:last-child {
+   margin-bottom: 0;
+ }
+.bg5 {background: #007BA7;
+background: linear-gradient(to bottom, #007BA7 0%, #006C98 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #007BA7), color-stop(100%, #006C98));
+background: -webkit-linear-gradient(top, #007BA7 0%, #006C98 100%);
+background: -moz-linear-gradient(top, #007BA7 0%, #006C98 100%);
+background: -o-linear-gradient(top, #007BA7 0%, #006C98 100%);
+background: -ms-linear-gradient(top, #007BA7 0%, #006C98 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#007BA7', endColorstr='#006C98', GradientType=0);
+border: 1px solid #005D89;
+box-shadow: inset 0 1px 0 #0F8AB6;
+-webkit-box-shadow: inset 0 1px 0 #0F8AB6;
+-moz-box-shadow: inset 0 1px 0 #0F8AB6;}
+
+input[type="checkbox"] {
+ -webkit-appearance: none;
+ height: 15px;
+ width: 15px;
+ border-radius: 4px;
+ position: relative;
+ margin-right: 10px;
+ border: 2px solid #4a70eeb7; 
+ background: #7c9cee;
+ background-image: linear-gradient(180deg, #4a70eeb7 30%, #4a70eebd 30%, #4a70eec0 40%);
+}
+input[type="checkbox"]::after {
+ content: "";
+ width: 100%;
+ height: 100%;
+ border-radius: 2px;
+ background: #ffffffd8;
+ background-image: radial-gradient(circle, #ffffffc7 40%, #7c9cee77 100%);
+ position: absolute;
+ opacity: 0.8;
+ left: 0;
+ top: 0; 
+}
+input[type="checkbox"]:checked {
+    position: relative;
+ height: 15px;
+ width: 15px;
+ border: 2px solid #4a70eeb7;  
+ background-image: linear-gradient(180deg, #4a70ee 30%, #4a70ee 30%, #4a70ee 40%);
+}
+input[type="checkbox"]:checked::after { 
+    content: ' ';      
+    position: absolute;
+    left: 0;
+    top:0;
+    background-image: linear-gradient(180deg, #4a70ee 30%, #4a70ee 30%, #4a70ee 40%);  
+}
+input[type="checkbox"]:checked::before {     
+    content: '';    
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 15px;
+    height: 15px;
+    background: url('/icons/check5.svg') no-repeat;
+    background-position: center top;
+    background-size: 15px 15px;
+    z-index: 4;
+}
+label {
+ cursor: pointer;
+ text-decoration-line: underline;
+  text-decoration-color: transparent;
+ text-underline-offset: 1px;
+  transition: all 0.5s;
+}
+label:hover {
+   text-decoration-color: var(--checked);
+   text-underline-offset: 10px;
+   color: var(--checked);
+ }
+ input[type="checkbox"]:checked ~ label {
+  color: var(--checked);
+  text-underline-offset: -5px;
+  text-decoration-color: var(--checked);
+}
+
+.drawcheck {border-left: 2px solid #4a70eeb7;border-bottom: 2px solid #4a70eeb7;  width: 50px;height: 50px;}
+    </style>
+    <div class="filemanager">
+        <ul id="filecontrol" class="imagethumbnail">
+           
+            <li class="file-item"><img class="img-item" src="/assets/images/cacvigiaotho/hoa-thuong-thien-su-kim-trieu-1.jpg"><input class="checkitem" filename="/assets/images/cacvigiaotho/hoa-thuong-thien-su-kim-trieu-1.jpg" type="checkbox">
+                <div class="file-info">hoa-thuong-thien-su-kim-trieu-1.jpg</div>
+            </li>
+            <li class="file-item"><img class="img-item" src="/assets/images/cacvigiaotho/hoa-thuong-thien-su-kim-trieu-1.jpg"><input class="checkitem" filename="/assets/images/cacvigiaotho/hoa-thuong-thien-su-kim-trieu-1.jpg" type="checkbox">
+                <div class="file-info">hoa-thuong-thien-su-kim-trieu-1.jpg</div>
+            </li>
+            <li class="file-item"><img class="img-item" src="/assets/images/cacvigiaotho/hoa-thuong-thien-su-kim-trieu-1.jpg"><input class="checkitem" filename="/assets/images/cacvigiaotho/hoa-thuong-thien-su-kim-trieu-1.jpg" type="checkbox">
+                <div class="file-info">hoa-thuong-thien-su-kim-trieu-1.jpg</div>
+            </li>
+            <li class="file-item"><img class="img-item" src="/assets/images/cacvigiaotho/hoa-thuong-thien-su-kim-trieu-1.jpg"><input class="checkitem" filename="/assets/images/cacvigiaotho/hoa-thuong-thien-su-kim-trieu-1.jpg" type="checkbox">
+            <div class="file-info">hoa-thuong-thien-su-kim-trieu-1.jpg</div>
+            </li>
+        </ul>
+        <button id="upload" onclick="getcheked()">Upload</button>
+    </div>
+    <div class="crush">
+        dd dd
+    </div>
+    <div class="drawcheck">
+
+    </div>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script>
+    function getcheked() {
+        
+        $('#filecontrol li input:checked').each(function(i, obj) {
+            console.log($(this).attr('filename'));
+        });
+    }    
+
+  </script>
+</body>
+</html>

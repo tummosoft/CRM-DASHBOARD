@@ -1,0 +1,282 @@
+.tummo-calendar {
+    font-family: 'Roboto Condensed';
+    font-size: 13px;
+    background: #4a70eeb7;
+background-image: linear-gradient(120deg, #a8bef7c9 30%, #a3b8ec 30%, #95b1f8ce 40%);
+border: 1px solid #4a70eeb7;
+-webkit-box-shadow: 0 0 0 2px rgba(45, 140, 240, .2);
+box-shadow: 0 0 0 2px rgba(45, 140, 240, .2);
+
+    border: 1px solid #516AF0;
+    width: 600px;
+    overflow: hidden;
+    border-radius: 8px;
+    line-height: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.calendar-header {
+    cursor: pointer;
+    width: 100%;
+    height: 25px;
+    background: #6b6b6d;
+    background-image: linear-gradient(180deg, #4a70eeb7 30%, #4a70eebd 30%, #4a70eec0 40%);
+    color: #E7E9EE;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+}
+
+.tm-last-month {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: 0;
+    top: 0;
+    background: #BDD1FF;
+    background-image: url(/icons/arrow-left.svg);
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-position: center center;
+}
+
+.tm-next-month {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: 0;
+    top: 0;
+    background: #BDD1FF;
+    background-image: url(/icons/arrow-right.svg);
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-position: center center;
+}
+
+.tm-next-month:hover {
+    background: #F6F9FE;
+}
+
+.tm-title {
+    width: calc(100% - 50px);
+    margin-left: 25px;
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.tm-last-month:hover {
+    background: #F6F9FE;
+}
+
+.tm-calendar-body {
+    position: relative;
+    height: 100%;
+    padding-bottom: 10px;
+   background: #4a70eeb7;
+background-image: linear-gradient(120deg, #a8bef7c9 30%, #a3b8ec 30%, #95b1f8ce 40%);
+border: 1px solid #4a70eeb7;
+-webkit-box-shadow: 0 0 0 2px rgba(45, 140, 240, .2);
+box-shadow: 0 0 0 2px rgba(45, 140, 240, .2);
+}
+
+.tm-calendar-body::after {
+    content: '';
+    left: 0;
+    right: 0px;
+    inset: 0;
+    position: absolute;
+    background: #ffffff;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+.tm-week {
+    background: #C0C0C0;
+    background-image: linear-gradient(90deg, #f0f0f1 30%, #f0f0f1 30%, #f0f0f1 40%);
+    color: #292B2F;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.tm-week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    column-gap: 5px;
+    list-style: none;
+    cursor: pointer;
+    padding-left: 5px;
+    padding-right: 10px;
+    color: #516AF0;
+    font-size: 16px;
+}
+
+.tm-days {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(7, 1fr);
+    list-style: none;            
+    cursor: pointer;
+    padding: 20px;
+    align-items: center;            
+    color: #516AF0;
+    font-size: 16px;
+    
+}
+
+.tm-days li {
+    color: #292B2F;            
+    height: 70px;
+    width: 100%;
+    font-size: 18px;
+    line-height: 18px;
+    position: relative;           
+    left: 50%;
+    transform: translateX(-50%);          
+}
+       
+
+.day-abosute {position: absolute;left: calc(50% - 15px);top:calc(50% - 15px) ;width: 30px;height: 30px;font-weight: bold;}
+
+
+.tm-hiden {
+    display: none;
+}
+
+.monk-avatar {
+    position: relative;
+    height: 25px;
+    width: 25px;
+    left: 0px;
+    top: 0px;
+    border-radius: 50%;
+    z-index: 777;
+}
+.event-content {
+    position: fixed;
+    color: #292B2F;
+    height: 25px;
+    font-size: 11px;
+    font-family: 'Roboto Condensed';
+    display: flex;
+    gap: 5px
+}
+
+.selectsart {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    background: #F3FDE8;
+    bottom: 25px;
+    right: 25px;
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+}
+
+.selectsart::after {
+    content: ' ';
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    bottom: 0px;
+    right: -100px;
+    background: #F3FDE8;
+}
+
+.selectsart::before {
+    content: ' ';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    bottom: 0px;
+    left: 0px;            
+    background: #A8DF8E;
+}
+
+.selectitem {
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    background: #F3FDE8;
+    bottom: 25px;
+    left: 0px;
+}
+.selectitem::after {
+    content: ' ';
+    position: absolute;
+    width: 75px;
+    height: 30px;
+    bottom: 0px;
+    left: -20px;            
+    background: #F3FDE8;
+    z-index: 0;
+}
+.selectend {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    background: #F3FDE8;
+    bottom: 25px;
+    left: 25px;            
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 50%;
+}
+
+.selectend::after {
+    content: ' ';
+    position: absolute;
+    width: 75px;
+    height: 30px;
+    bottom: 0px;
+    right: 10px;            
+    background: #F3FDE8;
+    z-index: 0;
+}
+
+.selectend::before {
+    content: ' ';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    bottom: 0px;
+    right: 0px;
+    z-index: 145;
+    background: #A8DF8E;
+}
+
+.color0 {
+    color: #4C4C6D;
+    position: absolute;left: calc(50% - 15px);top:calc(50% - 15px) ;width: 30px;height: 30px;
+    z-index: 144;
+    font-weight: bold;
+}
+
+.color1 {
+    color: #C70039;
+    position: absolute;left: calc(50% - 15px);top:calc(50% - 15px) ;width: 30px;height: 30px;
+    z-index: 144;
+    font-weight: bold;
+}
+
+.color2 {
+    color: #252B48;
+    position: absolute;left: calc(50% - 15px);top:calc(50% - 15px) ;width: 30px;height: 30px;
+    z-index: 144;
+    font-weight: bold;
+}
+
+.color3 {
+    color: #1D5D9B;
+    position: absolute;left: calc(50% - 15px);top:calc(50% - 15px) ;width: 30px;height: 30px;
+    z-index: 144;
+    font-weight: bold;
+}
+.tm-lunar-day {font-size: 12px;color: #252B48;position: absolute;width: 75px;top: 0px;left: calc(50% - 55px);text-align: right;}        
+.lunar-month-small {position: absolute;background:  #C70039;color: #fff; padding-left: 3px;padding-right:3px;}
+.lunar-full-moon {position: absolute;color: #fff; padding-left: 3px;padding-right:3px;width: 16px;height: 16px;top:-5px;}
+.lunar-holiday {background: #637cfc;border-radius: 4px;position: absolute;width: 100%;height: 20px;font-size: 9px;bottom: 0;left: 0;font-family: 'Roboto Condensed';}

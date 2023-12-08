@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <body>
+    <div th:fragment="leftbar" id="leftbar" class="leftBar">
+      <ul class="leftbar-brand">
+        <li class="bar-item-menu">
+          <div class="tummo-brand">
+            <div class="brand-text">UM</div>
+            </div>
+        </li>
+        <li class="product-name">
+          <div id="product">jPress Admin</div>            
+        </li>         
+      </ul>
+      <ul class="leftbar-item">
+        <li onclick="location.href='/quantri/baiviet/'" target="_blank" class="item-menu">
+          <img th:src="${menuicon}">Sự kiện mới
+        </li>
+        <li onclick="location.href='/quantri/post/'" target="_blank" class="item-menu">
+          <img th:src="${menuicon}">Quản lý bài viết
+        </li>
+        <li class="item-menu">
+          <img th:src="${menuicon}" src="/templates/assets/icons/banhxe.svg">Người đăng ký
+        </li>
+        <li onclick="location.href='/quantri/xacminh/'" target="_blank" class="item-menu">
+          <img th:src="${menuicon}" src="/templates/assets/icons/banhxe.svg">Xác minh đăng ký
+        </li>
+        <li class="item-menu">
+          <img th:src="${menuicon}" src="/templates/assets/icons/banhxe.svg">Thời khoá biểu
+        </li>
+        <li class="item-menu">
+          <img  th:src="${menuicon}" src="/templates/assets/icons/banhxe.svg">Danh mục
+        </li>
+        <li onclick="location.href='/quantri/biensoanemail/'" target="_blank" class="item-menu">
+          <img th:src="${menuicon}" src="/templates/assets/icons/banhxe.svg">Soạn mẫu email
+        </li>
+        <li onclick="location.href='/quantri/guiemail/'" target="_blank" class="item-menu">
+          <img th:src="${menuicon}" src="/templates/assets/icons/banhxe.svg">Gửi email
+        </li>
+        <li class="item-menu">
+          <img th:src="${menuicon}" src="/templates/assets/icons/banhxe.svg">Các vị giảng sư
+        </li>
+        <li class="item-menu">
+          <img th:src="${menuicon}" src="/templates/assets/icons/banhxe.svg">Người dùng
+        </li>
+        <li class="item-menu">
+          <img th:src="${menuicon}" src="/templates/assets/icons/banhxe.svg">Nhân sự
+        </li>
+      </ul>       
+    </div>
+    
+ 
+  </body>
+ 
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi" prefix="og: https://ogp.me/ns#">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed:wght@400&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
+        integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+    <script src="/tummo.js" type="text/javascript"></script>
+    <script src="/b4j_ws.js" type="text/javascript"></script>
+    <style>
+        * {margin: 0;padding:0;box-sizing: border-box;}
+        body {
+            padding: 10px;
+            margin: 0;
+            font-family: 'Roboto Condensed';
+
+        }
+
+        .tummo-report-srm {
+            border-radius: 8px;
+            width: 100%;          
+            height: 100%;
+            background: #4a70eeb7;
+        background-image: linear-gradient(120deg, #a8bef7c9 30%, #a3b8ec 30%, #95b1f8ce 40%);
+        border: 1px solid #4a70eeb7;
+        -webkit-box-shadow: 0 0 0 2px rgba(45, 140, 240, .2);
+        box-shadow: 0 0 0 2px rgba(45, 140, 240, .2);
+        }
+        .tummo-calendar {font-family: 'Roboto Condensed';font-size: 13px;background: #7c9cee; background-image: linear-gradient(120deg, #a8bef7c9 30%, #a3b8ec 30%, #95b1f8ce 40%);border: 1px solid #516AF0;width: 100%;height: 100%;overflow: hidden;border-radius: 8px;line-height: 30px;text-align: center;}
+.calendar-header {cursor: pointer;width: 100%;height: 25px;background: #6b6b6d; background-image: linear-gradient(180deg, #4a70eeb7  30%, #4a70eebd 30%, #4a70eec0 40%);color: #E7E9EE;position: relative;display: flex;flex-direction: row;align-content: space-between;}
+.tm-last-month {position: absolute; width: 25px;height: 25px;left: 0;top:0; background: #BDD1FF;background-image: url(/icons/arrow-left.svg);background-repeat: no-repeat;background-size: 16px 16px;background-position: center center;}
+
+.tm-next-month {position: absolute; width: 25px;height: 25px;right: 0;top:0; background: #BDD1FF;background-image: url(/icons/arrow-right.svg);background-repeat: no-repeat;background-size: 16px 16px;background-position: center center;}
+.tm-next-month:hover {background: #F6F9FE;}
+.tm-title {width: calc(100% - 50px);margin-left: 25px;font-size: 14px;line-height: 25px;}
+.tm-last-month:hover {background: #F6F9FE;}
+.tm-calendar-body {position: relative;height: 100%;}
+.tm-calendar-body::after {content:'';left: 0;right:0px; inset: 0; position: absolute;background: #ffffff; z-index: -1;opacity: 0.8;}
+.tm-week {background:#C0C0C0;background-image: linear-gradient(90deg, #f0f0f1 30%, #f0f0f1 30%, #f0f0f1 40%); color: #292B2F;height: 30px;margin: 0;padding: 0;box-sizing: border-box;}
+.tm-week {display: grid;grid-template-columns: repeat(7, 1fr);column-gap: 5px; list-style: none;cursor: pointer;padding-left: 5px;padding-right: 10px;color:#516AF0;}
+.tm-days {display: grid;grid-template-columns: repeat(7, 1fr);list-style: none;cursor: pointer;padding:20px}
+.tm-days li {color: #292B2F;text-align: center;height: 70px;font-size: 22px;line-height: 45px;position: relative;font-weight: 400;}
+.tm-days li:hover {background: #698BF9;color: #fff;}
+.day-selected {background: #fdb46b;width: 25px;height: 25px;margin: 0 auto;border-radius: 50%;color:#fff;box-shadow: 1px 1px 2px #516AF0;}
+.tm-hiden {display: none;}
+.monk-avatar {position: relative;height: 25px;width: 25px;left: 0px;top:0px;border-radius: 50%;z-index: 777;}
+.selectsart {position: absolute;height: 30px;width: 30px; background: #BDD1FF;bottom: 30px;right: 30px;border-bottom-left-radius: 50%;border-top-left-radius: 50%;}
+
+.selectsart::after {content: ' ';position: absolute;width: 30px;height: 30px;bottom: 0px;right: -30px;background: #BDD1FF;}
+.selectsart::before {content: ' ';position: absolute;width: 30px;height: 30px;border-radius: 50%; bottom: 0px;left: 0px;background: #516AF0;}
+
+
+.selectitem {position: absolute;width: 100%;height: 30px;background: #BDD1FF;bottom: 30px;left: 0px;}
+
+.selectend {position: absolute;height: 30px;width: 30px; background: #BDD1FF;bottom: 30px;right: 20px;border-bottom-right-radius: 50%;border-top-right-radius: 50%;}
+
+.selectend::after {content: ' ';position: absolute;width: 70px;height: 30px;bottom: 0px;left: -70px;background: #BDD1FF;}
+
+.selectend::before {content: ' ';position: absolute;width: 30px;height: 30px;border-radius: 50%; bottom: 0px;right: 0px;background: #516AF0;}
+.event-content {position: fixed;color: #292B2F;height: 25px;font-size: 14px;top:180px;left: 120px;padding-left: 30px;padding-bottom: 3px;display: flex;gap:5px}
+    </style>
+</head>
+
+<body style="padding:50px;">
+
+    <div class="tummo-report-srm">
+        <div class="tummo-calendar">
+            <div class="calendar-header">
+              <div class="tm-last-month"></div>
+              <div id="month-title" class="tm-title">Ngày 8 tháng 9 2023</div>
+            <div class="tm-next-month"></div>
+            </div>
+            <setdate class="tm-calendar-body">
+            <ul class="tm-week">
+              <li>T.Hai</li>
+              <li>T.Ba</li>
+              <li>T.Tư</li>
+              <li>T.Năm</li>
+              <li>T.Sáu</li>
+              <li>T.Bảy</li>
+              <li>C.Nhật</li>
+            </ul>
+            <ul id="daysonmonth" class="tm-days">undefined<li class="tm-day tm-hiden"></li><li class="tm-day tm-hiden"></li><li class="tm-day tm-hiden"></li><li class="tm-day tm-hiden"></li><li class="tm-day tm-hiden"></li><li class="tm-day" value="2023-9-1">1 </li><li class="tm-day" value="2023-9-2">2 </li><li class="tm-day" value="2023-9-3">3 </li>
+                <li class="tm-day" value="2023-9-4">4 </li><li class="tm-day" value="2023-9-5">5 <div></div></li><li class="tm-day" value="2023-9-6">6 </li>                
+                <li class="tm-day" value="2023-9-7"><span style="z-index:112;color:#fff; position: absolute;">7</span> <span class="selectsart"></span></li>
+                <li class="tm-day" value="2023-9-8"><span style="z-index:112;color:#fff;position: absolute;">8</span> <span class="selectitem"></span></li>
+                <li class="tm-day" value="2023-9-9"><span style="z-index:112;color:#fff;position: absolute;">9</span><span class="selectitem"></span><div></div></li>  
+                
+                <li class="tm-day" value="2023-9-10"><span style="z-index:112;color:#fff;position: absolute;">10</span> <span class="selectitem"></span></li>
+                <li class="tm-day" value="2023-9-11"><span style="z-index:112;color:#fff;position: absolute;">11</span><span class="selectend"></span></li>
+                <li class="tm-day" value="2023-9-12">12 </li>                
+                <li class="tm-day" value="2023-9-13">13 <div></div></li><li class="tm-day" value="2023-9-14">14 </li><li class="tm-day" value="2023-9-15">15 </li><li class="tm-day" value="2023-9-16">16 </li><li class="tm-day" value="2023-9-17">17 <div></div></li><li class="tm-day" value="2023-9-18">18 </li><li class="tm-day" value="2023-9-19">19 </li><li class="tm-day" value="2023-9-20">20 </li><li class="tm-day" value="2023-9-21">21 <div></div></li><li class="tm-day" value="2023-9-22">22 </li>
+                <li class="tm-day" value="2023-9-7"><span style="z-index:112;position: absolute;">7</span> <span class="selectsart"></span></li>
+                <li class="tm-day" value="2023-9-8"><span style="z-index:112;position: absolute;">8</span> <span class="selectitem"></span></li>
+                <li class="tm-day" value="2023-9-9"><span style="z-index:112;position: absolute;">9</span><span class="selectitem"></span><div></div></li>  
+                
+                <li class="tm-day" value="2023-9-10"><span style="z-index:112;position: absolute;">10</span> <span class="selectitem"></span></li>
+                <li class="tm-day" value="2023-9-11"><span style="z-index:112;position: absolute;">11</span><span class="selectend"></span></li>
+                <li class="tm-day" value="2023-9-23">23 </li><li class="tm-day" value="2023-9-24">24 </li><li class="tm-day" value="2023-9-25">25 <div></div></li><li class="tm-day" value="2023-9-26">26 </li><li class="tm-day" value="2023-9-27">27 </li><li class="tm-day tm-hiden"></li><li class="tm-day tm-hiden"></li><li class="tm-day tm-hiden"></li><li class="tm-day tm-hiden"></li><li class="tm-day tm-hiden"></li><li class="tm-day tm-hiden"></li><li class="tm-day tm-hiden"></li><li class="tm-day tm-hiden"></li><li class="tm-day tm-hiden"></li><li class="tm-day tm-hiden"></li><li class="tm-day tm-hiden"></li><li class="tm-day tm-hiden"></li><li class="tm-day tm-hiden"></li><li class="tm-day tm-hiden"></li><li class="tm-day tm-hiden"></li><li class="tm-day tm-hiden"></li><li class="tm-day tm-hiden"></li><li class="tm-day tm-hiden"></li>
+            <div class="event-content"><img class="monk-avatar" src="/icons/chu-tieu.webp">Khoá thiền chào mừng ngày Lễ Vu Lan năm 2023</div>
+            </ul>
+            </div>
+            </div>
+       </div>
+
+    <script type="text/javascript">
+      
+    </script>
+</body>
+
+</html>

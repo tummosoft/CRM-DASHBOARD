@@ -1,0 +1,29 @@
+.tummo-btn-v2 {height:25px; line-height:25px;width: fit-content; padding-left:3px;padding-right:10px;cursor: pointer;padding: 0px 10px; overflow: hidden;border-radius: 4px;display: inline-block;position: relative;}
+.btn-black-v2 {background: #516AF0;  background-image: linear-gradient(180deg, #292b2fc0  30%, #292b2fd2 40%, #292b2fd2 30%);color: #fff;}
+.btn-yellow-v2 {color: #141E46; background: #FFD991;  background-image: linear-gradient(180deg, #ffbe45b7  30%, #FFBE45 40%, #ffbe459d 30%);}
+
+.tummo-btn-v2:hover{
+  opacity: 0.9; 
+  transition: 0s 1s opacity;
+}
+.tummo-btn-v2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-bottom: 2px solid #516AF0;  
+  z-index: -1;
+  width: 0%;
+  height: 27px;  
+  top:0;
+}
+.btn-icon {width: 18px;height: 18px;margin-top: 3px; margin-right: 5px;margin-left: -5px; float: left;}
+.tummo-btn-v2:hover {
+  background: #516AF0;
+  color: #fff;
+  border: 1px solid #fff;
+}
+.tummo-btn-v2:active {
+  background:#FE4B48;
+  color: #fff;
+  border: 1px solid #fff;
+}

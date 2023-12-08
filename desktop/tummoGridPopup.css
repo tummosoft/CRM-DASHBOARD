@@ -1,0 +1,63 @@
+.grid-popup-wrapper {position: fixed;z-index: 1414;}
+.grid-popup {    
+    border: 1px solid #4a70eeb7;
+    box-shadow: 2px 2px 3px #86b9ec;    
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background: #4a70eeb7;
+    background-image: linear-gradient(120deg, #a8bef7c9 30%, #a3b8ec 30%, #95b1f8ce 40%);
+    line-height: 25px; 
+    height: 150px; 
+    max-height: 150px;}
+.tummo-listview-popup {
+    position: relative;
+    min-width: fit-content;        
+    list-style: none;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+}
+.grid-popup::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* Track */
+.grid-popup::-webkit-scrollbar-track {
+    background:#4a70eeb7 ;
+}
+
+/* Handle */
+.grid-popup::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background: linear-gradient(90deg, #FFD991 10%, #ffd991d8 100%);
+}
+
+/* Handle on hover */
+.grid-popup::-webkit-scrollbar-thumb:hover {
+    background: #698BF9;
+}
+.tummo-listview-popup::after {            
+    width: 100%;
+    left: 0;
+    right: 0px;
+    inset: 0;
+    position: absolute;
+    background: #ffffff;
+    z-index: -1;            
+}
+.popup-item {height: 25px;line-height: 25px;width: 100%; display: flex;flex-direction: row;gap:5px;align-items: center;}
+.tummo-listview-popup li {width: 100%;height: 25px;padding-left: 10px;font-size: 14px;cursor: pointer;margin-bottom: 5px;}
+.tummo-listview-popup li:hover { background: #fae2b5;width: 100%;}
+.listview-popup-header {
+    cursor: pointer;
+    width: 100%;
+    height: 25px;
+    background: #6b6b6d;
+    background-image: linear-gradient(180deg, #4a70eeb7 30%, #4a70eebd 30%, #4a70eec0 40%);
+    color: #E7E9EE;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+}
