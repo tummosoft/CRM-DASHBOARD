@@ -5,8 +5,7 @@ TUMMO CRM DASHBOARD is a template dasboard for web app.
 A CRM dashboard wireframe serves as a blueprint, outlining key features and layout, facilitating the development of CRM webapp management tools.
 
 ![1702036029916](images/README/1702036029916.png)
-
-[DEMO HERE]([https://](https://tummosoftware.com/)https://)
+[DEMO]((https://tummosoftware.com/)
 
 **TO DO LIST**
 
