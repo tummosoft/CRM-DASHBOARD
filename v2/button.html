@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <script>
+       const tummoButton = {
+            id: function(id) {
+                document.getElementById(id).style.color = "red";
+                document.getElementById(id).style.backgroundColor = "blue";
+                document.getElementById(id).innerHTML = "Click me";
+                function onClick() {
+                    alert("You clicked the button");
+                }
+                document.getElementById(id).onclick = onClick;
+            },
+            text: "Click me",
+
+            onClick: function () {
+                alert("You clicked the button");
+            }
+        }
+    </script>
+
+    <div id="test">Click me</div>
+
+    <script>
+        tummoButton.id("test");
+    </script>
+    
+</body>
+
+</html>
